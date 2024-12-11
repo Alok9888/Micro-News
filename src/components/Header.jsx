@@ -1,13 +1,14 @@
-import React from "react";
 import { Link } from "react-router-dom";
+import logo from "/img/logo.svg";
 
 const Header = () => {
   return (
     <header>
       <div className="topHeader">
         <div className="container">
-          <Link to="index.html" className="logo">
-            <img src="img/logo.png" alt="Reliance Herald Logo" />
+          <Link to="/" className="logo">
+            <img src={logo} alt="Reliance Herald Logo" />
+            <span>The Reliance Herald 2024</span>
           </Link>
         </div>
       </div>
@@ -27,7 +28,7 @@ const Header = () => {
           <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div className="offcanvas-header">
               <h5 className="offcanvas-title" id="offcanvasNavbarLabel">
-                Offcanvas
+                The Reliance Herald
               </h5>
               <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>

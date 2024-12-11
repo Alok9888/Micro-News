@@ -1,0 +1,143 @@
+.topHeader {
+    background: $primary;
+    color: #fff;
+    position: relative;
+
+    .logo {
+        position: relative;
+        text-align: center;
+        height: 100px;
+        padding: 10px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @include media-breakpoint-down(md) {
+            height: 80px;
+        }
+
+        img {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 36px;
+            height: auto;
+            display: block;
+
+            @include media-breakpoint-down(md) {
+                position: relative;
+                top: 0;
+                transform: none;
+                margin-right: 20px;
+            }
+        }
+
+        span {
+            font-family: "Playfair Display", serif;
+            font-family: 'logo';
+            font-size: 44px;
+            font-weight: 700;
+            color: #fff;
+            display: block;
+
+            @include media-breakpoint-down(md) {
+                font-size: 30px;
+            }
+        }
+    }
+
+}
+
+.navbar {
+    background: #fff;
+    padding: 0;
+    border-bottom: 1px solid #E5E5E5;
+
+    .navbar-toggler {
+        border: none;
+        padding: 0;
+        background: transparent;
+        color: $primary;
+        font-size: 14px;
+        padding: 10px 15px;
+        margin-left: auto;
+    }
+
+    .navbar-nav {
+        gap: 40px;
+
+        @include media-breakpoint-down(md) {
+            gap: 20px;
+        }
+
+        .nav-link {
+            color: #000;
+            font-family: 'Rubik', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            padding: 0px;
+            text-transform: uppercase;
+            position: relative;
+
+            &::before {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background: $secondary;
+                transform: scaleX(0);
+                transition: all 0.3s;
+            }
+
+            &:hover,
+            &.active {
+                // color: $secondary;
+
+                &::before {
+                    transform: scaleX(1);
+                }
+            }
+        }
+
+    }
+
+    .btn-close {
+        background-size: .6rem;
+    }
+
+    .offcanvas.show {
+
+        .navbar-nav {
+            gap: 0;
+        }
+
+        .nav-link {
+            height: 40px;
+            padding: 10px 15px;
+
+            &::before {
+                width: 2px;
+                height: 100%;
+                left: 0;
+                bottom: 0;
+                transform: scaleY(0);
+
+            }
+
+            &:hover,
+            &.active {
+                color: $secondary;
+
+                &::before {
+                    transform: scaleX(1);
+                }
+            }
+        }
+    }
+}

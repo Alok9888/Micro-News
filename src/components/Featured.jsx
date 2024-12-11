@@ -1,5 +1,3 @@
-import React from "react";
-
 const Featured = () => {
   const articles = [
     {
@@ -24,7 +22,7 @@ const Featured = () => {
     },
     {
       id: 3,
-      imgSrc: "/img/articles/2.jpg",
+      imgSrc: "/img/articles/3.jpg",
       date: "",
       title: "“RIL CMD Mukesh D. Ambani is#1 CEO in India#2 Globally”",
       author: "Brand Finance | February 2024",
@@ -33,7 +31,7 @@ const Featured = () => {
     },
     {
       id: 4,
-      imgSrc: "/img/articles/3.jpg",
+      imgSrc: "/img/articles/4.jpg",
       date: "Paris Olympics 2024 | July 2024",
       title: "“India House will reflect the strides India has made in the Olympic movement”",
       author: "Nita M. Ambani, Reliance Foundation Founder-Chairperson",
@@ -42,7 +40,7 @@ const Featured = () => {
     },
     {
       id: 5,
-      imgSrc: "/img/articles/4.jpg",
+      imgSrc: "/img/articles/5.jpg",
       date: "IBLA Awards | December 2024",
       title: "I firmly believe that this century belongs to India. More importantly, it belongs to women.",
       author: "Nita M. Ambani awarded for ‘Outstanding Contribution to Brand India’",
@@ -51,7 +49,7 @@ const Featured = () => {
     },
     {
       id: 6,
-      imgSrc: "/img/articles/5.jpg",
+      imgSrc: "/img/articles/6.jpg",
       date: "RF United in Triumph | September 2024",
       title: "NVIDIA AI Summit 2024 | October 2024",
       author: "Nita M. Ambani, Reliance Foundation Founder-Chairperson",
@@ -60,7 +58,7 @@ const Featured = () => {
     },
     {
       id: 7,
-      imgSrc: "/img/articles/6.jpg",
+      imgSrc: "/img/articles/7.jpg",
       date: "ICT Day 2024 | April 2024",
       title: "“For India to shine, more and more girls must take up STEM”",
       author: "Isha M. Ambani, Director, RIL",
@@ -69,7 +67,7 @@ const Featured = () => {
     },
     {
       id: 8,
-      imgSrc: "/img/articles/7.jpg",
+      imgSrc: "/img/articles/8.jpg",
       date: "Fortune 100 MPW Asia | October 2024",
       title: "Isha M. Ambani recognized among Fortune 100 Most Powerful Women Asia for 2024",
       author: "Nita M. Ambani awarded for ‘Outstanding Contribution to Brand India’",
@@ -78,7 +76,7 @@ const Featured = () => {
     },
     {
       id: 9,
-      imgSrc: "/img/articles/8.jpg",
+      imgSrc: "/img/articles/9.jpg",
       date: "NVIDIA AI Summit 2024 | October 2024",
       title: "India Mobile Congress 2024 | October 2024",
       author: "Anant M. Ambani, Chairman, Reliance Jio",
@@ -87,7 +85,7 @@ const Featured = () => {
     },
     {
       id: 10,
-      imgSrc: "/img/articles/9.jpg",
+      imgSrc: "/img/articles/10.jpg",
       date: "ICT Day 2024 | April 2024",
       title:
         "We hope Vantara becomes a beacon of hope globally and can showcase how a forward-thinking institution can help global biodiversity conservation initiatives.",
@@ -97,7 +95,7 @@ const Featured = () => {
     },
     {
       id: 11,
-      imgSrc: "/img/articles/10.jpg",
+      imgSrc: "/img/articles/11.jpg",
       date: "India Mobile Congress 2024 | October 2024",
       title: "Anant M. Ambani inaugurates Jio-bp's 500th charging station with bp CEO Murray Auchincloss",
       author: "Anant M. Ambani, Chairman, Reliance Jio",
@@ -110,36 +108,43 @@ const Featured = () => {
     <section className="featured block" id="featured">
       <div className="container">
         <div className="secHeading">
-          <h3>Featured</h3>
+          <h3>Leadership Highlights</h3>
         </div>
 
         {/* Family Day Video */}
-        <div className="fdVideo"></div>
+        <div className="fdVideo mb-5">
+          <div className="embed">
+            {/* poster: img/videos/reliance-family-day-2024.jpg */}
+            <video poster="/img/videos/reliance-family-day-2024.jpg" controls playsInline loop muted preload="auto" width={"100%"}></video>
+          </div>
+        </div>
 
         {/* Leadership Insights */}
         <div className="row">
           {articles.map((article, index) => (
-            <div className={`col-md-${article.special ? 8 : index === 0 ? 12 : 4} `} key={article.id}>
+            <div className={`col-lg-${article.special ? 8 : index === 0 ? 12 : 4} col-md-6 `} key={article.id}>
               <div className={`article ${index === 0 ? "highlightArticle" : ""} ${article.hasQuote ? "hasQuote" : ""}`}>
-                <div className="aImg">
-                  <img src={article.imgSrc} alt="" />
+                <div className="aWrap">
+                  <div className="aImg">
+                    <img src={article.imgSrc} alt="" />
+                  </div>
+                  <div className="aContent">
+                    <small>{article.date}</small>
+                    <a href="page.html">
+                      <h4>{article.title}</h4>
+                    </a>
+                    <span>{article.author}</span>
+                  </div>
                 </div>
-                <div className="aContent">
-                  <small>{article.date}</small>
-                  <a href="page.html">
-                    <h4>{article.title}</h4>
-                  </a>
-                  <span>{article.author}</span>
-                  {article.hasQuote && (
-                    <div className="aQuote">
-                      <h5>{article.quote}</h5>
-                      <span>{article.author}</span>
-                      <a href="#!" className="btn btn-rounded">
-                        <i className="fa fa-play"></i> Rewatch the RIL 47th AGM
-                      </a>
-                    </div>
-                  )}
-                </div>
+                {article.hasQuote && (
+                  <div className="aQuote">
+                    <h5>{article.quote}</h5>
+                    <span>{article.author}</span>
+                    <a href="#!" className="btn btn-rounded">
+                      <i className="fa fa-play"></i> Rewatch the RIL 47th AGM
+                    </a>
+                  </div>
+                )}
               </div>
             </div>
           ))}
