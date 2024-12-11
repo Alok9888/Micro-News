@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 const articlesData = [
@@ -11,7 +10,7 @@ const articlesData = [
   {
     id: 2,
     title: '"Reliance has proudly partnered in Tamil Nadu’s growth over the years"',
-    imageUrl: "/img/rewind/2.jpg",
+    imageUrl: "/img/rewind/no-image.jpg",
     description: "RIL CMD Mukesh Ambani at Tamil Nadu Global Investors’ Meet | January 2024",
   },
   {
@@ -44,6 +43,12 @@ const articlesData = [
     imageUrl: "/img/rewind/7.jpg",
     description: "RIL CMD Mukesh Ambani at 10th Vibrant Gujarat Summit | January 2024",
   },
+  {
+    id: 8,
+    title: "Nita Ambani launches ‘Her Circle’ to empower ",
+    imageUrl: "/img/rewind/no-image.jpg",
+    description: "RIL CMD Mukesh Ambani at 10th Vibrant Gujarat Summit | January 2024",
+  },
 ];
 
 const Rewind = () => {
@@ -56,7 +61,7 @@ const Rewind = () => {
 
         <div className="row">
           {articlesData.map((article) => (
-            <div key={article.id} className="col-md-3">
+            <div key={article.id} className="col-xl-3 col-lg-4 col-md-6">
               <div className="article articleAlt">
                 <div className="aImg">
                   <img src={article.imageUrl} alt="" />

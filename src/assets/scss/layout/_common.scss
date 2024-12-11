@@ -6,6 +6,9 @@
     margin-bottom: 20px;
     display: flex;
 
+    @include media-breakpoint-down(md) {
+        height: auto;
+    }
 
     .aImg {
         display: flex;
@@ -68,13 +71,16 @@
         text-align: center;
 
         background: linear-gradient(90deg, rgba(30, 41, 107, 0) 8.91%, #0B1133 24.05%);
-
         color: #fff;
 
         @include media-breakpoint-down(lg) {
             height: auto;
             flex-direction: column;
             text-align: left;
+        }
+
+        @include media-breakpoint-down(md) {
+            background: #0B1133;
         }
 
         .aWrap {}
@@ -107,7 +113,6 @@
 
             @include media-breakpoint-down(lg) {
                 margin-right: 0;
-                margin-bottom: 20px;
             }
 
             h5 {
@@ -139,5 +144,25 @@
             }
         }
 
+    }
+
+    &.articleAlt {
+        height: auto;
+        flex-direction: column;
+
+        .aContent {
+            position: relative;
+            background: $primary;
+            height: 165px;
+
+            span,
+            small {
+                font-size: 12px;
+            }
+
+            h4 {
+                font-size: 16px;
+            }
+        }
     }
 }
