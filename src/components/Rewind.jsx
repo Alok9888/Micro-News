@@ -55,10 +55,6 @@ const Rewind = () => {
   return (
     <section className="rewind pb-4">
       <div className="container">
-        {/* <div className="secHeading">
-          <h3>Rewind</h3>
-        </div> */}
-
         <div className="row">
           {articlesData.map((article) => (
             <div key={article.id} className="col-xl-3 col-lg-4 col-md-6">

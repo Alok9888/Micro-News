@@ -1,4 +1,3 @@
-import React from "react";
 import { useRoutes } from "react-router-dom";
 
 import Header from "./components/Header";
@@ -16,7 +15,7 @@ const App = () => {
   return (
     <>
       <Header />
-      <main>{routes}</main>
+      {routes}
       <Footer />
     </>
   );

@@ -20,8 +20,6 @@ const parseMarkdownWithMetadata = (fileContent) => {
     }, {});
 
     const markdown = fileContent.replace(metaRegex, "").trim(); // Extract markdown content
-    // console.log("Metadata:", metadata);
-    // console.log("Markdown content:", markdown);
     return { metadata, markdown };
   }
 
@@ -36,13 +34,20 @@ const ArticleDetail = () => {
   useEffect(() => {
     const loadArticleContent = async () => {
       try {
-        const filePath = new URL(`../content/articles/${id}.md`, import.meta.url).pathname;
-        console.log("Fetching article from:", filePath);
-        const fileContent = await fetch(filePath).then((res) => res.text());
+        // Use import.meta.glob to import all markdown files in the folder
+        const markdownFiles = import.meta.glob("../content/articles/*.md", { as: "raw" });
 
-        const { metadata, markdown } = parseMarkdownWithMetadata(fileContent);
-        setMeta(metadata);
-        setContent(markdown);
+        // Find the matching file
+        const fileKey = Object.keys(markdownFiles).find((file) => file.includes(`/${id}.md`));
+
+        if (fileKey) {
+          const fileContent = await markdownFiles[fileKey]();
+          const { metadata, markdown } = parseMarkdownWithMetadata(fileContent);
+          setMeta(metadata);
+          setContent(markdown);
+        } else {
+          console.error("Markdown file not found for ID:", id);
+        }
       } catch (error) {
         console.error("Error loading article:", error);
       }
@@ -55,9 +60,6 @@ const ArticleDetail = () => {
     console.log("Content is loading...");
     return <h2>Loading...</h2>;
   }
-
-  // console.log("Metadata:", meta);
-  // console.log("Markdown content:", content);
 
   return (
     <section className="block articleSection">
