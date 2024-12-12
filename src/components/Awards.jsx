@@ -25,7 +25,7 @@ const awards = [
   },
   {
     id: 5,
-    img: "img/awards/no-logo.png",
+    img: "img/awards/5.png",
     name: "Best in Education",
     title: "Nita M Ambani recognised for ‘Outstanding Contributions to Brand India’ at IBLA Awards 2024",
   },
@@ -46,6 +46,12 @@ const awards = [
     img: "img/awards/8.png",
     name: "Baazar",
     title: "Isha M Ambani named among Harper’s Bazaar 150 Vision",
+  },
+  {
+    id: 9,
+    img: "img/awards/9.png",
+    name: "Lokmat",
+    title: "Isha M Ambani honoured at Lokmat Maharashtrian of the Year Awards 2024",
   },
 ];
 

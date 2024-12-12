@@ -14,7 +14,7 @@ const Header = () => {
         </div>
       </div>
 
-      <nav className="navbar static-top navbar-expand-lg">
+      <nav className="navbar sticky-top navbar-expand-lg">
         <div className="container">
           <button
             className="navbar-toggler"
@@ -37,32 +37,27 @@ const Header = () => {
               <ul className="navbar-nav justify-content-between flex-grow-1">
                 <li className="nav-item">
                   <Link className="nav-link active" to="/#leadership">
-                    Leadership Insights
+                    Leadership Highlights
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/#ar-wedding">
-                    AR Wedding
+                    A&R Wedding
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/#2024-at-a-glance">
-                    2024 At A Glance
+                    2024 at a Glance
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/#other-initiatives">
-                    Other Initiatives
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/#year-end-memories">
-                    Year-end Memories
+                  <Link className="nav-link" to="/#memories">
+                    Memories in Pictures
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/#download-pdf">
-                    Download PDF
+                    Download The Reliance Herald
                   </Link>
                 </li>
               </ul>

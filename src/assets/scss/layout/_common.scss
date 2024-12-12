@@ -46,20 +46,19 @@
             padding: 20px;
         }
 
-        small,
-        span {
+        small {
             font-size: 12px;
-            font-weight: 500;
         }
 
-        h3 {
-            font-size: 18px;
+        h4 {
+            font-size: 16px;
             font-weight: 700;
-            margin-top: 10px;
-            margin-bottom: 10px;
+            margin-top: 5px;
+            margin-bottom: 8px;
         }
 
         span {
+            font-size: 14px;
             display: block;
         }
     }
@@ -151,7 +150,7 @@
 
         .aContent {
             position: relative;
-            background: $primary;
+            background: $primary-500;
             height: 165px;
 
             span,

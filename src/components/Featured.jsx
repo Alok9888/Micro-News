@@ -73,7 +73,7 @@ const Featured = () => {
       imgSrc: "/img/articles/8.jpg",
       date: "Fortune 100 MPW Asia | October 2024",
       title: "Isha M. Ambani recognized among Fortune 100 Most Powerful Women Asia for 2024",
-      author: "Nita M. Ambani awarded for ‘Outstanding Contribution to Brand India’",
+      // author: "Nita M. Ambani awarded for ‘Outstanding Contribution to Brand India’",
       hasQuote: false,
       special: false,
     },
@@ -89,7 +89,7 @@ const Featured = () => {
     {
       id: 11,
       imgSrc: "/img/articles/10.jpg",
-      date: "ICT Day 2024 | April 2024",
+      // date: "ICT Day 2024 | April 2024",
       title:
         "We hope Vantara becomes a beacon of hope globally and can showcase how a forward-thinking institution can help global biodiversity conservation initiatives.",
       author: "Anant M. Ambani, Director, RIL and Reliance Foundation Boards",
@@ -99,9 +99,9 @@ const Featured = () => {
     {
       id: 12,
       imgSrc: "/img/articles/11.jpg",
-      date: "India Mobile Congress 2024 | October 2024",
+      // date: "India Mobile Congress 2024 | October 2024",
       title: "Anant M. Ambani inaugurates Jio-bp's 500th charging station with bp CEO Murray Auchincloss",
-      author: "Anant M. Ambani, Chairman, Reliance Jio",
+      // author: "Anant M. Ambani, Chairman, Reliance Jio",
       hasQuote: false,
       special: false,
     },

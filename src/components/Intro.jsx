@@ -32,7 +32,7 @@ const Intro = () => {
   return (
     <section className="introVideo">
       <div className="iVideo ratio ratio-16x9">
-        <video ref={videoRef} autoPlay loop onPlay={() => console.log("Video is playing...")}>
+        <video ref={videoRef} autoPlay muted loop onPlay={() => console.log("Video is playing...")}>
           <source src="videos/glance.mp4" type="video/mp4" />
         </video>
       </div>
