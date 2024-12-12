@@ -1,9 +1,20 @@
 import { Link } from "react-router-dom";
 import logo from "/img/logo.svg";
 import { FiMenu } from "react-icons/fi";
-import { Offcanvas } from "bootstrap";
+import { useEffect } from "react";
+// eslint-disable-next-line no-unused-vars
+// import { Offcanvas } from "bootstrap";
 
 const Header = () => {
+  useEffect(() => {
+    // Dynamically import Bootstrap's JS for Offcanvas
+    import("bootstrap").then((bootstrap) => {
+      // Optionally, you can initialize it explicitly
+      const offcanvasElements = document.querySelectorAll(".offcanvas");
+      offcanvasElements.forEach((el) => new bootstrap.Offcanvas(el));
+    });
+  }, []);
+
   return (
     <header>
       <div className="topHeader">

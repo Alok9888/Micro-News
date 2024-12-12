@@ -65,7 +65,7 @@ const Awards = () => {
 
         <div className="row">
           {awards.map((award) => (
-            <div className="col-md-2" key={award.id}>
+            <div className="col-lg-2 col-md-4 col-sm-6" key={award.id}>
               <div className="award">
                 <div className="awImg">
                   <img src={award.img} alt={`${award.name} logo`} />
