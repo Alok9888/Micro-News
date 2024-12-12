@@ -77,11 +77,10 @@
             height: auto;
             flex-direction: column;
             text-align: left;
-        }
-
-        @include media-breakpoint-down(md) {
             background: #0B1133;
         }
+
+        @include media-breakpoint-down(md) {}
 
         .aWrap {}
 
@@ -164,5 +163,35 @@
                 font-size: 16px;
             }
         }
+    }
+}
+
+.videoBox {
+    position: relative;
+
+    .playBtn {
+        position: absolute;
+        z-index: 999;
+        left: 0;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        margin: auto;
+        width: 80px;
+        height: auto;
+        display: block;
+        color: #fff;
+        cursor: pointer;
+        opacity: 1;
+
+        @include media-breakpoint-down(md) {
+            width: 60px;
+        }
+    }
+
+    .ratio {
+        position: relative;
+
+
     }
 }

@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+import FamilyDayVideo from "./FamilyDayVideo";
+
 const Featured = () => {
   const articles = [
     {
@@ -112,17 +115,12 @@ const Featured = () => {
         </div>
 
         {/* Family Day Video */}
-        <div className="fdVideo mb-5">
-          <div className="embed">
-            {/* poster: img/videos/reliance-family-day-2024.jpg */}
-            <video poster="/img/videos/reliance-family-day-2024.jpg" controls playsInline loop muted preload="auto" width={"100%"}></video>
-          </div>
-        </div>
+        <FamilyDayVideo />
 
         {/* Leadership Insights */}
         <div className="row">
           {articles.map((article, index) => (
-            <div className={`col-lg-${article.special ? 8 : index === 0 ? 12 : 4} col-md-6 `} key={article.id}>
+            <div className={`col-lg-${article.special ? 8 : index === 0 ? 12 : 4} col-md-${index === 0 ? 12 : 6}`} key={article.id}>
               <div className={`article ${index === 0 ? "highlightArticle" : ""} ${article.hasQuote ? "hasQuote" : ""}`}>
                 <div className="aWrap">
                   <div className="aImg">
@@ -130,9 +128,9 @@ const Featured = () => {
                   </div>
                   <div className="aContent">
                     <small>{article.date}</small>
-                    <a href="page.html">
+                    <Link to={`/article/${article.id}`}>
                       <h4>{article.title}</h4>
-                    </a>
+                    </Link>
                     <span>{article.author}</span>
                   </div>
                 </div>

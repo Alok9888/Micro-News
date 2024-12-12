@@ -8,6 +8,9 @@ export default defineConfig({
   alias: {
     "@content": "/src/content",
   },
+  css: {
+    devSourcemap: true,
+  },
   build: {
     rollupOptions: {
       input: {

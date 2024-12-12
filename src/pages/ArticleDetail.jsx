@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 
@@ -19,8 +19,8 @@ const parseMarkdownWithMetadata = (fileContent) => {
     }, {});
 
     const markdown = fileContent.replace(metaRegex, "").trim(); // Extract markdown content
-    console.log("Metadata:", metadata);
-    console.log("Markdown content:", markdown);
+    // console.log("Metadata:", metadata);
+    // console.log("Markdown content:", markdown);
     return { metadata, markdown };
   }
 
@@ -55,25 +55,52 @@ const ArticleDetail = () => {
     return <h2>Loading...</h2>;
   }
 
-  console.log("Metadata:", meta);
-  console.log("Markdown content:", content);
+  // console.log("Metadata:", meta);
+  // console.log("Markdown content:", content);
 
   return (
-    <article>
-      {/* Render metadata if available */}
-      {meta && (
-        <header>
-          <h1>{meta.title}</h1>
-          <p>
-            <strong>Author:</strong> {meta.author} | <strong>Date:</strong> {meta.date}
-          </p>
-          {meta.imgSrc && <img src={meta.imgSrc} alt={meta.title} />}
-          {meta.quote && <blockquote>{meta.quote}</blockquote>}
-        </header>
-      )}
-      {/* Render markdown content */}
-      <ReactMarkdown>{content}</ReactMarkdown>
-    </article>
+    <section className="block articleSection">
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-2"></div>
+          <div className="col-lg-8">
+            <article className="articleBlock">
+              {/* Render metadata if available */}
+              {meta && (
+                <div className="articleHeader">
+                  <h2>{meta.title}</h2>
+
+                  {meta.author && (
+                    <span>
+                      {meta.author} | {meta.date}
+                    </span>
+                  )}
+
+                  <div className="articleMedia">
+                    {meta.imgSrc && <img src={meta.imgSrc} alt={meta.title} className="w-100" />}
+
+                    {meta.videoSrc && (
+                      <div className="ratio ratio-16x9">
+                        <video controls>
+                          <source src={meta.videoSrc} type="video/mp4" />
+                          Your browser does not support the video tag.
+                        </video>
+                      </div>
+                    )}
+                  </div>
+
+                  {meta.quote && <blockquote>{meta.quote}</blockquote>}
+                </div>
+              )}
+              {/* Render markdown content */}
+              <div className="articleBody">
+                <ReactMarkdown>{content}</ReactMarkdown>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 

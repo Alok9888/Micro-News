@@ -1,11 +1,17 @@
 import { Link } from "react-router-dom";
 import logo from "/img/logo.svg";
+import { FiArrowLeft, FiMenu } from "react-icons/fi";
 
 const Header = () => {
   return (
     <header>
       <div className="topHeader">
         <div className="container">
+          {/* Back btn if inside page */}
+          {/* <Link to="/" className="backBtn">
+            <FiArrowLeft /> <span>Back</span>
+          </Link> */}
+
           <Link to="/" className="logo">
             <img src={logo} alt="Reliance Herald Logo" />
             <span>The Reliance Herald 2024</span>
@@ -23,7 +29,7 @@ const Header = () => {
             aria-controls="offcanvasNavbar"
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon"></span>
+            <FiMenu />
           </button>
           <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div className="offcanvas-header">
@@ -33,7 +39,7 @@ const Header = () => {
               <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div className="offcanvas-body">
-              <ul className="navbar-nav justify-content-center flex-grow-1 pe-3">
+              <ul className="navbar-nav justify-content-center flex-grow-1">
                 <li className="nav-item">
                   <Link className="nav-link active" to="/#leadership">
                     Leadership Insights
