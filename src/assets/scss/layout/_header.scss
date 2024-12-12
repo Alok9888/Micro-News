@@ -78,6 +78,7 @@
 
     .navbar-nav {
         gap: 40px;
+        transition: gap 0.3s ease;
 
         @include media-breakpoint-down(md) {
             gap: 20px;
@@ -89,11 +90,12 @@
             font-size: 14px;
             font-weight: 400;
             height: 50px;
+            padding: 0px;
             display: flex;
             align-items: center;
-            padding: 0px;
             text-transform: uppercase;
             position: relative;
+            transition: height 0.3s ease, padding 0.3s ease;
 
             &::before {
                 content: "";
@@ -104,52 +106,51 @@
                 height: 3px;
                 background: $secondary;
                 transform: scaleX(0);
-                transition: all 0.3s;
+                transition: transform 0.3s ease;
             }
 
             &:hover,
             &.active {
-                // color: $secondary;
-
                 &::before {
                     transform: scaleX(1);
                 }
             }
         }
-
     }
 
     .btn-close {
         background-size: .6rem;
     }
 
-    .offcanvas.show {
-
-        .navbar-nav {
-            gap: 0;
-        }
-
-        .nav-link {
-            height: 40px;
-            padding: 10px 15px;
-
-            &::before {
-                width: 2px;
-                height: 100%;
-                left: 0;
-                bottom: 0;
-                transform: scaleY(0);
-
+    .offcanvas {
+        @include media-breakpoint-down(lg) {
+            .navbar-nav {
+                gap: 0;
             }
 
-            &:hover,
-            &.active {
-                color: $secondary;
+            .nav-link {
+                height: 40px;
+                padding: 10px 15px;
 
                 &::before {
-                    transform: scaleX(1);
+                    width: 2px;
+                    height: 100%;
+                    left: 0;
+                    bottom: 0;
+                    transform: scaleY(0);
+                    transition: transform 0.3s ease;
+                }
+
+                &:hover,
+                &.active {
+                    color: $secondary;
+
+                    &::before {
+                        transform: scaleX(1);
+                    }
                 }
             }
         }
+
     }
 }

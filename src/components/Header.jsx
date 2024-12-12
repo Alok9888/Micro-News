@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import logo from "/img/logo.svg";
 import { FiMenu } from "react-icons/fi";
+import { Offcanvas } from "bootstrap";
 
 const Header = () => {
   return (

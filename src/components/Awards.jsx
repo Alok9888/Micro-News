@@ -60,7 +60,7 @@ const Awards = () => {
     <section className="awards block dark">
       <div className="container">
         <div className="secHeading">
-          <h3>Awards and Recognitions</h3>
+          <h3>Awards & Recognition</h3>
         </div>
 
         <div className="row">

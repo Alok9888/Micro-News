@@ -108,7 +108,7 @@ const Featured = () => {
   ];
 
   return (
-    <section className="featured block" id="featured">
+    <section className="featured block pb-0" id="featured">
       <div className="container">
         <div className="secHeading">
           <h3>Leadership Highlights</h3>

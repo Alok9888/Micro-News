@@ -40,6 +40,10 @@ section {
     &.dark {
         background-color: #7C6228;
         color: #fff;
+
+        .secHeading h3 {
+            color: #fff;
+        }
     }
 
     &.block {

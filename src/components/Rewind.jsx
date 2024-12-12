@@ -53,11 +53,11 @@ const articlesData = [
 
 const Rewind = () => {
   return (
-    <section className="rewind block">
+    <section className="rewind pb-4">
       <div className="container">
-        <div className="secHeading">
+        {/* <div className="secHeading">
           <h3>Rewind</h3>
-        </div>
+        </div> */}
 
         <div className="row">
           {articlesData.map((article) => (
