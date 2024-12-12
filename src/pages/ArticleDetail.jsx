@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
 
 const parseMarkdownWithMetadata = (fileContent) => {
   // Regex to match the metadata block, capturing all lines inside it
@@ -94,7 +95,7 @@ const ArticleDetail = () => {
               )}
               {/* Render markdown content */}
               <div className="articleBody">
-                <ReactMarkdown>{content}</ReactMarkdown>
+                <ReactMarkdown rehypePlugins={[rehypeRaw]}>{content}</ReactMarkdown>
               </div>
             </article>
           </div>

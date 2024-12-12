@@ -4,7 +4,7 @@ import FamilyDayVideo from "./FamilyDayVideo";
 const Featured = () => {
   const articles = [
     {
-      id: 1,
+      id: 2,
       imgSrc: "/img/articles/1.jpg",
       date: "RIL 47th AGM | August 2024",
       title: "Reliance is becoming a deep-tech and advanced manufacturing company to propel growth for a Viksit Bharat",
@@ -15,7 +15,7 @@ const Featured = () => {
       special: false,
     },
     {
-      id: 2,
+      id: 3,
       imgSrc: "/img/articles/2.jpg",
       date: "NVIDIA AI Summit | October 2024",
       title: "“India will be one of the biggest intelligence markets”",
@@ -24,7 +24,7 @@ const Featured = () => {
       special: true,
     },
     {
-      id: 3,
+      id: 4,
       imgSrc: "/img/articles/3.jpg",
       date: "",
       title: "“RIL CMD Mukesh D. Ambani is#1 CEO in India#2 Globally”",
@@ -33,7 +33,7 @@ const Featured = () => {
       special: false,
     },
     {
-      id: 4,
+      id: 5,
       imgSrc: "/img/articles/4.jpg",
       date: "Paris Olympics 2024 | July 2024",
       title: "“India House will reflect the strides India has made in the Olympic movement”",
@@ -42,7 +42,7 @@ const Featured = () => {
       special: false,
     },
     {
-      id: 5,
+      id: 6,
       imgSrc: "/img/articles/5.jpg",
       date: "IBLA Awards | December 2024",
       title: "I firmly believe that this century belongs to India. More importantly, it belongs to women.",
@@ -51,7 +51,7 @@ const Featured = () => {
       special: false,
     },
     {
-      id: 6,
+      id: 7,
       imgSrc: "/img/articles/6.jpg",
       date: "RF United in Triumph | September 2024",
       title: "NVIDIA AI Summit 2024 | October 2024",
@@ -60,7 +60,7 @@ const Featured = () => {
       special: false,
     },
     {
-      id: 7,
+      id: 8,
       imgSrc: "/img/articles/7.jpg",
       date: "ICT Day 2024 | April 2024",
       title: "“For India to shine, more and more girls must take up STEM”",
@@ -69,7 +69,7 @@ const Featured = () => {
       special: false,
     },
     {
-      id: 8,
+      id: 9,
       imgSrc: "/img/articles/8.jpg",
       date: "Fortune 100 MPW Asia | October 2024",
       title: "Isha M. Ambani recognized among Fortune 100 Most Powerful Women Asia for 2024",
@@ -78,7 +78,7 @@ const Featured = () => {
       special: false,
     },
     {
-      id: 9,
+      id: 10,
       imgSrc: "/img/articles/9.jpg",
       date: "NVIDIA AI Summit 2024 | October 2024",
       title: "India Mobile Congress 2024 | October 2024",
@@ -87,7 +87,7 @@ const Featured = () => {
       special: false,
     },
     {
-      id: 10,
+      id: 11,
       imgSrc: "/img/articles/10.jpg",
       date: "ICT Day 2024 | April 2024",
       title:
@@ -97,7 +97,7 @@ const Featured = () => {
       special: true,
     },
     {
-      id: 11,
+      id: 12,
       imgSrc: "/img/articles/11.jpg",
       date: "India Mobile Congress 2024 | October 2024",
       title: "Anant M. Ambani inaugurates Jio-bp's 500th charging station with bp CEO Murray Auchincloss",

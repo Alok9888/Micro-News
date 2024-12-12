@@ -1,17 +1,12 @@
 import { Link } from "react-router-dom";
 import logo from "/img/logo.svg";
-import { FiArrowLeft, FiMenu } from "react-icons/fi";
+import { FiMenu } from "react-icons/fi";
 
 const Header = () => {
   return (
     <header>
       <div className="topHeader">
         <div className="container">
-          {/* Back btn if inside page */}
-          {/* <Link to="/" className="backBtn">
-            <FiArrowLeft /> <span>Back</span>
-          </Link> */}
-
           <Link to="/" className="logo">
             <img src={logo} alt="Reliance Herald Logo" />
             <span>The Reliance Herald 2024</span>
