@@ -34,7 +34,7 @@ const Header = () => {
               <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div className="offcanvas-body">
-              <ul className="navbar-nav justify-content-center flex-grow-1">
+              <ul className="navbar-nav justify-content-between flex-grow-1">
                 <li className="nav-item">
                   <Link className="nav-link active" to="/#leadership">
                     Leadership Insights
