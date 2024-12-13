@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
+import Loading from "../components/Loading";
 
 const parseMarkdownWithMetadata = (fileContent) => {
   // Regex to match the metadata block, capturing all lines inside it
@@ -56,9 +57,15 @@ const ArticleDetail = () => {
     loadArticleContent();
   }, [id]);
 
+  useEffect(() => {
+    if (meta && meta.title) {
+      document.title = meta.title;
+    }
+  }, [meta]);
+
   if (!content) {
     console.log("Content is loading...");
-    return <h2>Loading...</h2>;
+    return <Loading />;
   }
 
   return (

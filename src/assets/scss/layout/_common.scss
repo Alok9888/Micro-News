@@ -188,9 +188,20 @@
         }
     }
 
+    .pauseBtn {
+        opacity: 0;
+        visibility: hidden;
+    }
+
     .ratio {
         position: relative;
+    }
 
+    &:hover {
 
+        .pauseBtn {
+            opacity: 1;
+            visibility: visible;
+        }
     }
 }
