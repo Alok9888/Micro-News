@@ -19,16 +19,9 @@ const ARWedding = () => {
           {!isPlaying && <FiPlayCircle className="playBtn" strokeWidth={1} />}
           <div className="ratio ratio-16x9">
             {/* poster: img/videos/reliance-family-day-2024.jpg */}
-            <video
-              poster="/img/videos/ar-wedding.jpg"
-              controls
-              playsInline
-              loop
-              muted
-              preload="auto"
-              width={"100%"}
-              onPlay={handlePlay}
-            ></video>
+            <video poster="/img/videos/ar-wedding.jpg" controls playsInline loop muted preload="auto" width={"100%"} onPlay={handlePlay}>
+              <source src="/videos/ar-wedding.mp4" type="video/mp4" />
+            </video>
           </div>
         </div>
       </div>

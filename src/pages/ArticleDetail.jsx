@@ -35,7 +35,7 @@ const ArticleDetail = () => {
     const loadArticleContent = async () => {
       try {
         // Use import.meta.glob to import all markdown files in the folder
-        const markdownFiles = import.meta.glob("../content/articles/*.md", { as: "raw" });
+        const markdownFiles = import.meta.glob("../content/articles/*.md", { query: "?raw", import: "default" });
 
         // Find the matching file
         const fileKey = Object.keys(markdownFiles).find((file) => file.includes(`/${id}.md`));
