@@ -6,7 +6,7 @@
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Reliance Herald 2024</title>
-  <base href="/herald/2024/">
+  <!-- <base href="/herald/2024/"> -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
@@ -26,16 +26,16 @@
     // When the single page app is loaded further down in this file,
     // the correct url will be waiting in the browser's history for
     // the single page app to route accordingly.
-    (function (l) {
-      if (l.search[1] === '/') {
-        var decoded = l.search.slice(1).split('&').map(function (s) {
-          return s.replace(/~and~/g, '&')
-        }).join('?');
-        window.history.replaceState(null, null,
-          l.pathname.slice(0, -1) + decoded + l.hash
-        );
-      }
-    }(window.location))
+    // (function (l) {
+    //   if (l.search[1] === '/') {
+    //     var decoded = l.search.slice(1).split('&').map(function (s) {
+    //       return s.replace(/~and~/g, '&')
+    //     }).join('?');
+    //     window.history.replaceState(null, null,
+    //       l.pathname.slice(0, -1) + decoded + l.hash
+    //     );
+    //   }
+    // }(window.location))
   </script>
 </body>
 

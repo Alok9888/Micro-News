@@ -19,7 +19,7 @@ const articlesData = [
     imageUrl: "/img/rewind/3.jpg",
     // description: "RIL CMD Mukesh Ambani at 10th Vibrant Gujarat Summit | January 2024",
   },
-  { 
+  {
     id: 16,
     title: "Nita Ambani announces new initiative empowering women in sports to mark 3rd anniversary of Her Circle",
     imageUrl: "/img/rewind/4.jpg",
@@ -81,21 +81,18 @@ const Rewind = () => {
       <div className="container">
         <div className="row">
           {articlesData.map((article) => (
-
             <div key={article.id} className="col-xl-3 col-lg-4 col-md-6">
-             <Link to={`/LeadershipHighlights/article/${article.id}`}>
-              <div className="article articleAlt">
-                <div className="aImg special">
-                  <img src={article.imageUrl} alt="" />
-                </div>
-                <div className="aContent">
-                 
+              <Link to={`/LeadershipHighlights/article/${article.id}`}>
+                <div className="article articleAlt">
+                  <div className="aImg special">
+                    <img src={article.imageUrl} alt="" />
+                  </div>
+                  <div className="aContent">
                     <h4>{article.title}</h4>
-         
-                  {article.description && <span>{article.description}</span>}
+
+                    {article.description && <span>{article.description}</span>}
+                  </div>
                 </div>
-         
-              </div>
               </Link>
             </div>
           ))}
