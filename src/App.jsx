@@ -1,4 +1,5 @@
 import { useRoutes } from "react-router-dom";
+import { ParallaxProvider } from "react-scroll-parallax";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -14,9 +15,11 @@ const App = () => {
 
   return (
     <>
-      <Header />
-      {routes}
-      <Footer />
+      <ParallaxProvider>
+        <Header />
+        {routes}
+        <Footer />
+      </ParallaxProvider>
     </>
   );
 };
