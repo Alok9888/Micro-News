@@ -18,7 +18,9 @@
         height: 100%;
         width: 100%;
 
+       overflow: hidden; //adjustment for hover
         img {
+     
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -194,3 +196,16 @@
 
     }
 }
+
+//hover image effect added to special class 
+.featured,.rewind{
+    .special{
+    img{
+    transition: transform 0.3s ease; // Smooth transition for scaling
+    &:hover {
+      transform: scale(1.1); // Scale the image by 10%
+    }}
+}
+
+}
+

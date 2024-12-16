@@ -9,7 +9,7 @@ import ArticleDetail from "./pages/ArticleDetail";
 const App = () => {
   const routes = useRoutes([
     { path: "/", element: <Home /> },
-    { path: "/article/:id", element: <ArticleDetail /> },
+    { path: "/LeadershipHighlights/article/:id", element: <ArticleDetail /> },
   ]);
 
   return (
