@@ -54,8 +54,8 @@ const Featured = () => {
       id: 7,
       imgSrc: "/img/articles/6.jpg",
       date: "RF United in Triumph | September 2024",
-      title: "NVIDIA AI Summit 2024 | October 2024",
-      author: "Nita M. Ambani, Reliance Foundation Founder-Chairperson",
+      title: "For the first time, 140 Olympic and Paralympic athletes have come together on the same platform",
+      author: "Nita M Ambani at United in Triumph ",
       hasQuote: false,
       special: false,
     },
@@ -121,16 +121,17 @@ const Featured = () => {
         <div className="row">
           {articles.map((article, index) => (
             <div className={`col-lg-${article.special ? 8 : index === 0 ? 12 : 4} col-md-${index === 0 ? 12 : 6}`} key={article.id}>
+                  <Link to={`/LeadershipHighlights/article/${article.id}`}>
               <div className={`article ${index === 0 ? "highlightArticle" : ""} ${article.hasQuote ? "hasQuote" : ""}`}>
                 <div className="aWrap">
-                  <div className="aImg">
+                  <div className="aImg special">
                     <img src={article.imgSrc} alt="" />
                   </div>
                   <div className="aContent">
                     <small>{article.date}</small>
-                    <Link to={`/article/${article.id}`}>
+           
                       <h4>{article.title}</h4>
-                    </Link>
+                
                     <span>{article.author}</span>
                   </div>
                 </div>
@@ -142,8 +143,11 @@ const Featured = () => {
                       <i className="fa fa-play"></i> Rewatch the RIL 47th AGM
                     </a>
                   </div>
+                
                 )}
+                
               </div>
+              </Link>
             </div>
           ))}
         </div>
