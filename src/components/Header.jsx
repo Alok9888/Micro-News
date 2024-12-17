@@ -1,11 +1,25 @@
 import { Link } from "react-router-dom";
 import logo from "/img/logo.svg";
 import { FiMenu } from "react-icons/fi";
-import { useEffect } from "react";
-// eslint-disable-next-line no-unused-vars
-// import { Offcanvas } from "bootstrap";
+import { useEffect, useState } from "react";
 
 const Header = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Add scroll event to handle class addition/removal
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 500) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   useEffect(() => {
     // Dynamically import Bootstrap's JS for Offcanvas
     import("bootstrap").then((bootstrap) => {
@@ -16,7 +30,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header>
+    <header className={` ${isScrolled ? "scrolled" : ""}`}>
       <div className="topHeader">
         <div className="container">
           <Link to="/" className="logo">
@@ -26,7 +40,7 @@ const Header = () => {
         </div>
       </div>
 
-      <nav className="navbar sticky-top navbar-expand-lg">
+      <nav className="navbar navbar-expand-lg">
         <div className="container">
           <button
             className="navbar-toggler"

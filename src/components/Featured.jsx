@@ -1,8 +1,26 @@
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 import FamilyDayVideo from "./FamilyDayVideo";
 
 const Featured = () => {
   const imgPath = "img/articles/";
+  // Initialize AOS
+  useEffect(() => {
+    AOS.init({
+      disable: "phone", // Disable on mobile devices
+      duration: 600, // Animation duration
+      offset: 120, // Trigger point (distance from element)
+      easing: "ease-in-out", // Smooth animation
+    });
+
+    // Clean up AOS on component unmount
+    return () => {
+      AOS.refreshHard();
+    };
+  }, []);
+
   const articles = [
     {
       id: 2,
@@ -121,30 +139,33 @@ const Featured = () => {
         {/* Leadership Insights */}
         <div className="row">
           {articles.map((article, index) => (
-            <div className={`col-lg-${article.special ? 8 : index === 0 ? 12 : 4} col-md-${index === 0 ? 12 : 6}`} key={article.id}>
-              <Link to={`article/${article.id}`}>
-                <div className={`article ${index === 0 ? "highlightArticle" : ""} ${article.hasQuote ? "hasQuote" : ""}`}>
-                  <div className="aWrap">
-                    <div className="aImg special">
-                      <img src={`${imgPath}${article.imgSrc}`} alt="" />
-                    </div>
-                    <div className="aContent">
-                      <small>{article.date}</small>
-                      <h4>{article.title}</h4>
-                      <span>{article.author}</span>
-                    </div>
+            <div
+              className={`col-lg-${article.special ? 8 : index === 0 ? 12 : 4} col-md-${index === 0 ? 12 : 6}`}
+              key={article.id}
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
+            >
+              <div className={`article ${index === 0 ? "highlightArticle" : ""} ${article.hasQuote ? "hasQuote" : ""}`}>
+                <Link to={`article/${article.id}`} className="aWrap">
+                  <div className="aImg special">
+                    <img src={`${imgPath}${article.imgSrc}`} alt="" />
                   </div>
-                  {article.hasQuote && (
-                    <div className="aQuote">
-                      <h5>{article.quote}</h5>
-                      <span>{article.author}</span>
-                      <a href="#!" className="btn btn-rounded">
-                        <i className="fa fa-play"></i> Rewatch the RIL 47th AGM
-                      </a>
-                    </div>
-                  )}
-                </div>
-              </Link>
+                  <div className="aContent">
+                    <small>{article.date}</small>
+                    <h4>{article.title}</h4>
+                    <span>{article.author}</span>
+                  </div>
+                </Link>
+                {article.hasQuote && (
+                  <div className="aQuote">
+                    <h5>{article.quote}</h5>
+                    <span>{article.author}</span>
+                    <button href="#!" className="btn btn-rounded">
+                      <i className="fa fa-play"></i> Rewatch the RIL 47th AGM
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
           ))}
         </div>

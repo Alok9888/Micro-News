@@ -1,3 +1,7 @@
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+
 const awards = [
   {
     id: 1,
@@ -57,6 +61,21 @@ const awards = [
 
 const Awards = () => {
   const imgPath = "img/awards/";
+  // Initialize AOS
+  useEffect(() => {
+    AOS.init({
+      disable: "phone", // Disable on mobile devices
+      duration: 600, // Animation duration
+      offset: 120, // Trigger point (distance from element)
+      easing: "ease-in-out", // Smooth animation
+    });
+
+    // Clean up AOS on component unmount
+    return () => {
+      AOS.refreshHard();
+    };
+  }, []);
+
   return (
     <section className="awards block dark">
       <div className="container">
@@ -65,8 +84,8 @@ const Awards = () => {
         </div>
 
         <div className="row">
-          {awards.map((award) => (
-            <div className="col-lg-2 col-md-4 col-sm-6" key={award.id}>
+          {awards.map((award, index) => (
+            <div className="col-lg-2 col-md-4 col-sm-6" key={award.id} data-aos="fade-up" data-aos-delay={index * 100}>
               <div className="award">
                 <div className="awImg ">
                   <img src={`${imgPath}${award.img}`} alt={`${award.name} logo`} />

@@ -1,4 +1,7 @@
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const articlesData = [
   {
@@ -78,12 +81,27 @@ const articlesData = [
 const Rewind = () => {
   const imgPath = "img/rewind/";
 
+  // Initialize AOS
+  useEffect(() => {
+    AOS.init({
+      disable: "phone", // Disable on mobile devices
+      duration: 600, // Animation duration
+      offset: 120, // Trigger point (distance from element)
+      easing: "ease-in-out", // Smooth animation
+    });
+
+    // Clean up AOS on component unmount
+    return () => {
+      AOS.refreshHard();
+    };
+  }, []);
+
   return (
     <section className="rewind pb-4">
       <div className="container">
         <div className="row">
-          {articlesData.map((article) => (
-            <div key={article.id} className="col-xl-3 col-lg-4 col-md-6">
+          {articlesData.map((article, index) => (
+            <div key={article.id} className="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay={index * 100}>
               <Link to={`article/${article.id}`}>
                 <div className="article articleAlt">
                   <div className="aImg special">
