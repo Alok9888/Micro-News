@@ -10,7 +10,10 @@ import ArticleDetail from "./pages/ArticleDetail";
 const App = () => {
   const routes = useRoutes([
     { path: "/", element: <Home /> },
-    { path: "/LeadershipHighlights/article/:id", element: <ArticleDetail /> },
+    {
+      path: "article/:id",
+      element: <ArticleDetail />,
+    },
   ]);
 
   return (

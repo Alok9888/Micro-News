@@ -84,7 +84,7 @@ const Rewind = () => {
         <div className="row">
           {articlesData.map((article) => (
             <div key={article.id} className="col-xl-3 col-lg-4 col-md-6">
-              <Link to={`/LeadershipHighlights/article/${article.id}`}>
+              <Link to={`article/${article.id}`}>
                 <div className="article articleAlt">
                   <div className="aImg special">
                     <img src={`${imgPath}${article.imgSrc}`} alt="" />

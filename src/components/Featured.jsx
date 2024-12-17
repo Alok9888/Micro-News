@@ -122,7 +122,7 @@ const Featured = () => {
         <div className="row">
           {articles.map((article, index) => (
             <div className={`col-lg-${article.special ? 8 : index === 0 ? 12 : 4} col-md-${index === 0 ? 12 : 6}`} key={article.id}>
-              <Link to={`/LeadershipHighlights/article/${article.id}`}>
+              <Link to={`article/${article.id}`}>
                 <div className={`article ${index === 0 ? "highlightArticle" : ""} ${article.hasQuote ? "hasQuote" : ""}`}>
                   <div className="aWrap">
                     <div className="aImg special">
