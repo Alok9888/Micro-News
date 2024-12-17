@@ -77,7 +77,7 @@ const Awards = () => {
   }, []);
 
   return (
-    <section className="awards block dark">
+    <section className="awards block dark overlay">
       <div className="container">
         <div className="secHeading">
           <h3>Awards & Recognition</h3>
