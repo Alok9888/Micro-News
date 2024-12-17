@@ -39,7 +39,7 @@ const ARWedding = () => {
           <div className="ratio ratio-16x9">
             <video
               ref={videoRef}
-              poster="/img/videos/ar-wedding.jpg"
+              poster="img/videos/ar-wedding.jpg"
               controls
               playsInline
               loop
@@ -50,7 +50,7 @@ const ARWedding = () => {
               onPause={() => setIsPlaying(false)}
               onEnded={handleVideoEnd}
             >
-              <source src="/videos/ar-wedding.mp4" type="video/mp4" />
+              <source src="videos/ar-wedding.mp4" type="video/mp4" />
             </video>
           </div>
         </div>

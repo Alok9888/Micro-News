@@ -2,10 +2,11 @@ import { Link } from "react-router-dom";
 import FamilyDayVideo from "./FamilyDayVideo";
 
 const Featured = () => {
+  const imgPath = "img/articles/";
   const articles = [
     {
       id: 2,
-      imgSrc: "/img/articles/1.jpg",
+      imgSrc: "1.jpg",
       date: "RIL 47th AGM | August 2024",
       title: "Reliance is becoming a deep-tech and advanced manufacturing company to propel growth for a Viksit Bharat",
       quote:
@@ -16,7 +17,7 @@ const Featured = () => {
     },
     {
       id: 3,
-      imgSrc: "/img/articles/2.jpg",
+      imgSrc: "2.jpg",
       date: "NVIDIA AI Summit | October 2024",
       title: "“India will be one of the biggest intelligence markets”",
       author: "Mukesh D. Ambani, Chairman and Managing Director, RIL",
@@ -25,7 +26,7 @@ const Featured = () => {
     },
     {
       id: 4,
-      imgSrc: "/img/articles/3.jpg",
+      imgSrc: "3.jpg",
       date: "",
       title: "“RIL CMD Mukesh D. Ambani is#1 CEO in India#2 Globally”",
       author: "Brand Finance | February 2024",
@@ -34,7 +35,7 @@ const Featured = () => {
     },
     {
       id: 5,
-      imgSrc: "/img/articles/4.jpg",
+      imgSrc: "4.jpg",
       date: "Paris Olympics 2024 | July 2024",
       title: "“India House will reflect the strides India has made in the Olympic movement”",
       author: "Nita M. Ambani, Reliance Foundation Founder-Chairperson",
@@ -43,7 +44,7 @@ const Featured = () => {
     },
     {
       id: 6,
-      imgSrc: "/img/articles/5.jpg",
+      imgSrc: "5.jpg",
       date: "IBLA Awards | December 2024",
       title: "I firmly believe that this century belongs to India. More importantly, it belongs to women.",
       author: "Nita M. Ambani awarded for ‘Outstanding Contribution to Brand India’",
@@ -52,7 +53,7 @@ const Featured = () => {
     },
     {
       id: 7,
-      imgSrc: "/img/articles/6.jpg",
+      imgSrc: "6.jpg",
       date: "RF United in Triumph | September 2024",
       title: "For the first time, 140 Olympic and Paralympic athletes have come together on the same platform",
       author: "Nita M Ambani at United in Triumph ",
@@ -61,7 +62,7 @@ const Featured = () => {
     },
     {
       id: 8,
-      imgSrc: "/img/articles/7.jpg",
+      imgSrc: "7.jpg",
       date: "ICT Day 2024 | April 2024",
       title: "“For India to shine, more and more girls must take up STEM”",
       author: "Isha M. Ambani, Director, RIL",
@@ -70,7 +71,7 @@ const Featured = () => {
     },
     {
       id: 9,
-      imgSrc: "/img/articles/8.jpg",
+      imgSrc: "8.jpg",
       date: "Fortune 100 MPW Asia | October 2024",
       title: "Isha M. Ambani recognized among Fortune 100 Most Powerful Women Asia for 2024",
       // author: "Nita M. Ambani awarded for ‘Outstanding Contribution to Brand India’",
@@ -79,7 +80,7 @@ const Featured = () => {
     },
     {
       id: 10,
-      imgSrc: "/img/articles/9.jpg",
+      imgSrc: "9.jpg",
       date: "NVIDIA AI Summit 2024 | October 2024",
       title: "India Mobile Congress 2024 | October 2024",
       author: "Anant M. Ambani, Chairman, Reliance Jio",
@@ -88,7 +89,7 @@ const Featured = () => {
     },
     {
       id: 11,
-      imgSrc: "/img/articles/10.jpg",
+      imgSrc: "10.jpg",
       // date: "ICT Day 2024 | April 2024",
       title:
         "We hope Vantara becomes a beacon of hope globally and can showcase how a forward-thinking institution can help global biodiversity conservation initiatives.",
@@ -98,7 +99,7 @@ const Featured = () => {
     },
     {
       id: 12,
-      imgSrc: "/img/articles/11.jpg",
+      imgSrc: "11.jpg",
       // date: "India Mobile Congress 2024 | October 2024",
       title: "Anant M. Ambani inaugurates Jio-bp's 500th charging station with bp CEO Murray Auchincloss",
       // author: "Anant M. Ambani, Chairman, Reliance Jio",
@@ -125,7 +126,7 @@ const Featured = () => {
                 <div className={`article ${index === 0 ? "highlightArticle" : ""} ${article.hasQuote ? "hasQuote" : ""}`}>
                   <div className="aWrap">
                     <div className="aImg special">
-                      <img src={article.imgSrc} alt="" />
+                      <img src={`${imgPath}${article.imgSrc}`} alt="" />
                     </div>
                     <div className="aContent">
                       <small>{article.date}</small>
