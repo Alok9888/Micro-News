@@ -36,7 +36,8 @@ header {
         align-items: center;
 
         @include media-breakpoint-down(md) {
-            height: 80px;
+            height: 60px;
+            justify-content: flex-start;
         }
 
         img {
@@ -53,6 +54,11 @@ header {
                 top: 0;
                 transform: none;
                 margin-right: 20px;
+                width: 24px;
+            }
+
+            @include media-breakpoint-down(sm) {
+                width: 24px;
             }
         }
 
@@ -65,7 +71,11 @@ header {
             display: block;
 
             @include media-breakpoint-down(md) {
-                font-size: 30px;
+                font-size: 24px;
+            }
+
+            @include media-breakpoint-down(sm) {
+                font-size: 18px;
             }
         }
     }
@@ -84,6 +94,22 @@ header {
         color: $primary;
         padding: 10px 15px;
         margin-left: auto;
+
+        &:focus {
+            outline: none;
+            box-shadow: none;
+        }
+
+        @include media-breakpoint-down(lg) {
+            position: absolute;
+            top: -75px;
+            right: 15px;
+            color: #fff;
+        }
+
+        @include media-breakpoint-down(md) {
+            top: -52px;
+        }
     }
 
     .navbar-nav {
@@ -135,7 +161,7 @@ header {
     .offcanvas {
         @include media-breakpoint-down(lg) {
             .navbar-nav {
-                gap: 0;
+                gap: 4px;
             }
 
             .nav-link {
@@ -170,14 +196,14 @@ header {
 
     .topHeader {
         .logo {
-            height: 40px;
+            // height: 40px;
 
             img {
-                width: 26px;
+                // width: 26px;
             }
 
             span {
-                font-size: 24px;
+                // font-size: 24px;
             }
         }
     }

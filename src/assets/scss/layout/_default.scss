@@ -40,6 +40,8 @@ a {
 }
 
 section {
+    position: relative;
+    overflow: hidden;
 
     &.dark {
         background-color: #7C6228;
