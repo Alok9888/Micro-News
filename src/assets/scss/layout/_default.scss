@@ -87,3 +87,26 @@ section {
         color: #fff;
     }
 }
+
+.go-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: $secondary;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.go-to-top:hover {
+    opacity: 1;
+}
