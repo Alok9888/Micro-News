@@ -1,7 +1,6 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
-import { ParallaxBanner } from "react-scroll-parallax";
 
 const awards = [
   {
@@ -138,7 +137,7 @@ const AwardsGlance = () => {
   }, []);
 
   return (
-    <section className="awards block dark overlay">
+    <section className="awards block dark overlay primary">
       <div className="container">
         <div className="secHeading">
           <h3>Awards & Recognition</h3>

@@ -52,6 +52,30 @@ section {
         }
     }
 
+    &.overlay {
+        position: relative;
+
+        &:before {
+            content: '';
+            background: #7C6228B2;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .container {
+            position: relative;
+        }
+
+        &.primary {
+            &:before {
+                background: #28348BB2;
+            }
+        }
+    }
+
     &.block {
         padding: 60px 0;
     }
