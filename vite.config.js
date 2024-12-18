@@ -1,18 +1,15 @@
 import { defineConfig } from "vite";
-import { resolve } from "path";
 import react from "@vitejs/plugin-react";
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: "/herald/",
   plugins: [react()],
   alias: {
     "@content": "/src/content",
   },
-  build: {
-    rollupOptions: {
-      input: {
-        main: resolve(__dirname, "index.html"),
-      },
-    },
+  css: {
+    devSourcemap: true,
   },
+  assetsInclude: ["**/*.md"],
 });

@@ -1,1 +1,5 @@
-@import url('node_modules/bootstrap/scss/bootstrap.scss');
+@import './assets/scss/layout/variables';
+
+@import 'bootstrap/scss/bootstrap';
+
+@import './assets/scss/main';

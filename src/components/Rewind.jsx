@@ -1,73 +1,119 @@
-import React from "react";
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const articlesData = [
   {
-    id: 1,
-    title: '"Reliance will continue to play a leading role in Gujarat’s growth story"',
-    imageUrl: "/img/rewind/1.jpg",
-    description: "RIL CMD Mukesh Ambani at 10th Vibrant Gujarat Summit | January 2024",
+    id: 13,
+    title: "Reliance will continue to play a leading role in Gujarat’s growth story",
+    imgSrc: "1.jpg",
+    description: "Reliance will continue to play a leading role in Gujarat’s growth story | January 2024",
   },
   {
-    id: 2,
+    id: 14,
     title: '"Reliance has proudly partnered in Tamil Nadu’s growth over the years"',
-    imageUrl: "/img/rewind/2.jpg",
+    imgSrc: "no-image.jpg",
     description: "RIL CMD Mukesh Ambani at Tamil Nadu Global Investors’ Meet | January 2024",
   },
   {
-    id: 3,
+    id: 15,
     title: "Nita Ambani re-elected unanimously as IOC member",
-    imageUrl: "/img/rewind/3.jpg",
-    description: "RIL CMD Mukesh Ambani at 10th Vibrant Gujarat Summit | January 2024",
+    imgSrc: "3.jpg",
+    // description: "RIL CMD Mukesh Ambani at 10th Vibrant Gujarat Summit | January 2024",
   },
   {
-    id: 4,
+    id: 16,
     title: "Nita Ambani announces new initiative empowering women in sports to mark 3rd anniversary of Her Circle",
-    imageUrl: "/img/rewind/4.jpg",
-    description: "RIL CMD Mukesh Ambani at 10th Vibrant Gujarat Summit | January 2024",
+    imgSrc: "4.jpg",
+    // description: "RIL CMD Mukesh Ambani at 10th Vibrant Gujarat Summit | January 2024",
   },
   {
-    id: 5,
+    id: 17,
     title: "NMACC marks one year of celebrating the best of India and the world",
-    imageUrl: "/img/rewind/5.jpg",
-    description: "RIL CMD Mukesh Ambani at 10th Vibrant Gujarat Summit | January 2024",
+    imgSrc: "5.jpg",
+    // description: "RIL CMD Mukesh Ambani at 10th Vibrant Gujarat Summit | January 2024",
   },
   {
-    id: 6,
-    title: "NMAJS and NMAJS-EYC open in Mumbai",
-    imageUrl: "/img/rewind/6.jpg",
-    description: "RIL CMD Mukesh Ambani at 10th Vibrant Gujarat Summit | January 2024",
+    id: 18,
+    title: "Isha M Ambani launches book on breast health awareness",
+    imgSrc: "6.jpg",
+    // description: "RIL CMD Mukesh Ambani at 10th Vibrant Gujarat Summit | January 2024",
   },
   {
-    id: 7,
+    id: 19,
     title: "Nita M Ambani launches New Health Seva Plan to commemorate Sir HN RFH’s 10-year anniversary",
-    imageUrl: "/img/rewind/7.jpg",
-    description: "RIL CMD Mukesh Ambani at 10th Vibrant Gujarat Summit | January 2024",
+    imgSrc: "7.jpg",
+    // description: "RIL CMD Mukesh Ambani at 10th Vibrant Gujarat Summit | January 2024",
+  },
+  {
+    id: 20,
+    title: "For India to shine, more and more girls must take up STEM",
+    imgSrc: "no-image.jpg",
+    // description: "RIL CMD Mukesh Ambani at 10th Vibrant Gujarat Summit | January 2024",
+  },
+  {
+    id: 21,
+    title: "Isha M Ambani among Fortune’s ‘100 Most Powerful Women Asia 2024’",
+    imgSrc: "no-image.jpg",
+    // description: "RIL CMD Mukesh Ambani at 10th Vibrant Gujarat Summit | January 2024",
+  },
+  {
+    id: 22,
+    title: "Nita M Ambani launches new health seva plan commemorating Sir HN Reliance Foundation Hospital’s 10-year anniversary",
+    imgSrc: "no-image.jpg",
+    // description: "RIL CMD Mukesh Ambani at 10th Vibrant Gujarat Summit | January 2024",
+  },
+  {
+    id: 23,
+    title: "RIL leaders address Reliance colleagues and families at grand Diwali event",
+    imgSrc: "no-image.jpg",
+    // description: "RIL CMD Mukesh Ambani at 10th Vibrant Gujarat Summit | January 2024",
+  },
+  {
+    id: 24,
+    title: "Reliance is becoming a deep-tech and advanced manufacturing company to propel growth for a Viksit Bharat",
+    imgSrc: "no-image.jpg",
+    // description: "RIL CMD Mukesh Ambani at 10th Vibrant Gujarat Summit | January 2024",
   },
 ];
 
 const Rewind = () => {
-  return (
-    <section className="rewind block">
-      <div className="container">
-        <div className="secHeading">
-          <h3>Rewind</h3>
-        </div>
+  const imgPath = "img/rewind/";
 
+  // Initialize AOS
+  useEffect(() => {
+    AOS.init({
+      disable: "phone", // Disable on mobile devices
+      duration: 600, // Animation duration
+      offset: 120, // Trigger point (distance from element)
+      easing: "ease-in-out", // Smooth animation
+    });
+
+    // Clean up AOS on component unmount
+    return () => {
+      AOS.refreshHard();
+    };
+  }, []);
+
+  return (
+    <section className="rewind pb-4">
+      <div className="container">
         <div className="row">
-          {articlesData.map((article) => (
-            <div key={article.id} className="col-md-3">
-              <div className="article articleAlt">
-                <div className="aImg">
-                  <img src={article.imageUrl} alt="" />
-                </div>
-                <div className="aContent">
-                  <Link to={`/article/${article.id}`}>
+          {articlesData.map((article, index) => (
+            <div key={article.id} className="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay={index * 100}>
+              <Link to={`article/${article.id}`}>
+                <div className="article articleAlt">
+                  <div className="aImg special">
+                    <img src={`${imgPath}${article.imgSrc}`} alt="" />
+                  </div>
+                  <div className="aContent">
                     <h4>{article.title}</h4>
-                  </Link>
-                  <span>{article.description}</span>
+
+                    {article.description && <span>{article.description}</span>}
+                  </div>
                 </div>
-              </div>
+              </Link>
             </div>
           ))}
         </div>
