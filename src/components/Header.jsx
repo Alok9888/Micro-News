@@ -2,9 +2,24 @@ import { Link } from "react-router-dom";
 import logo from "/img/logo.svg";
 import { FiMenu } from "react-icons/fi";
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+
+  const navigateToSection = (sectionId) => {
+    // Navigate to the base URL with the hash
+    if (location.pathname !== "/") {
+      window.location.href = `/#${sectionId}`;
+    } else {
+      // If already on the homepage, scroll smoothly
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
 
   // Add scroll event to handle class addition/removal
   useEffect(() => {
@@ -62,27 +77,31 @@ const Header = () => {
             <div className="offcanvas-body">
               <ul className="navbar-nav justify-content-between flex-grow-1">
                 <li className="nav-item">
-                  <Link className="nav-link active" to="/#leadership">
+                  {/* scrolls to Featured */}
+                  <button className="nav-link" onClick={() => navigateToSection("featured")}>
                     Leadership Highlights
-                  </Link>
+                  </button>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/#ar-wedding">
+                  {/* scrolls to Feaured glance */}
+                  <a className="nav-link" href="#ar-wedding">
                     A&R Wedding
-                  </Link>
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/#2024-at-a-glance">
+                  {/* scrolls to ARWedding */}
+                  <Link className="nav-link" to="/">
                     2024 at a Glance
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/#memories">
+                  {/* coming soon, scrolls to it's section */}
+                  <Link className="nav-link" to="/">
                     Memories in Pictures
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/#download-pdf">
+                  <Link className="nav-link" to="/">
                     Download The Reliance Herald
                   </Link>
                 </li>
