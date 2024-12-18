@@ -1,8 +1,35 @@
-# React + Vite
+# Steps to Clone and Run the Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Clone the Repository
+1. Open your terminal or command prompt.
+2. Clone the repository using the following command:
+   ```
+   git clone https://github.com/hkgonebad/ril-herald-react.git
+   ```
 
-Currently, two official plugins are available:
+## Navigate to the Project Directory
+1. Move into the cloned repository:
+   ```
+   cd ril-herald-react
+   ```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Install Dependencies
+1. Run the following command to install all required packages:
+   ```
+   npm install
+   ```
+
+## Run the Development Server
+1. Start the development server with:
+   ```
+   npm run dev
+   ```
+2. Open your browser and navigate to the local server (usually `http://localhost:3000`).
+
+## Build the Project
+1. To build the project for production, run:
+   ```
+   npm run build
+   ```
+2. The production-ready files will be in the `dist` folder (or the configured build directory).
+
