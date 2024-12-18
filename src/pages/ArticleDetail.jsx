@@ -107,7 +107,7 @@ const ArticleDetail = () => {
 
                     {meta.videoSrc && (
                       <video id="meta-video" className="video-js vjs-fluid" controls preload="auto" data-setup="{}">
-                        <source src={meta.videoSrc} type="video/mp4" />
+                        <source src={meta.videoSrc} type="application/x-mpegURL" />
                       </video>
                     )}
                   </div>
