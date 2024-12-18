@@ -13,7 +13,7 @@ const articlesData = [
   {
     id: 14,
     title: '"Reliance has proudly partnered in Tamil Nadu’s growth over the years"',
-    imgSrc: "no-image.jpg",
+    imgSrc: "2.png",
     description: "RIL CMD Mukesh Ambani at Tamil Nadu Global Investors’ Meet | January 2024",
   },
   {
