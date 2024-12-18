@@ -1,11 +1,40 @@
 import { Link } from "react-router-dom";
 import logo from "/img/logo.svg";
 import { FiMenu } from "react-icons/fi";
-import { useEffect } from "react";
-// eslint-disable-next-line no-unused-vars
-// import { Offcanvas } from "bootstrap";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 const Header = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+
+  const navigateToSection = (sectionId) => {
+    // Navigate to the base URL with the hash
+    if (location.pathname !== "/") {
+      window.location.href = `/#${sectionId}`;
+    } else {
+      // If already on the homepage, scroll smoothly
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
+  // Add scroll event to handle class addition/removal
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 500) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   useEffect(() => {
     // Dynamically import Bootstrap's JS for Offcanvas
     import("bootstrap").then((bootstrap) => {
@@ -16,7 +45,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header>
+    <header className={` ${isScrolled ? "scrolled" : ""}`}>
       <div className="topHeader">
         <div className="container">
           <Link to="/" className="logo">
@@ -26,7 +55,7 @@ const Header = () => {
         </div>
       </div>
 
-      <nav className="navbar sticky-top navbar-expand-lg">
+      <nav className="navbar navbar-expand-lg">
         <div className="container">
           <button
             className="navbar-toggler"
@@ -41,34 +70,38 @@ const Header = () => {
           <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div className="offcanvas-header">
               <h5 className="offcanvas-title" id="offcanvasNavbarLabel">
-                The Reliance Herald
+                &nbsp;
               </h5>
               <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div className="offcanvas-body">
               <ul className="navbar-nav justify-content-between flex-grow-1">
                 <li className="nav-item">
-                  <Link className="nav-link active" to="/#leadership">
+                  {/* scrolls to Featured */}
+                  <button className="nav-link" onClick={() => navigateToSection("featured")}>
                     Leadership Highlights
-                  </Link>
+                  </button>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/#ar-wedding">
+                  {/* scrolls to Feaured glance */}
+                  <a className="nav-link" href="#ar-wedding">
                     A&R Wedding
-                  </Link>
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/#2024-at-a-glance">
+                  {/* scrolls to ARWedding */}
+                  <Link className="nav-link" to="/">
                     2024 at a Glance
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/#memories">
+                  {/* coming soon, scrolls to it's section */}
+                  <Link className="nav-link" to="/">
                     Memories in Pictures
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/#download-pdf">
+                  <Link className="nav-link" to="/">
                     Download The Reliance Herald
                   </Link>
                 </li>

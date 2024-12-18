@@ -5,6 +5,8 @@ import Featured from "../components/Featured";
 import Rewind from "../components/Rewind";
 import Awards from "../components/Awards";
 import ARWedding from "../components/ARWedding";
+import FeaturedGlance from "../components/FeaturedGlance";
+import RewindGlance from "../components/RewindGlance";
 
 export default function Home() {
   useEffect(() => {
@@ -19,14 +21,20 @@ export default function Home() {
       {/* Featurted */}
       <Featured />
 
-      {/* Rewind (7) */}
+      {/* Rewind */}
       <Rewind />
 
-      {/* Awards and Recognitions (6) */}
+      {/* Awards and Recognitions */}
       <Awards />
 
       {/* AR Wedding */}
       <ARWedding />
+
+      {/* 24 At A Glance */}
+      <FeaturedGlance />
+
+      {/* Rewind Glance */}
+      <RewindGlance />
     </main>
   );
 }

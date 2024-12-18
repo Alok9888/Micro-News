@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import Loading from "../components/Loading";
+import "video.js/dist/video-js.css";
+import videojs from "video.js";
 
 const parseMarkdownWithMetadata = (fileContent) => {
   // Regex to match the metadata block, capturing all lines inside it
@@ -63,6 +65,20 @@ const ArticleDetail = () => {
     }
   }, [meta]);
 
+  // Initialize Video.js for dynamically rendered videos
+  useEffect(() => {
+    const initializeVideoJS = () => {
+      const videoElements = document.querySelectorAll(".video-js");
+      videoElements.forEach((video) => {
+        if (!videojs.players[video.id]) {
+          videojs(video);
+        }
+      });
+    };
+
+    initializeVideoJS();
+  }, [content]);
+
   if (!content) {
     console.log("Content is loading...");
     return <Loading />;
@@ -90,12 +106,9 @@ const ArticleDetail = () => {
                     {meta.imgSrc && <img src={meta.imgSrc} alt={meta.title} className="w-100" />}
 
                     {meta.videoSrc && (
-                      <div className="ratio ratio-16x9">
-                        <video controls>
-                          <source src={meta.videoSrc} type="video/mp4" />
-                          Your browser does not support the video tag.
-                        </video>
-                      </div>
+                      <video id="meta-video" className="video-js vjs-fluid" controls preload="auto" data-setup="{}">
+                        <source src={meta.videoSrc} type="application/x-mpegURL" />
+                      </video>
                     )}
                   </div>
 
