@@ -15,7 +15,7 @@ const FamilyDayVideo = () => {
         {!isPlaying && <FiPlayCircle className="playBtn" strokeWidth={1} />}
         {/* Video element */}
         <video
-          poster="/img/videos/reliance-family-day-2024.jpg"
+          poster="img/videos/reliance-family-day-2024.jpg"
           controls
           playsInline
           loop
@@ -24,7 +24,7 @@ const FamilyDayVideo = () => {
           width={"100%"}
           onPlay={handlePlay} // Handle play event
         >
-          <source src="/img/videos/reliance-family-day-2024.mp4" type="video/mp4" />
+          <source src="img/videos/reliance-family-day-2024.mp4" type="video/mp4" />
         </video>
       </div>
     </div>
