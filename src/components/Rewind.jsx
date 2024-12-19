@@ -49,33 +49,33 @@ const articlesData = [
   {
     id: 20,
     title: "For India to shine, more and more girls must take up STEM",
-    imgSrc: "no-image.jpg",
+    imgSrc: "8.jpg",
     // description: "RIL CMD Mukesh Ambani at 10th Vibrant Gujarat Summit | January 2024",
   },
   {
     id: 21,
-    title: "Isha M Ambani among Fortune’s ‘100 Most Powerful Women Asia 2024’",
-    imgSrc: "no-image.jpg",
+    title: "Nita M Ambani to be Chairperson of Reliance and Disney JV",
+    imgSrc: "9.jpg",
     // description: "RIL CMD Mukesh Ambani at 10th Vibrant Gujarat Summit | January 2024",
   },
   {
     id: 22,
-    title: "Nita M Ambani launches new health seva plan commemorating Sir HN Reliance Foundation Hospital’s 10-year anniversary",
+    title: "Isha M Ambani among Fortune’s ‘100 Most Powerful Women Asia 2024’ ",
     imgSrc: "no-image.jpg",
     // description: "RIL CMD Mukesh Ambani at 10th Vibrant Gujarat Summit | January 2024",
   },
   {
     id: 23,
     title: "RIL leaders address Reliance colleagues and families at grand Diwali event",
-    imgSrc: "no-image.jpg",
+    imgSrc: "10.jpg",
     // description: "RIL CMD Mukesh Ambani at 10th Vibrant Gujarat Summit | January 2024",
   },
-  {
-    id: 24,
-    title: "Reliance is becoming a deep-tech and advanced manufacturing company to propel growth for a Viksit Bharat",
-    imgSrc: "no-image.jpg",
-    // description: "RIL CMD Mukesh Ambani at 10th Vibrant Gujarat Summit | January 2024",
-  },
+  // {
+  //   id: 24,
+  //   title: "Reliance is becoming a deep-tech and advanced manufacturing company to propel growth for a Viksit Bharat",
+  //   imgSrc: "no-image.jpg",
+  //   // description: "RIL CMD Mukesh Ambani at 10th Vibrant Gujarat Summit | January 2024",
+  // },
 ];
 
 const Rewind = () => {
