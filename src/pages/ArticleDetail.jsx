@@ -52,7 +52,7 @@ const ArticleDetail = () => {
           // console.error("Markdown file not found for ID:", id);
         }
       } catch (error) {
-        // console.error("Error loading article:", error);
+        console.error("Error loading article:", error);
       }
     };
 

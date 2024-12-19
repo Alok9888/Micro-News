@@ -96,7 +96,7 @@ const FeaturedGlance = () => {
   ];
 
   return (
-    <section className="featured block pb-0" id="featuredGlance">
+    <section className="featured block pb-0" id="24atGlance">
       <div className="container">
         <div className="secHeading">
           <h3>2024 at a Glance</h3>

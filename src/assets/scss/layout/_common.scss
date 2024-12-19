@@ -156,6 +156,10 @@
             background: $primary-500;
             height: 165px;
 
+            @include media-breakpoint-down(sm) {
+                height: auto;
+            }
+
             span,
             small {
                 font-size: 12px;

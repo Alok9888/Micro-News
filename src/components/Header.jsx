@@ -1,34 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "/img/logo.svg";
 import { FiMenu } from "react-icons/fi";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
-  const navigateToSection = (sectionId) => {
-    // Navigate to the base URL with the hash
-    if (location.pathname !== "/") {
-      window.location.href = `/#${sectionId}`;
-    } else {
-      // If already on the homepage, scroll smoothly
-      const section = document.getElementById(sectionId);
-      if (section) {
-        section.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-  };
-
   // Add scroll event to handle class addition/removal
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 500) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 500);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -43,6 +26,8 @@ const Header = () => {
       offcanvasElements.forEach((el) => new bootstrap.Offcanvas(el));
     });
   }, []);
+
+  const isActive = (hash) => location.hash === hash;
 
   return (
     <header className={` ${isScrolled ? "scrolled" : ""}`}>
@@ -77,25 +62,21 @@ const Header = () => {
             <div className="offcanvas-body">
               <ul className="navbar-nav justify-content-between flex-grow-1">
                 <li className="nav-item">
-                  {/* scrolls to Featured */}
-                  <button className="nav-link" onClick={() => navigateToSection("featured")}>
+                  <HashLink to="/#featured" className={`nav-link ${isActive("#featured") ? "active" : ""}`}>
                     Leadership Highlights
-                  </button>
+                  </HashLink>
                 </li>
                 <li className="nav-item">
-                  {/* scrolls to Feaured glance */}
-                  <a className="nav-link" href="#ar-wedding">
+                  <HashLink to="/#ar-wedding" className={`nav-link ${isActive("#ar-wedding") ? "active" : ""}`}>
                     A&R Wedding
-                  </a>
+                  </HashLink>
                 </li>
                 <li className="nav-item">
-                  {/* scrolls to ARWedding */}
-                  <Link className="nav-link" to="/">
+                  <HashLink to="/#24atGlance" className={`nav-link ${isActive("#24atGlance") ? "active" : ""}`}>
                     2024 at a Glance
-                  </Link>
+                  </HashLink>
                 </li>
                 <li className="nav-item">
-                  {/* coming soon, scrolls to it's section */}
                   <Link className="nav-link" to="/">
                     Memories in Pictures
                   </Link>

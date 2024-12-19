@@ -14,7 +14,6 @@ const App = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Toggle visibility of the button based on scroll position
       setIsScrolled(window.scrollY > 300);
     };
 
