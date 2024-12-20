@@ -45,7 +45,7 @@ const Featured = () => {
     {
       id: 4,
       imgSrc: "3.jpg",
-      date: "",
+      date: "Brand Finance | February 2024",
       title: "“RIL CMD Mukesh D. Ambani is#1 CEO in India#2 Globally”",
       author: "Brand Finance | February 2024",
       hasQuote: false,
@@ -74,7 +74,7 @@ const Featured = () => {
       imgSrc: "6.jpg",
       date: "RF United in Triumph | September 2024",
       title: "For the first time, 140 Olympic and Paralympic athletes have come together on the same platform",
-      author: "Nita M Ambani at United in Triumph ",
+      author: `Nita M Ambani, Reliance Foundation Founder-Chairperson`,
       hasQuote: false,
       special: false,
     },
@@ -99,7 +99,7 @@ const Featured = () => {
     {
       id: 10,
       imgSrc: "9.jpg",
-      date: "NVIDIA AI Summit 2024 | October 2024",
+      date: "India Mobile Congress 2024 | October 2024",
       title: "India Mobile Congress 2024 | October 2024",
       author: "Anant M. Ambani, Chairman, Reliance Jio",
       hasQuote: false,
