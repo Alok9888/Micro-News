@@ -24,7 +24,7 @@ const articlesData = [
   },
   {
     id: 36,
-    title: "EL&N London’s first Indian outlet opens at Jio World Plaza",
+    title: "EL&N, in partnership with RBL, opens at Jio World Plaza",
     imgSrc: "36.jpg",
     description: "October 2024",
   },
