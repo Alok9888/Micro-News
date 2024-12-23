@@ -3,6 +3,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 import FamilyDayVideo from "./FamilyDayVideo";
+import { RiDoubleQuotesL } from "react-icons/ri";
 
 const Featured = () => {
   const imgPath = "img/articles/";
@@ -29,7 +30,7 @@ const Featured = () => {
       title: "Reliance is becoming a deep-tech and advanced manufacturing company to propel growth for a Viksit Bharat",
       quote:
         "This philosophy of doing business with a broader and noble purpose is instilled in all of us by our Founder Chairman, Shri Dhirubhai Ambani.",
-      author: "Mukesh D. Ambani, Chairman and Managing Director, RIL",
+      author: "",
       hasQuote: true,
       special: false,
     },
@@ -150,7 +151,7 @@ const Featured = () => {
                   <div className="aImg special">
                     <img src={`${imgPath}${article.imgSrc}`} alt="" />
                   </div>
-                  <div className="aContent">
+                  <div className={`aContent ${article.hasQuote ? "d-none" : ""}`}>
                     <small>{article.date}</small>
                     <h4>{article.title}</h4>
                     <span>{article.author}</span>
@@ -158,7 +159,15 @@ const Featured = () => {
                 </Link>
                 {article.hasQuote && (
                   <div className="aQuote">
-                    <h5>{article.quote}</h5>
+                    <div className="aContent">
+                      <small>{article.date}</small>
+                      <h4>{article.title}</h4>
+                      <span>{article.author}</span>
+                    </div>
+                    <h5>
+                      <RiDoubleQuotesL />
+                      {article.quote}
+                    </h5>
                     <span>{article.author}</span>
                     <button href="#!" className="btn btn-rounded">
                       <i className="fa fa-play"></i> Rewatch the RIL 47th AGM

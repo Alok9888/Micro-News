@@ -7,6 +7,28 @@ import { HashLink } from "react-router-hash-link";
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const [activeSection, setActiveSection] = useState("");
+
+  useEffect(() => {
+    const sections = document.querySelectorAll("section[id]");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.8 } // Trigger when 50% of the section is visible
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
+  }, []);
 
   // Add scroll event to handle class addition/removal
   useEffect(() => {
@@ -62,17 +84,17 @@ const Header = () => {
             <div className="offcanvas-body">
               <ul className="navbar-nav justify-content-between flex-grow-1">
                 <li className="nav-item">
-                  <HashLink to="/#featured" className={`nav-link ${isActive("#featured") ? "active" : ""}`}>
+                  <HashLink to="/#featured" className={`nav-link ${activeSection === "featured" ? "active" : ""}`}>
                     Leadership Highlights
                   </HashLink>
                 </li>
                 <li className="nav-item">
-                  <HashLink to="/#ar-wedding" className={`nav-link ${isActive("#ar-wedding") ? "active" : ""}`}>
+                  <HashLink to="/#ar-wedding" className={`nav-link ${activeSection === "ar-wedding" ? "active" : ""}`}>
                     A&R Wedding
                   </HashLink>
                 </li>
                 <li className="nav-item">
-                  <HashLink to="/#24atGlance" className={`nav-link ${isActive("#24atGlance") ? "active" : ""}`}>
+                  <HashLink to="/#24atGlance" className={`nav-link ${activeSection === "24atGlance" ? "active" : ""}`}>
                     2024 at a Glance
                   </HashLink>
                 </li>
