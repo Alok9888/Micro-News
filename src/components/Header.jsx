@@ -11,6 +11,7 @@ const Header = () => {
 
   useEffect(() => {
     const sections = document.querySelectorAll("section[id]");
+    console.log("Sections:", sections);
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -83,13 +84,13 @@ const Header = () => {
             <div className="offcanvas-body">
               <ul className="navbar-nav justify-content-between flex-grow-1">
                 <li className="nav-item">
-                  <HashLink smooth to="/#intro" className={`nav-link ${isActive("#intro") ? "active" : ""}`}>
-                    Video
+                  <HashLink smooth to="/#rewind" className={`nav-link ${isActive("#rewind") ? "active" : ""}`}>
+                    Rewind 2024
                   </HashLink>
                 </li>
                 <li className="nav-item">
-                  <HashLink smooth to="/#ar-wedding" className={`nav-link ${isActive("#ar-wedding") ? "active" : ""}`}>
-                    A&R Wedding
+                  <HashLink smooth to="/#featured" className={`nav-link ${isActive("#featured") ? "active" : ""}`}>
+                    Leadership Highlights
                   </HashLink>
                 </li>
                 <li className="nav-item">
@@ -98,9 +99,9 @@ const Header = () => {
                   </HashLink>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/">
+                  <HashLink smooth to="/#gallery" className={`nav-link ${isActive("#gallery") ? "active" : ""}`}>
                     Memories in Pictures
-                  </Link>
+                  </HashLink>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/">

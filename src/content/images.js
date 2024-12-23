@@ -1,0 +1,38 @@
+const galleryPath = "img/gallery/";
+
+const images = [
+  { src: `${galleryPath}1.jpg`, title: "Image 1", category: "default" },
+  { src: `${galleryPath}2.jpg`, title: "Image 2", category: "default" },
+  { src: `${galleryPath}3.jpg`, title: "Image 3", category: "default" },
+  { src: `${galleryPath}4.jpg`, title: "Image 4", category: "default" },
+  { src: `${galleryPath}5.jpg`, title: "Image 5", category: "default" },
+  // { src: `${galleryPath}6.jpg`, title: "Image 6", category: "default" },
+  { src: `${galleryPath}7.jpg`, title: "Image 7", category: "default" },
+  { src: `${galleryPath}8.jpg`, title: "Image 8", category: "default" },
+  { src: `${galleryPath}9.jpg`, title: "Image 9", category: "default" },
+  { src: `${galleryPath}10.jpg`, title: "Image 10", category: "default" },
+  { src: `${galleryPath}11.jpg`, title: "Image 11", category: "default" },
+  { src: `${galleryPath}12.jpg`, title: "Image 12", category: "default" },
+  { src: `${galleryPath}13.jpg`, title: "Image 13", category: "default" },
+  { src: `${galleryPath}14.jpg`, title: "Image 14", category: "default" },
+  { src: `${galleryPath}15.jpg`, title: "Image 15", category: "default" },
+  { src: `${galleryPath}16.jpg`, title: "Image 16", category: "default" },
+  { src: `${galleryPath}17.jpg`, title: "Image 17", category: "default" },
+  { src: `${galleryPath}18.jpg`, title: "Image 18", category: "default" },
+  { src: `${galleryPath}19.jpg`, title: "Image 19", category: "default" },
+  { src: `${galleryPath}20.jpg`, title: "Image 20", category: "default" },
+  { src: `${galleryPath}21.jpg`, title: "Image 21", category: "default" },
+  { src: `${galleryPath}22.jpg`, title: "Image 22", category: "default" },
+  { src: `${galleryPath}23.jpg`, title: "Image 23", category: "default" },
+  { src: `${galleryPath}24.jpg`, title: "Image 24", category: "default" },
+  { src: `${galleryPath}25.jpg`, title: "Image 25", category: "default" },
+  { src: `${galleryPath}26.jpg`, title: "Image 26", category: "default" },
+  { src: `${galleryPath}27.jpg`, title: "Image 27", category: "default" },
+  { src: `${galleryPath}28.jpg`, title: "Image 28", category: "default" },
+  { src: `${galleryPath}29.jpg`, title: "Image 29", category: "default" },
+  { src: `${galleryPath}30.jpg`, title: "Image 30", category: "default" },
+  { src: `${galleryPath}31.jpg`, title: "Image 31", category: "default" },
+  { src: `${galleryPath}32.jpg`, title: "Image 32", category: "default" },
+];
+
+export default images;
