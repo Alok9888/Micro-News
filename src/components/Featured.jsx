@@ -135,7 +135,7 @@ const Featured = () => {
         </div>
 
         {/* Family Day Video */}
-        <FamilyDayVideo />
+        {/* <FamilyDayVideo /> */}
 
         {/* Leadership Insights */}
         <div className="row">
@@ -149,7 +149,7 @@ const Featured = () => {
               <div className={`article ${index === 0 ? "highlightArticle" : ""} ${article.hasQuote ? "hasQuote" : ""}`}>
                 <Link to={`article/${article.id}`} className="aWrap">
                   <div className="aImg special">
-                    <img src={`${imgPath}${article.imgSrc}`} alt="" />
+                    <img src={`${imgPath}${article.imgSrc}`} alt={article.title} loading="lazy" />
                   </div>
                   <div className={`aContent ${article.hasQuote ? "d-none" : ""}`}>
                     <small>{article.date}</small>

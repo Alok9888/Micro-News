@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Isotope from "isotope-layout";
 import imagesLoaded from "imagesloaded";
 import { Fancybox } from "@fancyapps/ui";
@@ -7,25 +7,38 @@ import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import images from "../content/images"; // Assuming this contains your images data
 
 const Gallery = () => {
-  const [isotopeInstance, setIsotopeInstance] = useState(null);
+  const [isIsotopeInitialized, setIsIsotopeInitialized] = useState(false);
+  const galleryRef = useRef(null);
 
+  // Lazy initialize Isotope and Fancybox when gallery is in view
   useEffect(() => {
-    // console.log("Images loaded:", images);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !isIsotopeInitialized) {
+          initializeGallery();
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (galleryRef.current) {
+      observer.observe(galleryRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [isIsotopeInitialized]);
+
+  const initializeGallery = () => {
     Fancybox.bind("[data-fancybox]", {}); // Initialize Fancybox
-  }, []);
 
-  useEffect(() => {
     const grid = document.querySelector("#galleryGrid");
-
     if (grid) {
-      // Wait for all images to load before initializing Isotope
-      imagesLoaded(grid, { background: true }, (instance) => {
-        // console.log("Images loaded!", instance);
+      imagesLoaded(grid, { background: true }, () => {
         const iso = new Isotope(grid, {
           itemSelector: ".grid-item",
           percentPosition: true,
           masonry: {
-            // use outer width of grid-sizer for columnWidth
             columnWidth: ".grid-sizer",
             gutter: 0,
             fitWidth: true,
@@ -33,21 +46,13 @@ const Gallery = () => {
           sortBy: "original-order",
         });
 
-        // console.log("Isotope instance:", iso);
-        setIsotopeInstance(iso);
+        setIsIsotopeInitialized(true);
       });
     }
-
-    return () => {
-      if (isotopeInstance) {
-        isotopeInstance.destroy();
-        // console.log("Isotope instance destroyed");
-      }
-    };
-  }, [images]);
+  };
 
   return (
-    <section className="block" id="gallery">
+    <section className="block gallery" id="gallery" ref={galleryRef}>
       <div className="container">
         <div className="secHeading">
           <h3>Memories in Picture</h3>
@@ -55,11 +60,11 @@ const Gallery = () => {
 
         {/* Gallery Grid */}
         <div className="grid galleryGrid" id="galleryGrid">
-          <div className="grid-sizer"></div> {/* This is used by Isotope to calculate column width */}
+          <div className="grid-sizer"></div>
           {images.map((image, index) => (
             <div key={index} className={`grid-item ${image.category}`}>
               <a data-fancybox="gallery" href={image.src}>
-                <img src={image.src} alt={image.title} />
+                <img src={image.src} alt={image.title} loading="lazy" />
               </a>
             </div>
           ))}

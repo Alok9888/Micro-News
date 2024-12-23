@@ -96,7 +96,7 @@ const FeaturedGlance = () => {
   ];
 
   return (
-    <section className="featured block pb-0" id="24atGlance">
+    <section className="featured block pb-0" id="24AtGlance">
       <div className="container">
         <div className="secHeading">
           <h3>2024 at a Glance</h3>
@@ -109,7 +109,7 @@ const FeaturedGlance = () => {
               <div className={`article ${index === 0 ? "highlightArticle" : ""} ${article.hasQuote ? "hasQuote" : ""}`}>
                 <Link to={`article/${article.id}`} className="aWrap">
                   <div className="aImg special">
-                    <img src={`${imgPath}${article.imgSrc}`} alt="" />
+                    <img src={`${imgPath}${article.imgSrc}`} alt={article.title} loading="lazy" />
                   </div>
                   <div className="aContent">
                     <small>{article.date}</small>

@@ -20,23 +20,26 @@ const articlesData = [
     id: 15,
     title: "Nita Ambani re-elected unanimously as IOC member",
     imgSrc: "3.jpg",
-    description: "July 2024",    },
+    description: "July 2024",
+  },
   {
     id: 16,
     title: "Nita Ambani announces new initiative empowering women in sports to mark 3rd anniversary of Her Circle",
     imgSrc: "4.jpg",
-    description: "March 2024",    },
+    description: "March 2024",
+  },
   {
     id: 17,
     title: "NMACC marks one year of celebrating the best of India and the world",
     imgSrc: "5.jpg",
-    description: "March 2024",  
+    description: "March 2024",
   },
   {
     id: 18,
     title: "Isha M Ambani launches book on breast health awareness",
     imgSrc: "6.jpg",
-    description: "April 2024",  },
+    description: "April 2024",
+  },
   {
     id: 19,
     title: "NMAJS and NMAJS-EYC, envisioned and led by Isha M Ambani, open in Mumbai",
@@ -68,7 +71,7 @@ const articlesData = [
     title: "RIL leaders address Reliance colleagues and families at grand Diwali event",
     imgSrc: "10.jpg",
     description: "October 2024",
-    },
+  },
   // {
   //   id: 24,
   //   title: "Reliance is becoming a deep-tech and advanced manufacturing company to propel growth for a Viksit Bharat",
@@ -104,7 +107,7 @@ const Rewind = () => {
               <Link to={`article/${article.id}`}>
                 <div className="article articleAlt">
                   <div className="aImg special">
-                    <img src={`${imgPath}${article.imgSrc}`} alt="" />
+                    <img src={`${imgPath}${article.imgSrc}`} alt={article.title} loading="lazy" />
                   </div>
                   <div className="aContent">
                     <h4>{article.title}</h4>

@@ -11,7 +11,7 @@ const Header = () => {
 
   useEffect(() => {
     const sections = document.querySelectorAll("section[id]");
-    console.log("Sections:", sections);
+    // console.log("Sections:", sections);
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -22,7 +22,10 @@ const Header = () => {
           }
         });
       },
-      { threshold: 0.5 }
+      {
+        threshold: [0.1, 0.5, 1.0], // Trigger when 20% of the section is visible
+        rootMargin: "0px 0px -50% 0px",
+      }
     );
 
     sections.forEach((section) => observer.observe(section));
@@ -94,7 +97,7 @@ const Header = () => {
                   </HashLink>
                 </li>
                 <li className="nav-item">
-                  <HashLink smooth to="/#24atGlance" className={`nav-link ${isActive("#24atGlance") ? "active" : ""}`}>
+                  <HashLink smooth to="/#24AtGlance" className={`nav-link ${isActive("#24AtGlance") ? "active" : ""}`}>
                     2024 at a Glance
                   </HashLink>
                 </li>
@@ -104,9 +107,9 @@ const Header = () => {
                   </HashLink>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/">
+                  <HashLink to="/#download" className={`nav-link ${isActive("#download") ? "active" : ""}`}>
                     Download The Reliance Herald
-                  </Link>
+                  </HashLink>
                 </li>
               </ul>
             </div>

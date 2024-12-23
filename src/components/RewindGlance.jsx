@@ -105,7 +105,7 @@ const RewindGlance = () => {
               <Link to={`article/${article.id}`}>
                 <div className="article articleAlt">
                   <div className="aImg special">
-                    <img src={`${imgPath}${article.imgSrc}`} alt="" />
+                    <img src={`${imgPath}${article.imgSrc}`} alt={article.title} loading="lazy" />
                   </div>
                   <div className="aContent">
                     <h4>{article.title}</h4>

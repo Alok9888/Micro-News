@@ -3,31 +3,31 @@ import { useRef, useEffect } from "react";
 const Intro = () => {
   const videoRef = useRef(null);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          // Play the video when in view
-          videoRef.current?.play();
-        } else {
-          // Pause the video when out of view
-          videoRef.current?.pause();
-        }
-      },
-      { threshold: 0.5 } // Adjust threshold as needed
-    );
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver(
+  //     ([entry]) => {
+  //       if (entry.isIntersecting) {
+  //         // Play the video when in view
+  //         videoRef.current?.play();
+  //       } else {
+  //         // Pause the video when out of view
+  //         videoRef.current?.pause();
+  //       }
+  //     },
+  //     { threshold: 0.5 } // Adjust threshold as needed
+  //   );
 
-    const videoElement = videoRef.current;
-    if (videoElement) {
-      observer.observe(videoElement);
-    }
+  //   const videoElement = videoRef.current;
+  //   if (videoElement) {
+  //     observer.observe(videoElement);
+  //   }
 
-    return () => {
-      if (videoElement) {
-        observer.unobserve(videoElement);
-      }
-    };
-  }, []);
+  //   return () => {
+  //     if (videoElement) {
+  //       observer.unobserve(videoElement);
+  //     }
+  //   };
+  // }, []);
 
   return (
     <section className="introVideo" id="rewind">
