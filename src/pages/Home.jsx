@@ -8,6 +8,7 @@ import ARWedding from "../components/ARWedding";
 import FeaturedGlance from "../components/FeaturedGlance";
 import RewindGlance from "../components/RewindGlance";
 import AwardsGlance from "../components/AwardsGlance";
+import Gallery from "../components/Gallery";
 
 export default function Home() {
   useEffect(() => {
@@ -39,6 +40,9 @@ export default function Home() {
 
       {/* Awards Glance */}
       <AwardsGlance />
+
+      {/* Gallery */}
+      <Gallery />
     </main>
   );
 }
