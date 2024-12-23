@@ -30,7 +30,7 @@ const Intro = () => {
   }, []);
 
   return (
-    <section className="introVideo">
+    <section className="introVideo" id="intro">
       <div className="iVideo ratio ratio-16x9">
         <video ref={videoRef} autoPlay muted loop controls onPlay={() => console.log("Video is playing...")}>
           <source src="videos/glance.mp4" type="video/mp4" />

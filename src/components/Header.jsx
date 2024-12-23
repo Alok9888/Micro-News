@@ -1,8 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import logo from "/img/logo.svg";
 import { FiMenu } from "react-icons/fi";
 import { useEffect, useState } from "react";
-import { HashLink } from "react-router-hash-link";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -11,16 +11,17 @@ const Header = () => {
 
   useEffect(() => {
     const sections = document.querySelectorAll("section[id]");
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
+            const id = entry.target.id;
+            setActiveSection(id); // Set the active section
+            console.log(`Section in view: ${id}`);
           }
         });
       },
-      { threshold: 0.8 } // Trigger when 50% of the section is visible
+      { threshold: 0.5 }
     );
 
     sections.forEach((section) => observer.observe(section));
@@ -28,9 +29,8 @@ const Header = () => {
     return () => {
       sections.forEach((section) => observer.unobserve(section));
     };
-  }, []);
+  }, [location.hash]); // Use `location.hash` instead of `location.pathname`
 
-  // Add scroll event to handle class addition/removal
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 500);
@@ -41,15 +41,14 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
-    // Dynamically import Bootstrap's JS for Offcanvas
-    import("bootstrap").then((bootstrap) => {
-      // Optionally, you can initialize it explicitly
-      const offcanvasElements = document.querySelectorAll(".offcanvas");
-      offcanvasElements.forEach((el) => new bootstrap.Offcanvas(el));
-    });
-  }, []);
+    const hash = location.hash.replace("#", "");
+    const targetSection = document.getElementById(hash);
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [location.hash]);
 
-  const isActive = (hash) => location.hash === hash;
+  const isActive = (hash) => activeSection === hash.replace("#", "");
 
   return (
     <header className={` ${isScrolled ? "scrolled" : ""}`}>
@@ -84,17 +83,17 @@ const Header = () => {
             <div className="offcanvas-body">
               <ul className="navbar-nav justify-content-between flex-grow-1">
                 <li className="nav-item">
-                  <HashLink to="/#featured" className={`nav-link ${activeSection === "featured" ? "active" : ""}`}>
-                    Leadership Highlights
+                  <HashLink smooth to="/#intro" className={`nav-link ${isActive("#intro") ? "active" : ""}`}>
+                    Video
                   </HashLink>
                 </li>
                 <li className="nav-item">
-                  <HashLink to="/#ar-wedding" className={`nav-link ${activeSection === "ar-wedding" ? "active" : ""}`}>
+                  <HashLink smooth to="/#ar-wedding" className={`nav-link ${isActive("#ar-wedding") ? "active" : ""}`}>
                     A&R Wedding
                   </HashLink>
                 </li>
                 <li className="nav-item">
-                  <HashLink to="/#24atGlance" className={`nav-link ${activeSection === "24atGlance" ? "active" : ""}`}>
+                  <HashLink smooth to="/#24atGlance" className={`nav-link ${isActive("#24atGlance") ? "active" : ""}`}>
                     2024 at a Glance
                   </HashLink>
                 </li>
