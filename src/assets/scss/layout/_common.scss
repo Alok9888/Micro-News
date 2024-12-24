@@ -117,14 +117,18 @@
             font-weight: 700;
             text-align: left;
 
+            h4 {
+                font-size: 18px;
+            }
+
             @include media-breakpoint-down(lg) {
                 margin-right: 0;
             }
 
             h5 {
                 position: relative;
-                font-size: 18px;
-                font-weight: 700;
+                font-size: 16px;
+                font-weight: 500;
                 display: flex;
                 gap: 10px;
 
@@ -149,8 +153,7 @@
                 font-size: 14px;
                 font-weight: 500;
                 display: block;
-                max-width: 245px;
-
+                // max-width: 245px;
             }
 
             .btn {
@@ -195,6 +198,7 @@
             background: $primary-500;
             height: 145px;
             padding-top: 10px;
+            min-width: 50%;
 
             @include media-breakpoint-down(sm) {
                 height: auto;

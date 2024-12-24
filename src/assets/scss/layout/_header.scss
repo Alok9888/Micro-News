@@ -160,9 +160,10 @@ header {
     }
 
     .offcanvas {
-        max-width: 90%;
 
         @include media-breakpoint-down(lg) {
+            max-width: 90%;
+
             .navbar-nav {
                 gap: 4px;
             }
