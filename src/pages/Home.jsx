@@ -9,6 +9,7 @@ import FeaturedGlance from "../components/FeaturedGlance";
 import RewindGlance from "../components/RewindGlance";
 import AwardsGlance from "../components/AwardsGlance";
 import Gallery from "../components/Gallery";
+import Download from "../components/Download";
 
 export default function Home() {
   useEffect(() => {
@@ -43,6 +44,8 @@ export default function Home() {
 
       {/* Gallery */}
       <Gallery />
+
+      <Download />
     </main>
   );
 }
