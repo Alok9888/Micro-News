@@ -6,7 +6,7 @@ const images = [
   { src: `${galleryPath}3.jpg`, title: "Image 3", category: "default" },
   { src: `${galleryPath}4.jpg`, title: "Image 4", category: "default" },
   { src: `${galleryPath}5.jpg`, title: "Image 5", category: "default" },
-  // { src: `${galleryPath}6.jpg`, title: "Image 6", category: "default" },
+  { src: `${galleryPath}6.jpg`, title: "Image 6", category: "default" },
   { src: `${galleryPath}7.jpg`, title: "Image 7", category: "default" },
   { src: `${galleryPath}8.jpg`, title: "Image 8", category: "default" },
   { src: `${galleryPath}9.jpg`, title: "Image 9", category: "default" },
@@ -33,6 +33,9 @@ const images = [
   { src: `${galleryPath}30.jpg`, title: "Image 30", category: "default" },
   { src: `${galleryPath}31.jpg`, title: "Image 31", category: "default" },
   { src: `${galleryPath}32.jpg`, title: "Image 32", category: "default" },
+  { src: `${galleryPath}33.jpg`, title: "Image 33", category: "default" },
+  { src: `${galleryPath}34.jpg`, title: "Image 34", category: "default" },
+  { src: `${galleryPath}35.jpg`, title: "Image 35", category: "default" },
 ];
 
 export default images;

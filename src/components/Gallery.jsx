@@ -55,7 +55,7 @@ const Gallery = () => {
     <section className="block gallery" id="gallery" ref={galleryRef}>
       <div className="container">
         <div className="secHeading">
-          <h3>Memories in Picture</h3>
+          <h3>Memories in Pictures</h3>
         </div>
 
         {/* Gallery Grid */}
