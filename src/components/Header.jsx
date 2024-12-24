@@ -54,6 +54,15 @@ const Header = () => {
 
   const isActive = (hash) => activeSection === hash.replace("#", "");
 
+  useEffect(() => {
+    // Dynamically import Bootstrap's JS for Offcanvas
+    import("bootstrap").then((bootstrap) => {
+      // Optionally, you can initialize it explicitly
+      const offcanvasElements = document.querySelectorAll(".offcanvas");
+      offcanvasElements.forEach((el) => new bootstrap.Offcanvas(el));
+    });
+  }, []);
+
   return (
     <header className={` ${isScrolled ? "scrolled" : ""}`}>
       <div className="topHeader">

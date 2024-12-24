@@ -2,7 +2,7 @@ import { FiDownload } from "react-icons/fi";
 
 const Download = () => {
   return (
-    <section className="block downloadPdf">
+    <section className="block downloadPdf" id="download">
       <div className="container">
         <div className="dpRow">
           <div className="dpImg">
