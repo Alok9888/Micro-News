@@ -140,7 +140,7 @@ const AwardsGlance = () => {
     <section className="awards block dark overlay primary">
       <div className="container">
         <div className="secHeading">
-          <h3>Awards & Recognition</h3>
+          <h4>Business Awards & Recognition</h4>
         </div>
 
         <div className="row">

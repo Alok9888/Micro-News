@@ -66,10 +66,11 @@ header {
         span {
             font-family: "Playfair Display", serif;
             font-family: 'logo';
-            font-size: 42px;
+            font-size: 40px;
             font-weight: 700;
             color: #fff;
             display: block;
+            text-transform: uppercase;
 
             @include media-breakpoint-down(md) {
                 font-size: 24px;
@@ -197,21 +198,21 @@ header {
 
     .topHeader {
         .logo {
-            height: 60px;
+            // height: 60px;
 
             img {
-                width: 26px;
+                // width: 26px;
             }
 
             span {
-                font-size: 18px;
+                // font-size: 18px;
             }
         }
     }
 
     .navbar {
         .navbar-toggler {
-            top: -52px;
+            // top: -52px;
         }
     }
 }

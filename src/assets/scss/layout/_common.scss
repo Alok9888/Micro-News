@@ -122,14 +122,26 @@
             }
 
             h5 {
+                position: relative;
                 font-size: 18px;
                 font-weight: 700;
                 display: flex;
                 gap: 10px;
 
                 svg {
-                    font-size: 50px;
+                    font-size: 45px;
                     flex-shrink: 0;
+                    position: absolute;
+                    top: -19px;
+                    left: -50px;
+                    color: #707ecb;
+
+                    @include media-breakpoint-down(lg) {
+                        position: relative;
+                        top: 0;
+                        left: 0;
+                        font-size: 40px;
+                    }
                 }
             }
 
