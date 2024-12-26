@@ -42,3 +42,15 @@
 .grid-item a:hover img {
     transform: scale(1.05);
 }
+
+.fancybox__container {
+    // --f-thumb-clip-width: auto;
+
+    // .f-thumbs__slide__button {
+    //     --f-thumb-clip-width: auto;
+    // }
+}
+
+.fancybox__thumbs.is-modern {
+    --f-thumb-clip-width: auto !important;
+}
