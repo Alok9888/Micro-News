@@ -1,11 +1,19 @@
 header {
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease-in-out;
     position: relative;
     z-index: 1002;
     top: 0;
     left: 0;
     right: 0;
     width: 100%;
+
+    &.nav-up {
+        transform: translateY(-100%);
+    }
+
+    &.nav-down {
+        transform: translateY(0);
+    }
 }
 
 .topHeader {

@@ -120,7 +120,7 @@ const Featured = () => {
     {
       id: 12,
       imgSrc: "11.jpg",
-      date: "Jio-bp’s 500th charging station | September 2024",
+      date: `Jio-bp’s 500th charging station | September 2024`,
       title: "Anant M Ambani inaugurates Jio-bp's 500th charging station with bp CEO Murray Auchincloss",
       // author: "Anant M. Ambani, Chairman, Reliance Jio",
       hasQuote: false,

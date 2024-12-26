@@ -6,8 +6,33 @@ import { useEffect, useState } from "react";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
+  const [lastScrollTop, setLastScrollTop] = useState(0);
+  const delta = 5; // Minimum scroll distance to trigger hide/show
+  const navbarHeight = 70; // Adjust based on your header's height
   const location = useLocation();
   const [activeSection, setActiveSection] = useState("");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const st = window.scrollY;
+
+      // Check if user scrolled more than delta
+      if (Math.abs(lastScrollTop - st) > delta) {
+        if (st > lastScrollTop && st > navbarHeight) {
+          // Scrolling down
+          setIsHidden(true);
+        } else {
+          // Scrolling up
+          setIsHidden(false);
+        }
+        setLastScrollTop(st);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollTop]);
 
   useEffect(() => {
     const sections = document.querySelectorAll("section[id]");
@@ -64,7 +89,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header className={` ${isScrolled ? "scrolled" : ""}`}>
+    <header className={` ${isScrolled ? "scrolled" : ""} ${isHidden ? "nav-up" : "nav-down"}`}>
       <div className="topHeader">
         <div className="container">
           <Link to="/" className="logo">

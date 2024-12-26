@@ -9,6 +9,7 @@ import images from "../content/images"; // Assuming this contains your images da
 const Gallery = () => {
   const [isIsotopeInitialized, setIsIsotopeInitialized] = useState(false);
   const galleryRef = useRef(null);
+  const galleryPath = "img/gallery/";
 
   // Lazy initialize Isotope and Fancybox when gallery is in view
   useEffect(() => {
@@ -63,8 +64,8 @@ const Gallery = () => {
           <div className="grid-sizer"></div>
           {images.map((image, index) => (
             <div key={index} className={`grid-item ${image.category}`}>
-              <a data-fancybox="gallery" href={image.src}>
-                <img src={image.src} alt={image.title} loading="lazy" />
+              <a data-fancybox="gallery" href={`${galleryPath}${image.src}`} data-caption={image.title}>
+                <img src={`${galleryPath}${image.src}`} alt={image.title} loading="lazy" />
               </a>
             </div>
           ))}
