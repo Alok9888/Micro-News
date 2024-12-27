@@ -1,4 +1,5 @@
 const images = [
+  { src: `63.jpg`, title: "Image 63", category: "default" },
   {
     src: "1.jpg",
     title: "Republic Day celebrations across our office spaces",
@@ -210,7 +211,7 @@ const images = [
     null: null,
   },
   { src: `36.jpg`, title: "Image 36", category: "default" },
-  { src: `37.jpg`, title: "Image 37", category: "default" },
+  // { src: `37.jpg`, title: "Image 37", category: "default" },
   { src: `38.jpg`, title: "Image 38", category: "default" },
   { src: `39.jpg`, title: "Image 39", category: "default" },
   { src: `40.jpg`, title: "Image 40", category: "default" },
@@ -236,7 +237,7 @@ const images = [
   { src: `60.jpg`, title: "Image 60", category: "default" },
   { src: `61.jpg`, title: "Image 61", category: "default" },
   { src: `62.jpg`, title: "Image 62", category: "default" },
-  { src: `63.jpg`, title: "Image 63", category: "default" },
+
   { src: `64.jpg`, title: "Image 64", category: "default" },
   { src: `65.jpg`, title: "Image 65", category: "default" },
   { src: `66.jpg`, title: "Image 66", category: "default" },
@@ -249,7 +250,7 @@ const images = [
   { src: `73.jpg`, title: "Image 73", category: "default" },
   { src: `74.jpg`, title: "Image 74", category: "default" },
   { src: `75.jpg`, title: "Image 75", category: "default" },
-  { src: `76.jpg`, title: "Image 76", category: "default" },
+  // { src: `76.jpg`, title: "Image 76", category: "default" },
   { src: `77.jpg`, title: "Image 77", category: "default" },
   { src: `78.jpg`, title: "Image 78", category: "default" },
   { src: `79.jpg`, title: "Image 79", category: "default" },

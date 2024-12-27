@@ -108,9 +108,8 @@ const RewindGlance = () => {
                     <img src={`${imgPath}${article.imgSrc}`} alt={article.title} loading="lazy" />
                   </div>
                   <div className="aContent">
-                    <h4>{article.title}</h4>
-
                     {article.description && <span>{article.description}</span>}
+                    <h4>{article.title}</h4>
                   </div>
                 </div>
               </Link>

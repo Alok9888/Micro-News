@@ -60,7 +60,7 @@ const FeaturedGlance = () => {
     {
       id: 29,
       imgSrc: "29.jpg",
-      date: "",
+      date: "November 2024",
       title: "Tira opens new outlet at JWP; expands with partnerships and new offerings",
       author: "",
       hasQuote: false,
@@ -69,8 +69,8 @@ const FeaturedGlance = () => {
     {
       id: 30,
       imgSrc: "30.jpg",
-      date: "",
-      title: "Jio Studios shines bright on the global stage with multiple awards – awaiting story",
+      date: "December 2024",
+      title: "Jio Studios shines bright on the global stage with multiple awards",
       author: "",
       hasQuote: false,
       special: false,
