@@ -22,10 +22,11 @@ const ARWedding = () => {
   };
 
   return (
-    <section className="arWedding block" id="ar-wedding">
+    <section className="arWedding block">
       <div className="container">
         <div className="secHeading text-center">
-          <h3>A&R Wedding</h3>
+          {/* <h3>A&R Wedding</h3> */}
+          <img src="img/ar-logo.svg" alt="AR Logo" />
         </div>
 
         <div className="arVideo videoBox">

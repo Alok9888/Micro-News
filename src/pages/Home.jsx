@@ -7,6 +7,9 @@ import Awards from "../components/Awards";
 import ARWedding from "../components/ARWedding";
 import FeaturedGlance from "../components/FeaturedGlance";
 import RewindGlance from "../components/RewindGlance";
+import AwardsGlance from "../components/AwardsGlance";
+import Gallery from "../components/Gallery";
+import Download from "../components/Download";
 
 export default function Home() {
   useEffect(() => {
@@ -35,6 +38,14 @@ export default function Home() {
 
       {/* Rewind Glance */}
       <RewindGlance />
+
+      {/* Awards Glance */}
+      <AwardsGlance />
+
+      {/* Gallery */}
+      <Gallery />
+
+      <Download />
     </main>
   );
 }

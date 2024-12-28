@@ -24,7 +24,7 @@ const articlesData = [
   },
   {
     id: 36,
-    title: "EL&N London’s first Indian outlet opens at Jio World Plaza",
+    title: "EL&N, in partnership with RBL, opens at Jio World Plaza",
     imgSrc: "36.jpg",
     description: "October 2024",
   },
@@ -74,7 +74,7 @@ const articlesData = [
     id: 44,
     title: "RIL subsidiary Strand Life Sciences develops breakthrough technologies",
     imgSrc: "44.jpg",
-    description: "",
+    description: "April 2024",
   },
 ];
 
@@ -105,12 +105,11 @@ const RewindGlance = () => {
               <Link to={`article/${article.id}`}>
                 <div className="article articleAlt">
                   <div className="aImg special">
-                    <img src={`${imgPath}${article.imgSrc}`} alt="" />
+                    <img src={`${imgPath}${article.imgSrc}`} alt={article.title} loading="lazy" />
                   </div>
                   <div className="aContent">
-                    <h4>{article.title}</h4>
-
                     {article.description && <span>{article.description}</span>}
+                    <h4>{article.title}</h4>
                   </div>
                 </div>
               </Link>

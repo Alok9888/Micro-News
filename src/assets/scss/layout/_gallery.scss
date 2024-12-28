@@ -1,0 +1,56 @@
+.gallery {
+    min-height: 100vh;
+
+}
+
+.galleryGrid {
+    display: flex;
+    /* Use grid layout */
+    grid-template-columns: repeat(3, 1fr);
+    /* Create three equal columns */
+    gap: 15px;
+    /* Adjust gap between items */
+    justify-content: center;
+}
+
+.grid-sizer,
+.grid-item {
+    width: 33.3333333%;
+    /* Let the items expand to fill the available space */
+    margin-bottom: 0px;
+    /* Remove extra margin here */
+
+    @include media-breakpoint-down(md) {
+        width: 50%;
+    }
+
+    @include media-breakpoint-down(sm) {}
+}
+
+.grid-item a {
+    overflow: hidden;
+    display: block;
+    margin: 8px;
+}
+
+.grid-item a img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s;
+}
+
+.grid-item a:hover img {
+    transform: scale(1.05);
+}
+
+.fancybox__container {
+    // --f-thumb-clip-width: auto;
+
+    // .f-thumbs__slide__button {
+    //     --f-thumb-clip-width: auto;
+    // }
+}
+
+.fancybox__thumbs.is-modern {
+    --f-thumb-clip-width: auto !important;
+}

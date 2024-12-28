@@ -49,7 +49,7 @@ const ArticleDetail = () => {
           setMeta(metadata);
           setContent(markdown);
         } else {
-          console.error("Markdown file not found for ID:", id);
+          // console.error("Markdown file not found for ID:", id);
         }
       } catch (error) {
         console.error("Error loading article:", error);
@@ -69,10 +69,16 @@ const ArticleDetail = () => {
   useEffect(() => {
     const initializeVideoJS = () => {
       const videoElements = document.querySelectorAll(".video-js");
+
       videoElements.forEach((video) => {
-        if (!videojs.players[video.id]) {
-          videojs(video);
+        const existingPlayer = videojs.players[video.id];
+        if (existingPlayer) {
+          // Dispose of the existing player to reinitialize it
+          existingPlayer.dispose();
         }
+        videojs(video, {}, () => {
+          console.log(`Video.js player initialized for: ${video.id}`);
+        });
       });
     };
 
@@ -98,7 +104,7 @@ const ArticleDetail = () => {
 
                   {meta.author && (
                     <span>
-                      {meta.author} | {meta.date}
+                      {meta.author} {meta.date && ` | ${meta.date}`}
                     </span>
                   )}
 

@@ -80,7 +80,7 @@ const Awards = () => {
     <section className="awards block dark overlay">
       <div className="container">
         <div className="secHeading">
-          <h3>Awards & Recognition</h3>
+          <h4>Leadership Awards</h4>
         </div>
 
         <div className="row">

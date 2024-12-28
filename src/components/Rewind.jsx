@@ -6,75 +6,80 @@ import { useEffect } from "react";
 const articlesData = [
   {
     id: 13,
-    title: "Reliance will continue to play a leading role in Gujarat’s growth story",
+    date: "Vibrant Gujarat Summit | January 2024",
+    title: "“Reliance will continue to play a leading role in Gujarat’s growth story”",
     imgSrc: "1.jpg",
-    description: "Reliance will continue to play a leading role in Gujarat’s growth story | January 2024",
+    description: "Mukesh D Ambani",
   },
   {
     id: 14,
-    title: '"Reliance has proudly partnered in Tamil Nadu’s growth over the years"',
-    imgSrc: "no-image.jpg",
-    description: "RIL CMD Mukesh Ambani at Tamil Nadu Global Investors’ Meet | January 2024",
+    date: "Tamil Nadu Global Investors Meet | January 2024",
+    title: "“Reliance has proudly partnered in Tamil Nadu’s growth over the years”",
+    imgSrc: "2.jpg",
+    description: "Mukesh D Ambani",
   },
   {
     id: 15,
-    title: "Nita Ambani re-elected unanimously as IOC member",
+    date: "IOC re-election | July 2024",
+    title: "“Deeply honoured to be re-elected”",
     imgSrc: "3.jpg",
-    // description: "RIL CMD Mukesh Ambani at 10th Vibrant Gujarat Summit | January 2024",
+    description: "Nita M Ambani on her unanimous re-election as IOC member ",
   },
   {
     id: 16,
-    title: "Nita Ambani announces new initiative empowering women in sports to mark 3rd anniversary of Her Circle",
+    date: "Her Circle 3rd anniversary | March 2024",
+    title: "“The WinnHER Circle Project spotlights the effort of women athletes”",
     imgSrc: "4.jpg",
-    // description: "RIL CMD Mukesh Ambani at 10th Vibrant Gujarat Summit | January 2024",
+    description: "Nita M Ambani on empowering women and girls in sports",
   },
   {
     id: 17,
-    title: "NMACC marks one year of celebrating the best of India and the world",
+    date: "One year of NMACC | March 2024",
+    title: "Celebrating the best of India and the world",
     imgSrc: "5.jpg",
-    // description: "RIL CMD Mukesh Ambani at 10th Vibrant Gujarat Summit | January 2024",
+    description: "",
   },
   {
     id: 18,
+    date: "Breast health awareness | April 2024",
     title: "Isha M Ambani launches book on breast health awareness",
     imgSrc: "6.jpg",
-    // description: "RIL CMD Mukesh Ambani at 10th Vibrant Gujarat Summit | January 2024",
+    description: "",
   },
   {
     id: 19,
-    title: "Nita M Ambani launches New Health Seva Plan to commemorate Sir HN RFH’s 10-year anniversary",
-    imgSrc: "7.jpg",
-    // description: "RIL CMD Mukesh Ambani at 10th Vibrant Gujarat Summit | January 2024",
+    date: "New openings | October 2024",
+    title: "NMAJS and NMAJS-EYC, envisioned and led by Isha M Ambani, open in Mumbai",
+    imgSrc: "11.jpg",
+    description: "",
   },
   {
     id: 20,
-    title: "For India to shine, more and more girls must take up STEM",
-    imgSrc: "no-image.jpg",
-    // description: "RIL CMD Mukesh Ambani at 10th Vibrant Gujarat Summit | January 2024",
+    date: "ICT Day | May 2024",
+    title: `“For India to shine, more girls must take up STEM”`,
+    imgSrc: "8.jpg",
+    description: "Isha M Ambani",
   },
   {
     id: 21,
-    title: "Isha M Ambani among Fortune’s ‘100 Most Powerful Women Asia 2024’",
-    imgSrc: "no-image.jpg",
-    // description: "RIL CMD Mukesh Ambani at 10th Vibrant Gujarat Summit | January 2024",
+    date: "Reliance-Disney JV | November 2024",
+    title: "Nita M Ambani to be Chairperson",
+    imgSrc: "9.jpg",
+    description: "",
   },
   {
     id: 22,
-    title: "Nita M Ambani launches new health seva plan commemorating Sir HN Reliance Foundation Hospital’s 10-year anniversary",
-    imgSrc: "no-image.jpg",
-    // description: "RIL CMD Mukesh Ambani at 10th Vibrant Gujarat Summit | January 2024",
+    date: "10 Years of RFH | October 2024",
+    title: "Nita M Ambani launches new Health Seva Plan",
+    imgSrc: "7.jpg",
+    description: "",
   },
   {
     id: 23,
-    title: "RIL leaders address Reliance colleagues and families at grand Diwali event",
-    imgSrc: "no-image.jpg",
-    // description: "RIL CMD Mukesh Ambani at 10th Vibrant Gujarat Summit | January 2024",
-  },
-  {
-    id: 24,
-    title: "Reliance is becoming a deep-tech and advanced manufacturing company to propel growth for a Viksit Bharat",
-    imgSrc: "no-image.jpg",
-    // description: "RIL CMD Mukesh Ambani at 10th Vibrant Gujarat Summit | January 2024",
+    date: "Reliance Green Diwali  Utsav | October 2024",
+    title: "Reliance leaders address colleagues and family members at grand event",
+    imgSrc: "10.jpg",
+    description: "",
   },
 ];
 
@@ -105,11 +110,11 @@ const Rewind = () => {
               <Link to={`article/${article.id}`}>
                 <div className="article articleAlt">
                   <div className="aImg special">
-                    <img src={`${imgPath}${article.imgSrc}`} alt="" />
+                    <img src={`${imgPath}${article.imgSrc}`} alt={article.title} loading="lazy" />
                   </div>
                   <div className="aContent">
+                    <small>{article.date}</small>
                     <h4>{article.title}</h4>
-
                     {article.description && <span>{article.description}</span>}
                   </div>
                 </div>
