@@ -112,7 +112,7 @@ const Featured = () => {
       imgSrc: "10.jpg",
       date: "Launch of Vantara | February 2024",
       title:
-        "We hope Vantara becomes a beacon of hope globally and can showcase how a forward-thinking institution can help global biodiversity conservation initiatives.",
+        "“We hope Vantara becomes a beacon of hope globally and can showcase how a forward-thinking institution can help global biodiversity conservation initiatives.”",
       author: "Anant M Ambani, Director, RIL and Reliance Foundation Boards",
       hasQuote: false,
       special: true,

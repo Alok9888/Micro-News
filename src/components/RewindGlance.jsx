@@ -74,7 +74,7 @@ const articlesData = [
     id: 44,
     title: "RIL subsidiary Strand Life Sciences develops breakthrough technologies",
     imgSrc: "44.jpg",
-    description: "",
+    description: "April 2024",
   },
 ];
 

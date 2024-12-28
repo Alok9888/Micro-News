@@ -104,7 +104,7 @@ const ArticleDetail = () => {
 
                   {meta.author && (
                     <span>
-                      {meta.author} | {meta.date}
+                      {meta.author} {meta.date && ` | ${meta.date}`}
                     </span>
                   )}
 

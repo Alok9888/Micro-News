@@ -54,6 +54,10 @@
             font-size: 30px;
         }
 
+        h4 {
+            font-size: 24px;
+        }
+
         p {
             line-height: 26px;
             margin-bottom: 20px;
@@ -67,6 +71,11 @@
 
         .video-js {
             margin-bottom: 20px;
+        }
+
+        a {
+            color: $primary;
+            text-decoration: underline;
         }
     }
 
