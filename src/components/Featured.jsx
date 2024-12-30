@@ -36,6 +36,16 @@ const Featured = () => {
       special: false,
     },
     {
+      id: 1,
+      imgSrc: "0.jpg",
+      date: "December 2024",
+      title: "Reliance Family Day 2024: A grand success!",
+      author: "",
+      hasQuote: false,
+      special: false,
+      secondary: true,
+    },
+    {
       id: 3,
       imgSrc: "2.jpg",
       date: "NVIDIA AI Summit | October 2024",
@@ -150,7 +160,10 @@ const Featured = () => {
         <div className="row">
           {articles.map((article, index) => (
             <div
-              className={`col-lg-${article.special ? 8 : index === 0 ? 12 : 4} col-md-${index === 0 ? 12 : 6}`}
+              // className={`col-lg-${article.special ? 8 : index === 0 ? 12 : 4} col-md-${index === 0 ? 12 : 6}`}
+              className={`col-lg-${article.special ? 8 : article.secondary ? 12 : index === 0 ? 12 : 4} col-md-${
+                article.secondary ? 6 : index === 0 ? 12 : 6
+              }`}
               key={article.id}
               data-aos="fade-up"
               data-aos-delay={index * 100}
