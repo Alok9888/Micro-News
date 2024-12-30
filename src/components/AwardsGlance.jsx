@@ -117,6 +117,24 @@ const awards = [
     name: "Most Trusted EV Charging Provider",
     title: "Jio recognised for excellence in technology",
   },
+  {
+    id: 30,
+    img: "30.png",
+    name: "BML Munjal Award",
+    title: "Jio receives BML Munjal Award for Excellence in L&D in Private Sector (Services) ",
+  },
+  {
+    id: 31,
+    img: "31.png",
+    name: "Most Trusted EV Charging Provider",
+    title: "RIL is India’s Most Valuable Company",
+  },
+  {
+    id: 32,
+    img: "32.png",
+    name: "Arogya World",
+    title: "RIL receives Arogya World – Health Workplace 2024 “Hall of Fame” award ",
+  },
 ];
 
 const AwardsGlance = () => {

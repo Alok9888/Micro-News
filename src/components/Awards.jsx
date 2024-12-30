@@ -57,6 +57,12 @@ const awards = [
     name: "Lokmat",
     title: "Isha M Ambani honoured at Lokmat Maharashtrian of the Year Awards 2024",
   },
+  {
+    id: 29,
+    img: "29.png",
+    name: "Business Today",
+    title: `Isha Ambani recognised among 'Business Today Most Powerful Women' as "The Retail Disruptor"`,
+  },
 ];
 
 const Awards = () => {
