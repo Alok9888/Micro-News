@@ -24,6 +24,15 @@ const Featured = () => {
 
   const articles = [
     {
+      id: 1,
+      imgSrc: "rfd.png",
+      date: "December 2024",
+      title: "Reliance Family Day 2024: A grand success!",
+      author: "",
+      hasQuote: false,
+      special: false,
+    },
+    {
       id: 2,
       imgSrc: "1.jpg",
       date: "RIL 47th AGM | August 2024",
@@ -34,17 +43,9 @@ const Featured = () => {
       quoteAuthor: "Mukesh D Ambani | RIL Chairman and Managing Director",
       hasQuote: true,
       special: false,
-    },
-    {
-      id: 1,
-      imgSrc: "0.jpg",
-      date: "December 2024",
-      title: "Reliance Family Day 2024: A grand success!",
-      author: "",
-      hasQuote: false,
-      special: false,
       secondary: true,
     },
+
     {
       id: 3,
       imgSrc: "2.jpg",
@@ -147,7 +148,7 @@ const Featured = () => {
 
         {/* Family Day Video */}
         {/* <FamilyDayVideo /> */}
-        <div className="fdVideo videoBox mb-5" id="familyDayVideo">
+        <div className="fdVideo videoBox mb-3" id="familyDayVideo">
           <video className="video-js vjs-fluid" controls preload="auto" poster="img/videos/rfd.png" data-setup="{}">
             <source
               src="https://indiahouse.cdn.jio.com//bpkvod/jiotv/default/676f8978777ea1a55158b4aa/676f8978777ea1a55158b4aa/index_jtv_web_premium.m3u8"

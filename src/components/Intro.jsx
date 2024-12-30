@@ -31,11 +31,25 @@ const Intro = () => {
 
   return (
     <section className="introVideo" id="rewind">
-      <div className="iVideo ratio ratio-16x9">
+      {/* <div className="iVideo ratio ratio-16x9">
         <video ref={videoRef} autoPlay muted loop controls>
           <source src="videos/glance.mp4" type="video/mp4" />
         </video>
-      </div>
+      </div> */}
+
+      <video
+        id="my-video-582"
+        className="video-js vjs-fluid w-100"
+        controls
+        preload="auto"
+        poster="https://rworld.ril.com/sites/rworld/PublishingImages/Rewind-2024-Frame.jpg.png"
+        data-setup="{}"
+      >
+        <source
+          src="https://rworld.ril.com/vod/_definst_/mp4:RWorld/Reliance-Herald-Rewind-2024_301224190028.mp4/playlist.m3u8"
+          type="application/x-mpegURL"
+        />
+      </video>
     </section>
   );
 };
