@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
-// import FamilyDayVideo from "./FamilyDayVideo";
+import FamilyDayVideo from "./FamilyDayVideo";
 import { RiDoubleQuotesL } from "react-icons/ri";
 
 const Featured = () => {

@@ -6,7 +6,6 @@ header {
     left: 0;
     right: 0;
     width: 100%;
-    overflow: hidden;
 
     &.nav-up {
         transform: translateY(-100%);
@@ -205,7 +204,7 @@ header {
 }
 
 .scrolled {
-    position: sticky;
+    position: fixed;
 
     .topHeader {
         .logo {
@@ -226,4 +225,8 @@ header {
             // top: -52px;
         }
     }
+}
+
+.offcanvas.show {
+    height: 100vh;
 }
