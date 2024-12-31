@@ -1,9 +1,9 @@
-import  { useEffect } from "react";
+import { useEffect } from "react";
 import videojs from "video.js";
 
-const DynamicVideoPlayer = () => {
+const DynamicVideoPlayer = ({ src, poster }) => {
   useEffect(() => {
-    const container = document.getElementById("familyDayVideo");
+    const container = document.getElementById("dynamic-video-container");
 
     if (container) {
       // Inject the video element dynamically
@@ -13,10 +13,10 @@ const DynamicVideoPlayer = () => {
           id="dynamic-video-player"
           controls
           preload="auto"
-          poster="img/videos/rfd.png"
+          poster="${poster}"
         >
           <source
-            src="https://indiahouse.cdn.jio.com//bpkvod/jiotv/default/676f8978777ea1a55158b4aa/676f8978777ea1a55158b4aa/index_jtv_web_premium.m3u8"
+            src="${src}"
             type="application/x-mpegURL"
           />
         </video>
@@ -38,8 +38,9 @@ const DynamicVideoPlayer = () => {
         };
       }
     }
-  }, []);
+  }, [src, poster]); // Re-run effect if `src` or `poster` changes
 
+  return <div id="dynamic-video-container"></div>;
 };
 
 export default DynamicVideoPlayer;
