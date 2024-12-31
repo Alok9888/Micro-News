@@ -2,12 +2,16 @@ import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
-import FamilyDayVideo from "./FamilyDayVideo";
+// import FamilyDayVideo from "./FamilyDayVideo";
 import { RiDoubleQuotesL } from "react-icons/ri";
-
+import "video.js/dist/video-js.css";
+import DynamicVideoPlayer from "./DynamicVideoPlayer";
+// import videojs from "video.js";
 const Featured = () => {
   const imgPath = "img/articles/";
+
   // Initialize AOS
+
   useEffect(() => {
     AOS.init({
       disable: "phone", // Disable on mobile devices
@@ -148,13 +152,11 @@ const Featured = () => {
 
         {/* Family Day Video */}
         {/* <FamilyDayVideo /> */}
-        <div className="fdVideo videoBox mb-3" id="familyDayVideo">
-          <video className="video-js vjs-fluid" controls preload="auto" poster="img/videos/rfd.png" data-setup="{}">
-            <source
-              src="https://indiahouse.cdn.jio.com//bpkvod/jiotv/default/676f8978777ea1a55158b4aa/676f8978777ea1a55158b4aa/index_jtv_web_premium.m3u8"
-              type="application/x-mpegURL"
-            />
-          </video>
+        <div className="fdVideo videoBox mb-3">
+          <DynamicVideoPlayer
+            src="https://indiahouse.cdn.jio.com/bpkvod/jiotv/default/676f8978777ea1a55158b4aa/676f8978777ea1a55158b4aa/index_jtv_web_premium.m3u8"
+            poster="img/videos/rfd.png"
+          />
         </div>
 
         {/* Leadership Insights */}
