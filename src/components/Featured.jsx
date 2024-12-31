@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
-// import FamilyDayVideo from "./FamilyDayVideo";
+import FamilyDayVideo from "./FamilyDayVideo";
 import { RiDoubleQuotesL } from "react-icons/ri";
 
 const Featured = () => {
@@ -24,6 +24,15 @@ const Featured = () => {
 
   const articles = [
     {
+      id: 1,
+      imgSrc: "rfd.png",
+      date: "December 2024",
+      title: "Reliance Family Day 2024: A grand success!",
+      author: "",
+      hasQuote: false,
+      special: false,
+    },
+    {
       id: 2,
       imgSrc: "1.jpg",
       date: "RIL 47th AGM | August 2024",
@@ -34,7 +43,9 @@ const Featured = () => {
       quoteAuthor: "Mukesh D Ambani | RIL Chairman and Managing Director",
       hasQuote: true,
       special: false,
+      secondary: true,
     },
+
     {
       id: 3,
       imgSrc: "2.jpg",
@@ -137,12 +148,23 @@ const Featured = () => {
 
         {/* Family Day Video */}
         {/* <FamilyDayVideo /> */}
+        <div className="fdVideo videoBox mb-3" id="familyDayVideo">
+          <video className="video-js vjs-fluid" controls preload="auto" poster="img/videos/rfd.png" data-setup="{}">
+            <source
+              src="https://indiahouse.cdn.jio.com//bpkvod/jiotv/default/676f8978777ea1a55158b4aa/676f8978777ea1a55158b4aa/index_jtv_web_premium.m3u8"
+              type="application/x-mpegURL"
+            />
+          </video>
+        </div>
 
         {/* Leadership Insights */}
         <div className="row">
           {articles.map((article, index) => (
             <div
-              className={`col-lg-${article.special ? 8 : index === 0 ? 12 : 4} col-md-${index === 0 ? 12 : 6}`}
+              // className={`col-lg-${article.special ? 8 : index === 0 ? 12 : 4} col-md-${index === 0 ? 12 : 6}`}
+              className={`col-lg-${article.special ? 8 : article.secondary ? 12 : index === 0 ? 12 : 4} col-md-${
+                article.secondary ? 6 : index === 0 ? 12 : 6
+              }`}
               key={article.id}
               data-aos="fade-up"
               data-aos-delay={index * 100}

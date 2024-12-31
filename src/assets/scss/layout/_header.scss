@@ -204,7 +204,7 @@ header {
 }
 
 .scrolled {
-    position: sticky;
+    position: fixed;
 
     .topHeader {
         .logo {
@@ -225,4 +225,8 @@ header {
             // top: -52px;
         }
     }
+}
+
+.offcanvas.show {
+    height: 100vh;
 }

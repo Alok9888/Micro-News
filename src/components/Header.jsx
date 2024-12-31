@@ -3,6 +3,7 @@ import { HashLink } from "react-router-hash-link";
 import logo from "/img/logo.svg";
 import { FiMenu } from "react-icons/fi";
 import { useEffect, useState } from "react";
+// import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -80,12 +81,14 @@ const Header = () => {
   const isActive = (hash) => activeSection === hash.replace("#", "");
 
   useEffect(() => {
-    // Dynamically import Bootstrap's JS for Offcanvas
-    import("bootstrap").then((bootstrap) => {
-      // Optionally, you can initialize it explicitly
-      const offcanvasElements = document.querySelectorAll(".offcanvas");
-      offcanvasElements.forEach((el) => new bootstrap.Offcanvas(el));
-    });
+    import("bootstrap")
+      .then((bootstrap) => {
+        const offcanvasElements = document.querySelectorAll(".offcanvas");
+        offcanvasElements.forEach((el) => new bootstrap.Offcanvas(el));
+      })
+      .catch((error) => {
+        console.error("Error loading Bootstrap:", error);
+      });
   }, []);
 
   return (

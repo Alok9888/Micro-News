@@ -172,6 +172,39 @@
             }
         }
 
+        &.hasQuoteAlt {
+            background: #fff;
+            color: $primary;
+            border: 1px solid #E5E5E5;
+
+            .aImg {
+
+                img {
+                    height: auto;
+                    width: auto;
+                }
+
+            }
+
+            .aContent {
+                color: $primary;
+            }
+
+            .aQuote h5 svg {
+                color: $primary;
+            }
+
+            .btn {
+                border: 1px solid $primary;
+                color: $primary;
+
+                &:hover {
+                    background-color: $primary;
+                    color: #fff;
+                }
+            }
+        }
+
     }
 
     &.articleAlt {
@@ -203,6 +236,12 @@
 
             @include media-breakpoint-down(sm) {
                 height: auto;
+            }
+
+            small {
+                display: block;
+                line-height: 1.5;
+                margin-bottom: 10px;
             }
 
             span,

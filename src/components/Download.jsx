@@ -10,7 +10,7 @@ const Download = () => {
           </div>
           <div className="dpDetails">
             <h3>The Reliance Herald 2024</h3>
-            <a href="#!" className="btn btn-outline-light">
+            <a href="pdf/Reliance_Herald_2024.pdf" target="_blank" className="btn btn-outline-light">
               <FiDownload />
               Download PDF
             </a>

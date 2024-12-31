@@ -33,6 +33,7 @@ const ArticleDetail = () => {
   const { id } = useParams();
   const [content, setContent] = useState(null);
   const [meta, setMeta] = useState(null);
+  const [initializedPlayers, setInitializedPlayers] = useState([]);
 
   useEffect(() => {
     const loadArticleContent = async () => {
@@ -65,24 +66,34 @@ const ArticleDetail = () => {
     }
   }, [meta]);
 
-  // Initialize Video.js for dynamically rendered videos
   useEffect(() => {
     const initializeVideoJS = () => {
       const videoElements = document.querySelectorAll(".video-js");
+      const newPlayers = [];
 
       videoElements.forEach((video) => {
         const existingPlayer = videojs.players[video.id];
         if (existingPlayer) {
-          // Dispose of the existing player to reinitialize it
           existingPlayer.dispose();
         }
-        videojs(video, {}, () => {
+        const player = videojs(video, {}, () => {
           console.log(`Video.js player initialized for: ${video.id}`);
         });
+        newPlayers.push(player);
       });
+
+      setInitializedPlayers(newPlayers);
     };
 
-    initializeVideoJS();
+    if (content) {
+      initializeVideoJS();
+    }
+
+    // Cleanup: Dispose only the players initialized by this component
+    return () => {
+      initializedPlayers.forEach((player) => player.dispose());
+      setInitializedPlayers([]);
+    };
   }, [content]);
 
   if (!content) {
