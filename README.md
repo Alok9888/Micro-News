@@ -4,13 +4,13 @@
 1. Open your terminal or command prompt.
 2. Clone the repository using the following command:
    ```
-   git clone https://github.com/hkgonebad/ril-herald-react.git
+   git clone https://github.com/hkgonebad/micro-news-listing.git
    ```
 
 ## Navigate to the Project Directory
 1. Move into the cloned repository:
    ```
-   cd ril-herald-react
+   cd micro-news-listing
    ```
 
 ## Install Dependencies
