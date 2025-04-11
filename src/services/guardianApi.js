@@ -7,7 +7,7 @@ const guardianApi = axios.create({
   baseURL: BASE_URL,
   params: {
     "api-key": API_KEY,
-    "show-fields": "thumbnail,headline,trailText,bodyText,byline,publication,shortUrl,lastModified,main,bodyText,body",
+    "show-fields": "thumbnail,headline,trailText,body,byline,publication,shortUrl,lastModified,main",
   },
 });
 
@@ -63,12 +63,15 @@ export const fetchRewindArticles = (pageSize = 8) => {
 export const fetchArticleById = async (articleId) => {
   try {
     const response = await guardianApi.get(`/${articleId}`);
+    console.log("Raw Guardian API Response:", response.data);
     const article = response.data.response.content;
-    return {
+    console.log("Article Fields:", article.fields);
+
+    const processedArticle = {
       id: article.id,
       title: article.fields.headline,
       description: article.fields.trailText,
-      content: article.fields.bodyText,
+      content: article.fields.body,
       image: getBestImage(article.fields),
       url: article.webUrl,
       date: article.webPublicationDate,
@@ -77,6 +80,9 @@ export const fetchArticleById = async (articleId) => {
       publication: article.fields.publication,
       shortUrl: article.fields.shortUrl,
     };
+
+    // console.log("Processed Article Data:", processedArticle);
+    return processedArticle;
   } catch (error) {
     console.error("Error fetching article:", error);
     return null;

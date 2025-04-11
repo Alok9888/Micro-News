@@ -16,6 +16,7 @@ const ArticleDetail = () => {
     const loadArticle = async () => {
       try {
         const articleData = await fetchArticleById(articleId);
+        console.log("Article Data in Component:", articleData);
         if (articleData) {
           setArticle(articleData);
           document.title = articleData.title;
@@ -94,14 +95,10 @@ const ArticleDetail = () => {
 
                 <div className="articleMedia">{article.image && <img src={article.image} alt={article.title} className="w-100" />}</div>
 
-                {article.description && (
-                  <div className="article-description">
-                    <p>{article.description}</p>
-                  </div>
-                )}
+                {article.description && <div className="article-description" dangerouslySetInnerHTML={{ __html: article.description }} />}
               </div>
 
-              <div className="articleBody">{article.content.split("\n").map((paragraph, index) => paragraph.trim() && <p key={index}>{paragraph}</p>)}</div>
+              <div className="articleBody" dangerouslySetInnerHTML={{ __html: article.content }} />
 
               <div className="articleFooter">
                 <p>
