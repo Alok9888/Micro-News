@@ -26,10 +26,11 @@ const FeaturedGlance = () => {
     const loadArticles = async () => {
       try {
         const data = await fetchArticles({
-          pageSize: 8,
+          pageSize: 9,
           tag: "tone/analysis",
           "order-by": "newest",
         });
+        console.log(data);
         const transformedArticles = data.map((article, index) => ({
           id: article.id,
           title: article.title,
@@ -55,7 +56,7 @@ const FeaturedGlance = () => {
 
   if (loading) {
     return (
-      <section className="featured block pb-0" id="24AtGlance">
+      <section className="featured block" id="24AtGlance">
         <div className="container">
           <div className="secHeading">
             <h3>Trending Analysis</h3>
@@ -67,7 +68,7 @@ const FeaturedGlance = () => {
   }
 
   return (
-    <section className="featured block pb-0" id="24AtGlance">
+    <section className="featured block " id="24AtGlance">
       <div className="container">
         <div className="secHeading">
           <h3>Trending Analysis</h3>

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
-import { fetchFeaturedArticles } from "../services/guardianApi";
+import { fetchFeaturedArticles, fetchTopStories } from "../services/guardianApi";
 import { RiDoubleQuotesL } from "react-icons/ri";
 import "video.js/dist/video-js.css";
 
@@ -29,9 +29,17 @@ const Featured = () => {
   useEffect(() => {
     const loadArticles = async () => {
       try {
-        const data = await fetchFeaturedArticles(6);
+        // First, get the top story to exclude it
+        const [topStory] = await fetchTopStories(1);
+
+        // Then fetch featured articles
+        const data = await fetchFeaturedArticles(8);
+
+        // Filter out the top story if it exists in the featured articles
+        const filteredData = topStory ? data.filter((article) => article.id !== topStory.id) : data;
+
         // Transform Guardian API data to match existing structure
-        const transformedArticles = data.map((article, index) => ({
+        const transformedArticles = filteredData.map((article, index) => ({
           id: article.id,
           title: article.title,
           date: new Date(article.date).toLocaleDateString(),

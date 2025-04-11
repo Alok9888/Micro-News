@@ -42,11 +42,13 @@ const Intro = () => {
       <div className="top-story">
         {story.image && <img src={story.image} alt={story.title} className="top-story-image" />}
         <div className="top-story-content">
-          <h1>{story.title}</h1>
-          <p>{story.description}</p>
-          <Link to={`/article/${story.id}`} className="btn btn-primary">
-            Read More
-          </Link>
+          <div className="container">
+            <h1>{story.title}</h1>
+            <p>{story.description}</p>
+            <Link to={`/article/${story.id}`} className="btn btn-primary">
+              Read More
+            </Link>
+          </div>
         </div>
       </div>
     </section>

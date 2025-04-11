@@ -7,9 +7,22 @@ const guardianApi = axios.create({
   baseURL: BASE_URL,
   params: {
     "api-key": API_KEY,
-    "show-fields": "thumbnail,headline,trailText,bodyText,byline,publication,shortUrl,lastModified",
+    "show-fields": "thumbnail,headline,trailText,bodyText,byline,publication,shortUrl,lastModified,main,bodyText,body",
   },
 });
+
+// Helper function to get the best available image
+const getBestImage = (fields) => {
+  // Try to get the highest quality image available
+  if (fields.main && fields.main.assets && fields.main.assets.length > 0) {
+    // Sort assets by width (descending) to get the highest resolution
+    const sortedAssets = [...fields.main.assets].sort((a, b) => b.width - a.width);
+    return sortedAssets[0].file;
+  }
+
+  // Fallback to thumbnail if main image is not available
+  return fields.thumbnail;
+};
 
 export const fetchArticles = async (params = {}) => {
   try {
@@ -18,15 +31,18 @@ export const fetchArticles = async (params = {}) => {
         ...params,
       },
     });
-    return response.data.response.results.map((article) => ({
+    const results = response.data.response.results.map((article) => ({
       id: article.id,
       title: article.fields.headline,
       description: article.fields.trailText,
       content: article.fields.bodyText,
-      image: article.fields.thumbnail,
+      image: getBestImage(article.fields),
       url: article.webUrl,
       date: article.webPublicationDate,
     }));
+
+    // Ensure we only return the requested number of articles
+    return results.slice(0, params.pageSize || 10);
   } catch (error) {
     console.error("Error fetching articles:", error);
     return [];
@@ -53,7 +69,7 @@ export const fetchArticleById = async (articleId) => {
       title: article.fields.headline,
       description: article.fields.trailText,
       content: article.fields.bodyText,
-      image: article.fields.thumbnail,
+      image: getBestImage(article.fields),
       url: article.webUrl,
       date: article.webPublicationDate,
       author: article.fields.byline || "The Guardian",
@@ -67,7 +83,7 @@ export const fetchArticleById = async (articleId) => {
   }
 };
 
-export const fetchAwardArticles = (pageSize = 2) => {
+export const fetchAwardArticles = (pageSize = 12) => {
   return fetchArticles({
     pageSize,
     q: "awards OR recognition OR achievement",

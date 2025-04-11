@@ -23,7 +23,7 @@ const Awards = () => {
   useEffect(() => {
     const loadAwards = async () => {
       try {
-        const data = await fetchAwardArticles();
+        const data = await fetchAwardArticles(6);
         const transformedAwards = data.map((article) => ({
           id: article.id,
           img: article.image || `/img/awards/no-logo.png`,
