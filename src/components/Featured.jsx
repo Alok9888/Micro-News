@@ -44,7 +44,7 @@ const Featured = () => {
           title: article.title,
           date: new Date(article.date).toLocaleDateString(),
           author: article.author || "The Guardian",
-          imgSrc: article.image || `/img/articles/${index + 1}.jpg`,
+          imgSrc: article.image || `/img/no-image.jpg`,
           description: article.description,
           hasQuote: index === 0, // Make first article have a quote
           quote: article.description,

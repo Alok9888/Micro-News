@@ -35,7 +35,7 @@ const TrendingNews = () => {
           id: article.id,
           title: article.title,
           date: new Date(article.date).toLocaleDateString(),
-          imgSrc: article.image || `/img/articles/${index + 1}.jpg`,
+          imgSrc: article.image || `/img/no-image.jpg`,
           description: article.description,
           author: article.author || "The Guardian",
           quote: index === 0 ? article.description : null,

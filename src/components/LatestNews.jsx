@@ -26,7 +26,7 @@ const LatestNews = () => {
         const data = await fetchAwardArticles(6); // Only fetch 6 news items for glance view
         const transformedNews = data.map((article) => ({
           id: article.id,
-          img: article.image || `/img/awards/no-logo.png`,
+          img: article.image || `/img/no-image.jpg`,
           name: article.author || "The Guardian",
           title: article.title,
         }));
