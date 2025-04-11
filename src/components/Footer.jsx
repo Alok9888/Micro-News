@@ -1,10 +1,12 @@
-import React from "react";
-
 const Footer = () => {
   return (
     <footer>
-      <div className="container">
-        <p>2024-25 Reliance Industries Limited. All Rights Reserved.</p>
+      <div className="container text-center">
+        <p>2024-25 Micro News Portal. All Rights Reserved.</p>
+
+        <p>
+          Created with ❤️ by <a href="https://github.com/hkgonebad/micro-news-portal">Hk</a>
+        </p>
       </div>
     </footer>
   );

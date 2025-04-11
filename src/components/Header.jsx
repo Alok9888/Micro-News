@@ -43,7 +43,7 @@ const Header = () => {
           if (entry.isIntersecting) {
             const id = entry.target.id;
             setActiveSection(id); // Set the active section
-            console.log(`Section in view: ${id}`);
+            // console.log(`Section in view: ${id}`);
           }
         });
       },
@@ -80,12 +80,14 @@ const Header = () => {
   const isActive = (hash) => activeSection === hash.replace("#", "");
 
   useEffect(() => {
-    // Dynamically import Bootstrap's JS for Offcanvas
-    import("bootstrap").then((bootstrap) => {
-      // Optionally, you can initialize it explicitly
-      const offcanvasElements = document.querySelectorAll(".offcanvas");
-      offcanvasElements.forEach((el) => new bootstrap.Offcanvas(el));
-    });
+    import("bootstrap")
+      .then((bootstrap) => {
+        const offcanvasElements = document.querySelectorAll(".offcanvas");
+        offcanvasElements.forEach((el) => new bootstrap.Offcanvas(el));
+      })
+      .catch((error) => {
+        console.error("Error loading Bootstrap:", error);
+      });
   }, []);
 
   return (
@@ -93,22 +95,15 @@ const Header = () => {
       <div className="topHeader">
         <div className="container">
           <Link to="/" className="logo">
-            <img src={logo} alt="Reliance Herald Logo" />
-            <span>The Reliance Herald 2024</span>
+            <img src={logo} alt="Micro News Listing" />
+            <span className="d-none ">Micro News Listing</span>
           </Link>
         </div>
       </div>
 
       <nav className="navbar navbar-expand-lg">
         <div className="container">
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasNavbar"
-            aria-controls="offcanvasNavbar"
-            aria-label="Toggle navigation"
-          >
+          <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
             <FiMenu />
           </button>
           <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
@@ -121,28 +116,28 @@ const Header = () => {
             <div className="offcanvas-body">
               <ul className="navbar-nav justify-content-between flex-grow-1">
                 <li className="nav-item">
-                  <HashLink smooth to="/#rewind" className={`nav-link ${isActive("#rewind") ? "active" : ""}`}>
-                    Rewind 2024
+                  <HashLink smooth to="/#topStories" className={`nav-link ${isActive("#topStories") ? "active" : ""}`}>
+                    Top Stories
                   </HashLink>
                 </li>
                 <li className="nav-item">
                   <HashLink smooth to="/#featured" className={`nav-link ${isActive("#featured") ? "active" : ""}`}>
-                    Leadership Highlights
+                    Featured News
                   </HashLink>
                 </li>
                 <li className="nav-item">
-                  <HashLink smooth to="/#24AtGlance" className={`nav-link ${isActive("#24AtGlance") ? "active" : ""}`}>
-                    2024 at a Glance
+                  <HashLink smooth to="/#newsCategories" className={`nav-link ${isActive("#newsCategories") ? "active" : ""}`}>
+                    Movie News
                   </HashLink>
                 </li>
                 <li className="nav-item">
-                  <HashLink smooth to="/#gallery" className={`nav-link ${isActive("#gallery") ? "active" : ""}`}>
-                    Memories in Pictures
+                  <HashLink smooth to="/#newsGallery" className={`nav-link ${isActive("#newsGallery") ? "active" : ""}`}>
+                    News Gallery
                   </HashLink>
                 </li>
                 <li className="nav-item">
-                  <HashLink to="/#download" className={`nav-link ${isActive("#download") ? "active" : ""}`}>
-                    Download The Reliance Herald
+                  <HashLink to="/#subscribe" className={`nav-link ${isActive("#subscribe") ? "active" : ""}`}>
+                    Subscribe
                   </HashLink>
                 </li>
               </ul>

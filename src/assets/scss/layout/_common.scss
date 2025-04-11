@@ -42,8 +42,8 @@
         width: 100%;
         padding: 30px;
         background-color: rgba(0, 0, 0, 0.5);
-        // background: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
-        background: linear-gradient(0deg, $primary-500 0%, rgba(0, 0, 0, 0) 100%);
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+        // background: linear-gradient(0deg, $primary-500 0%, rgba(0, 0, 0, 0) 100%);
         color: #fff;
 
         @include media-breakpoint-down(md) {
@@ -128,7 +128,7 @@
             h5 {
                 position: relative;
                 font-size: 16px;
-                font-weight: 500;
+                font-weight: 400;
                 display: flex;
                 gap: 10px;
 
@@ -172,6 +172,39 @@
             }
         }
 
+        &.hasQuoteAlt {
+            background: #fff;
+            color: $primary;
+            border: 1px solid #E5E5E5;
+
+            .aImg {
+
+                img {
+                    height: auto;
+                    width: auto;
+                }
+
+            }
+
+            .aContent {
+                color: $primary;
+            }
+
+            .aQuote h5 svg {
+                color: $primary;
+            }
+
+            .btn {
+                border: 1px solid $primary;
+                color: $primary;
+
+                &:hover {
+                    background-color: $primary;
+                    color: #fff;
+                }
+            }
+        }
+
     }
 
     &.articleAlt {
@@ -203,6 +236,12 @@
 
             @include media-breakpoint-down(sm) {
                 height: auto;
+            }
+
+            small {
+                display: block;
+                line-height: 1.5;
+                margin-bottom: 10px;
             }
 
             span,

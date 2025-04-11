@@ -2,50 +2,43 @@ import { useEffect } from "react";
 
 import Intro from "../components/Intro";
 import Featured from "../components/Featured";
-import Rewind from "../components/Rewind";
-import Awards from "../components/Awards";
-import ARWedding from "../components/ARWedding";
-import FeaturedGlance from "../components/FeaturedGlance";
-import RewindGlance from "../components/RewindGlance";
-import AwardsGlance from "../components/AwardsGlance";
-import Gallery from "../components/Gallery";
-import Download from "../components/Download";
+import TopStories from "../components/TopStories";
+import NewsCategories from "../components/NewsCategories";
+import TrendingNews from "../components/TrendingNews";
+import LatestNews from "../components/LatestNews";
+import NewsGallery from "../components/NewsGallery";
+import Subscribe from "../components/Subscribe";
 
 export default function Home() {
   useEffect(() => {
-    document.title = "The Reliance Herald 2024";
+    document.title = "Micro News Portal";
   }, []);
 
   return (
     <main>
-      {/* Hero/Intro Video */}
+      {/* Intro/Hero News*/}
       <Intro />
 
-      {/* Featurted */}
+      {/* Featured News */}
       <Featured />
 
-      {/* Rewind */}
-      <Rewind />
+      {/* Top Stories */}
+      <TopStories />
 
-      {/* Awards and Recognitions */}
-      <Awards />
+      {/* News Categories */}
+      <NewsCategories />
 
-      {/* AR Wedding */}
-      <ARWedding />
+      {/* Trending News */}
+      <TrendingNews />
 
-      {/* 24 At A Glance */}
-      <FeaturedGlance />
+      {/* Latest News */}
+      <LatestNews />
 
-      {/* Rewind Glance */}
-      <RewindGlance />
+      {/* News Gallery */}
+      <NewsGallery />
 
-      {/* Awards Glance */}
-      <AwardsGlance />
-
-      {/* Gallery */}
-      <Gallery />
-
-      <Download />
+      {/* Subscribe */}
+      <Subscribe />
     </main>
   );
 }

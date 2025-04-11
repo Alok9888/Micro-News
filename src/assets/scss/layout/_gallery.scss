@@ -1,6 +1,5 @@
 .gallery {
     min-height: 100vh;
-
 }
 
 .galleryGrid {
@@ -19,6 +18,7 @@
     /* Let the items expand to fill the available space */
     margin-bottom: 0px;
     /* Remove extra margin here */
+    position: relative;
 
     @include media-breakpoint-down(md) {
         width: 50%;
@@ -41,6 +41,24 @@
 
 .grid-item a:hover img {
     transform: scale(1.05);
+}
+
+.gallery-link {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 10;
+}
+
+.grid-item:hover .gallery-link {
+    opacity: 1;
 }
 
 .fancybox__container {

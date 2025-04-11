@@ -1,40 +1,57 @@
-import { useRef } from "react";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { fetchTopStories } from "../services/guardianApi";
 
 const Intro = () => {
-  const videoRef = useRef(null);
+  const [story, setStory] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  // useEffect(() => {
-  //   const observer = new IntersectionObserver(
-  //     ([entry]) => {
-  //       if (entry.isIntersecting) {
-  //         // Play the video when in view
-  //         videoRef.current?.play();
-  //       } else {
-  //         // Pause the video when out of view
-  //         videoRef.current?.pause();
-  //       }
-  //     },
-  //     { threshold: 0.5 } // Adjust threshold as needed
-  //   );
+  useEffect(() => {
+    const loadTopStory = async () => {
+      try {
+        const [data] = await fetchTopStories(1);
+        if (data) {
+          setStory(data);
+        }
+        console.log("Top Story:", data);
+      } catch (error) {
+        console.error("Error loading top story:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  //   const videoElement = videoRef.current;
-  //   if (videoElement) {
-  //     observer.observe(videoElement);
-  //   }
+    loadTopStory();
+  }, []);
 
-  //   return () => {
-  //     if (videoElement) {
-  //       observer.unobserve(videoElement);
-  //     }
-  //   };
-  // }, []);
+  if (loading) {
+    return (
+      <section className="introVideo" id="rewind">
+        <div className="container">
+          <div>Loading top story...</div>
+        </div>
+      </section>
+    );
+  }
+
+  if (!story) {
+    return null;
+  }
 
   return (
     <section className="introVideo" id="rewind">
-      <div className="iVideo ratio ratio-16x9">
-        <video ref={videoRef} autoPlay muted loop controls>
-          <source src="videos/glance.mp4" type="video/mp4" />
-        </video>
+      <div className="top-story">
+        {story.image && <img src={story.image} alt={story.title} className="top-story-image" />}
+        <div className="top-story-content">
+          <div className="container">
+            <h1>{story.title}</h1>
+            <div className="mb-3 top-story-description" dangerouslySetInnerHTML={{ __html: story.description }} />
+            {story.author && <div className="mb-3 top-story-author">By {story.author}</div>}
+            <Link to={`/article/${story.id}`} className="btn btn-primary">
+              Read More
+            </Link>
+          </div>
+        </div>
       </div>
     </section>
   );

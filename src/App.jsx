@@ -27,7 +27,7 @@ const App = () => {
   const routes = useRoutes([
     { path: "/", element: <Home /> },
     {
-      path: "article/:id",
+      path: "article/*", // Updated to match all sub-paths under /article
       element: <ArticleDetail />,
     },
   ]);
