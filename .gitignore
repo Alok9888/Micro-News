@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 public/videos/
 public/videos/*
+
+.env
+.env.local
