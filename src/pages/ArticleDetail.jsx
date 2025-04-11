@@ -93,7 +93,7 @@ const ArticleDetail = () => {
                   {article.author} | {new Date(article.date).toLocaleDateString()}
                 </span>
 
-                <div className="articleMedia">{article.image && <img src={article.image} alt={article.title} className="w-100" />}</div>
+                <div className="articleMedia">{article.image && <img src={article.image || "/img/no-image.jpg"} alt={article.title} className="w-100" />}</div>
 
                 {article.description && <div className="article-description" dangerouslySetInnerHTML={{ __html: article.description }} />}
               </div>

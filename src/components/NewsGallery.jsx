@@ -43,7 +43,7 @@ const NewsGallery = () => {
           id: article.id,
           title: article.title,
           description: article.description,
-          image: article.image,
+          image: article.image || `/img/no-image.jpg`,
           author: article.author || "The Guardian",
           date: new Date(article.date).toLocaleDateString(),
         }));

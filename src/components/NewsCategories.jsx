@@ -35,7 +35,7 @@ const NewsCategories = () => {
           id: article.id,
           title: article.title,
           date: new Date(article.date).toLocaleDateString(),
-          imgSrc: article.image || `/img/categories/film.jpg`,
+          imgSrc: article.image || `/img/no-image.jpg`,
           description: article.description,
           author: article.author || "The Guardian",
         }));
