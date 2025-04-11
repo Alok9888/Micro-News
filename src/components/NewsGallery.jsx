@@ -3,29 +3,56 @@ import Isotope from "isotope-layout";
 import imagesLoaded from "imagesloaded";
 import { Fancybox } from "@fancyapps/ui";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
-import { fetchMediaContent } from "../services/guardianApi";
+import { fetchArticles } from "../services/guardianApi";
+import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const NewsGallery = () => {
   const [isIsotopeInitialized, setIsIsotopeInitialized] = useState(false);
   const [articles, setArticles] = useState([]);
+  const [loading, setLoading] = useState(true);
   const galleryRef = useRef(null);
 
   useEffect(() => {
-    const loadArticles = async () => {
-      console.log("Fetching gallery data...");
-      const data = await fetchMediaContent(15); // Fetch 15 articles
-      console.log("Fetched data:", data);
+    AOS.init({
+      disable: "phone",
+      duration: 600,
+      offset: 120,
+      easing: "ease-in-out",
+    });
+  }, []);
 
-      if (data.length < 15) {
-        console.warn("API returned fewer articles than expected. Adding placeholders.");
-        const placeholders = Array.from({ length: 15 - data.length }, (_, i) => ({
-          id: `placeholder-${i}`,
-          image: `https://picsum.photos/600/400?random=${i + 1}`,
-          title: `Placeholder Title ${i + 1}`,
+  useEffect(() => {
+    const loadArticles = async () => {
+      try {
+        // Fetch articles with images from the culture section
+        const data = await fetchArticles({
+          pageSize: 12,
+          section: "culture",
+          "show-fields": "thumbnail,headline,trailText,byline,main",
+          "order-by": "newest",
+          "show-elements": "image",
+        });
+
+        // Filter articles that have images
+        const articlesWithImages = data.filter((article) => article.image);
+
+        // Transform the data
+        const transformedArticles = articlesWithImages.map((article) => ({
+          id: article.id,
+          title: article.title,
+          description: article.description,
+          image: article.image,
+          author: article.author || "The Guardian",
+          date: new Date(article.date).toLocaleDateString(),
         }));
-        setArticles([...data, ...placeholders]);
-      } else {
-        setArticles(data);
+
+        setArticles(transformedArticles);
+      } catch (error) {
+        console.error("Error loading gallery articles:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -36,7 +63,7 @@ const NewsGallery = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !isIsotopeInitialized) {
+        if (entry.isIntersecting && !isIsotopeInitialized && articles.length > 0) {
           initializeGallery();
           observer.disconnect();
         }
@@ -49,10 +76,14 @@ const NewsGallery = () => {
     }
 
     return () => observer.disconnect();
-  }, [isIsotopeInitialized]);
+  }, [isIsotopeInitialized, articles]);
 
   const initializeGallery = () => {
-    Fancybox.bind("[data-fancybox]", {}); // Initialize Fancybox
+    Fancybox.bind("[data-fancybox]", {
+      caption: function (fancybox, carousel, slide) {
+        return slide.caption;
+      },
+    }); // Initialize Fancybox
 
     const grid = document.querySelector("#galleryGrid");
     if (grid) {
@@ -73,6 +104,19 @@ const NewsGallery = () => {
     }
   };
 
+  if (loading) {
+    return (
+      <section className="block gallery" id="newsGallery" ref={galleryRef}>
+        <div className="container">
+          <div className="secHeading">
+            <h3>News Gallery</h3>
+          </div>
+          <div>Loading gallery...</div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="block gallery" id="newsGallery" ref={galleryRef}>
       <div className="container">
@@ -83,10 +127,15 @@ const NewsGallery = () => {
         <div className="grid galleryGrid" id="galleryGrid">
           <div className="grid-sizer"></div>
           {articles.map((article, index) => (
-            <div key={article.id || index} className="grid-item news">
-              <a data-fancybox="gallery" href={article.image || "https://picsum.photos/600/400"} data-caption={article.title}>
-                <img src={article.image || "https://picsum.photos/600/400"} alt={article.title} loading="lazy" />
-              </a>
+            <div key={article.id} className="grid-item" data-aos="fade-up" data-aos-delay={index * 50}>
+              <div className="gallery-item">
+                <a data-fancybox="gallery" href={article.image} data-caption={`<h4>${article.title}</h4><p>${article.description}</p><small>By ${article.author} | ${article.date}</small>`}>
+                  <img src={article.image} alt={article.title} loading="lazy" />
+                </a>
+                <Link to={`/article/${article.id}`} className="gallery-link">
+                  Read more
+                </Link>
+              </div>
             </div>
           ))}
         </div>

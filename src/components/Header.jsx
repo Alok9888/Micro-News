@@ -127,7 +127,7 @@ const Header = () => {
                 </li>
                 <li className="nav-item">
                   <HashLink smooth to="/#newsCategories" className={`nav-link ${isActive("#newsCategories") ? "active" : ""}`}>
-                    News Categories
+                    Movie News
                   </HashLink>
                 </li>
                 <li className="nav-item">

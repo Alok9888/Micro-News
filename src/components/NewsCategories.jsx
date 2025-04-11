@@ -73,13 +73,13 @@ const NewsCategories = () => {
 
         <div className="row">
           {articles.map((article, index) => (
-            <div className="col-lg-2 col-md-4 col-sm-6" key={article.id} data-aos="fade-up" data-aos-delay={index * 100}>
+            <div className="col-lg-4 col-md-6 col-sm-6" key={article.id} data-aos="fade-up" data-aos-delay={index * 100}>
               <div className="award">
                 <Link to={`/article/${article.id}`} className="award-link">
                   <div className="awImg">
                     <img src={article.imgSrc} alt={article.title} />
                   </div>
-                  <p>{article.description}</p>
+                  <h4>{article.title}</h4>
                 </Link>
               </div>
             </div>
