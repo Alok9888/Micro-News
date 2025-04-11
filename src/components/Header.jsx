@@ -8,6 +8,7 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
   const [lastScrollTop, setLastScrollTop] = useState(0);
+  const [isOffcanvasOpen, setIsOffcanvasOpen] = useState(false);
   const delta = 5; // Minimum scroll distance to trigger hide/show
   const navbarHeight = 70; // Adjust based on your header's height
   const location = useLocation();
@@ -15,6 +16,9 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
+      // Don't hide header when offcanvas is open
+      if (isOffcanvasOpen) return;
+
       const st = window.scrollY;
 
       // Check if user scrolled more than delta
@@ -32,7 +36,7 @@ const Header = () => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollTop]);
+  }, [lastScrollTop, isOffcanvasOpen]);
 
   useEffect(() => {
     const sections = document.querySelectorAll("section[id]");
@@ -83,7 +87,20 @@ const Header = () => {
     import("bootstrap")
       .then((bootstrap) => {
         const offcanvasElements = document.querySelectorAll(".offcanvas");
-        offcanvasElements.forEach((el) => new bootstrap.Offcanvas(el));
+        offcanvasElements.forEach((el) => {
+          // Initialize the offcanvas
+          new bootstrap.Offcanvas(el);
+
+          // Add event listeners for offcanvas show/hide
+          el.addEventListener("show.bs.offcanvas", () => {
+            setIsOffcanvasOpen(true);
+            setIsHidden(false); // Ensure header is visible when offcanvas opens
+          });
+
+          el.addEventListener("hide.bs.offcanvas", () => {
+            setIsOffcanvasOpen(false);
+          });
+        });
       })
       .catch((error) => {
         console.error("Error loading Bootstrap:", error);
