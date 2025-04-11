@@ -1,18 +1,19 @@
 # Micro News Portal
 
-A modern, responsive news portal built with React that can be integrated with any news API. This project demonstrates a clean, professional news website layout that can be customized to work with different news data sources.
+A modern, responsive news portal built with React that aggregates and displays news articles from The Guardian API. This project demonstrates a clean, professional news website layout with optimized image handling and proper author attribution.
 
 ## 🚀 Features
 
 - Modern, responsive design
-- Dynamic news article layout
+- Dynamic news article layout with optimized image resolution
 - Category-based article filtering
 - Smooth animations and transitions
-- PDF export functionality
+- Newsletter subscription functionality
 - Video content support
 - Markdown rendering for article content
 - Parallax scrolling effects
 - Mobile-friendly interface
+- Proper author attribution throughout the site
 
 ## 🛠️ Tech Stack
 
@@ -74,6 +75,23 @@ src/
 └── main.jsx        # Application entry point
 ```
 
+## 🖼️ Image Handling
+
+The project includes optimized image handling:
+
+- Standard resolution (1000px) for most article listings
+- High resolution (2000px) for featured articles and article detail pages
+- Automatic image resolution adjustment based on context
+- Fallback images for articles without images
+
+## 👤 Author Attribution
+
+The project properly displays author information:
+
+- Author names are shown for all articles
+- Fallback to "The Guardian" when no author is specified
+- Consistent author display across all components
+
 ## 🎨 Customization
 
 The project maintains a clean separation between the UI components and the data source. To customize:
@@ -81,6 +99,7 @@ The project maintains a clean separation between the UI components and the data 
 1. **Layout**: Modify components in the `components/` directory
 2. **Styling**: Update SASS files in `src/assets/scss/`
 3. **Data Source**: Modify the API service in `src/services/`
+4. **Image Resolution**: Adjust the `ensureHighResImage` function in `guardianApi.js`
 
 ## 📝 License
 
