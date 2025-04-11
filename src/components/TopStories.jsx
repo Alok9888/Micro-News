@@ -70,6 +70,7 @@ const TopStories = () => {
                   <div className="aContent">
                     <small>{article.date}</small>
                     <h4>{article.title}</h4>
+                    <span>{article.author}</span>
                   </div>
                 </Link>
               </div>

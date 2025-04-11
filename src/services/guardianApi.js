@@ -21,7 +21,19 @@ const getBestImage = (fields) => {
   }
 
   // Fallback to thumbnail if main image is not available
-  return fields.thumbnail;
+  if (fields.thumbnail) {
+    // Replace the resolution parameter in the URL with a higher value (1000)
+    return fields.thumbnail.replace(/\/\d+\.jpg$/, "/1000.jpg");
+  }
+
+  return null;
+};
+
+// Helper function to ensure high resolution images
+const ensureHighResImage = (imageUrl, useHighRes = false) => {
+  if (!imageUrl) return null;
+  // Replace the resolution parameter in the URL with a higher value (1000 or 2000)
+  return imageUrl.replace(/\/\d+\.jpg$/, useHighRes ? "/2000.jpg" : "/1000.jpg");
 };
 
 export const fetchArticles = async (params = {}) => {
@@ -36,9 +48,10 @@ export const fetchArticles = async (params = {}) => {
       title: article.fields.headline,
       description: article.fields.trailText,
       content: article.fields.bodyText,
-      image: getBestImage(article.fields),
+      image: ensureHighResImage(getBestImage(article.fields)),
       url: article.webUrl,
       date: article.webPublicationDate,
+      author: article.fields.byline || "The Guardian",
     }));
 
     // Ensure we only return the requested number of articles
@@ -72,7 +85,7 @@ export const fetchArticleById = async (articleId) => {
       title: article.fields.headline,
       description: article.fields.trailText,
       content: article.fields.body,
-      image: getBestImage(article.fields),
+      image: ensureHighResImage(getBestImage(article.fields), true), // Use high resolution (2000)
       url: article.webUrl,
       date: article.webPublicationDate,
       author: article.fields.byline || "The Guardian",
@@ -114,5 +127,11 @@ export const fetchTopStories = (pageSize = 1) => {
     tag: "tone/news",
     "show-fields": "thumbnail,headline,trailText,bodyText,byline,main,starRating",
     "order-by": "newest",
+  }).then((articles) => {
+    // For top stories (used in Intro), use high resolution images
+    return articles.map((article) => ({
+      ...article,
+      image: ensureHighResImage(article.image, true), // Use high resolution (2000)
+    }));
   });
 };

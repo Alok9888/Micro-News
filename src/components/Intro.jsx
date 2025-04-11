@@ -46,6 +46,7 @@ const Intro = () => {
           <div className="container">
             <h1>{story.title}</h1>
             <div className="mb-3 top-story-description" dangerouslySetInnerHTML={{ __html: story.description }} />
+            {story.author && <div className="mb-3 top-story-author">By {story.author}</div>}
             <Link to={`/article/${story.id}`} className="btn btn-primary">
               Read More
             </Link>
