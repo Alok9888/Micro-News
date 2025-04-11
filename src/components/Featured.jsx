@@ -107,7 +107,7 @@ const Featured = () => {
                     </div>
                     <h5>
                       <RiDoubleQuotesL />
-                      {article.quote}
+                      <div dangerouslySetInnerHTML={{ __html: article.quote }} />
                     </h5>
                     <span>{article.quoteAuthor}</span>
                     <Link to={`article/${article.id}`} className="btn btn-rounded">

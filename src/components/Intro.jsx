@@ -44,7 +44,7 @@ const Intro = () => {
         <div className="top-story-content">
           <div className="container">
             <h1>{story.title}</h1>
-            <p>{story.description}</p>
+            <div className="mb-3 top-story-description" dangerouslySetInnerHTML={{ __html: story.description }} />
             <Link to={`/article/${story.id}`} className="btn btn-primary">
               Read More
             </Link>
