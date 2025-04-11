@@ -28,7 +28,7 @@ const NewsGallery = () => {
       try {
         // Fetch articles with images from the culture section
         const data = await fetchArticles({
-          pageSize: 12,
+          pageSize: 9,
           section: "culture",
           "show-fields": "thumbnail,headline,trailText,byline,main",
           "order-by": "newest",
