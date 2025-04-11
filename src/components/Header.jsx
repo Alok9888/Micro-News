@@ -3,7 +3,6 @@ import { HashLink } from "react-router-hash-link";
 import logo from "/img/logo.svg";
 import { FiMenu } from "react-icons/fi";
 import { useEffect, useState } from "react";
-// import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -44,7 +43,7 @@ const Header = () => {
           if (entry.isIntersecting) {
             const id = entry.target.id;
             setActiveSection(id); // Set the active section
-            console.log(`Section in view: ${id}`);
+            // console.log(`Section in view: ${id}`);
           }
         });
       },

@@ -13,6 +13,7 @@ const Intro = () => {
         if (data) {
           setStory(data);
         }
+        console.log("Top Story:", data);
       } catch (error) {
         console.error("Error loading top story:", error);
       } finally {
