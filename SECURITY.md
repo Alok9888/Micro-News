@@ -14,7 +14,7 @@ We take the security of Micro News Portal seriously. If you believe you've found
 
 1. **Do Not** disclose the vulnerability publicly until it has been addressed by our team.
 
-2. **Email** your findings to [INSERT SECURITY EMAIL]. Please include:
+2. **Email** your findings to [mail](mailto:mail@harikrishnanair.com). Please include:
    - Type of vulnerability
    - Full path of the vulnerable file
    - Steps to reproduce
