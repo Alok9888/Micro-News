@@ -117,28 +117,28 @@ const Header = () => {
             <div className="offcanvas-body">
               <ul className="navbar-nav justify-content-between flex-grow-1">
                 <li className="nav-item">
-                  <HashLink smooth to="/#rewind" className={`nav-link ${isActive("#rewind") ? "active" : ""}`}>
-                    Rewind 2024
+                  <HashLink smooth to="/#topStories" className={`nav-link ${isActive("#topStories") ? "active" : ""}`}>
+                    Top Stories
                   </HashLink>
                 </li>
                 <li className="nav-item">
                   <HashLink smooth to="/#featured" className={`nav-link ${isActive("#featured") ? "active" : ""}`}>
-                    Highlights
+                    Featured News
                   </HashLink>
                 </li>
                 <li className="nav-item">
-                  <HashLink smooth to="/#24AtGlance" className={`nav-link ${isActive("#24AtGlance") ? "active" : ""}`}>
-                    2024 at a Glance
+                  <HashLink smooth to="/#newsCategories" className={`nav-link ${isActive("#newsCategories") ? "active" : ""}`}>
+                    News Categories
                   </HashLink>
                 </li>
                 <li className="nav-item">
-                  <HashLink smooth to="/#gallery" className={`nav-link ${isActive("#gallery") ? "active" : ""}`}>
-                    Memories in Pictures
+                  <HashLink smooth to="/#newsGallery" className={`nav-link ${isActive("#newsGallery") ? "active" : ""}`}>
+                    News Gallery
                   </HashLink>
                 </li>
                 <li className="nav-item">
-                  <HashLink to="/#download" className={`nav-link ${isActive("#download") ? "active" : ""}`}>
-                    Download PDF
+                  <HashLink to="/#subscribe" className={`nav-link ${isActive("#subscribe") ? "active" : ""}`}>
+                    Subscribe
                   </HashLink>
                 </li>
               </ul>

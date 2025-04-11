@@ -3,8 +3,8 @@ import { fetchAwardArticles } from "../services/guardianApi";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const Awards = () => {
-  const [awards, setAwards] = useState([]);
+const NewsCategories = () => {
+  const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -21,54 +21,54 @@ const Awards = () => {
   }, []);
 
   useEffect(() => {
-    const loadAwards = async () => {
+    const loadCategories = async () => {
       try {
         const data = await fetchAwardArticles(6);
-        const transformedAwards = data.map((article) => ({
+        const transformedCategories = data.map((article) => ({
           id: article.id,
           img: article.image || `/img/awards/no-logo.png`,
           name: article.author || "The Guardian",
           title: article.title,
         }));
-        setAwards(transformedAwards);
+        setCategories(transformedCategories);
       } catch (error) {
-        console.error("Error loading awards:", error);
+        console.error("Error loading categories:", error);
       } finally {
         setLoading(false);
       }
     };
 
-    loadAwards();
+    loadCategories();
   }, []);
 
   if (loading) {
     return (
-      <section className="awards block dark overlay">
+      <section className="awards block dark overlay" id="newsCategories">
         <div className="container">
           <div className="secHeading">
-            <h4>Latest Achievements</h4>
+            <h4>News Categories</h4>
           </div>
-          <div>Loading achievements...</div>
+          <div>Loading categories...</div>
         </div>
       </section>
     );
   }
 
   return (
-    <section className="awards block dark overlay">
+    <section className="awards block dark overlay" id="newsCategories">
       <div className="container">
         <div className="secHeading">
-          <h4>Latest Achievements</h4>
+          <h4>News Categories</h4>
         </div>
 
         <div className="row">
-          {awards.map((award, index) => (
-            <div className="col-lg-2 col-md-4 col-sm-6" key={award.id} data-aos="fade-up" data-aos-delay={index * 100}>
+          {categories.map((category, index) => (
+            <div className="col-lg-2 col-md-4 col-sm-6" key={category.id} data-aos="fade-up" data-aos-delay={index * 100}>
               <div className="award">
                 <div className="awImg">
-                  <img src={award.img} alt={`${award.name}`} />
+                  <img src={category.img} alt={`${category.name}`} />
                 </div>
-                <p>{award.title}</p>
+                <p>{category.title}</p>
               </div>
             </div>
           ))}
@@ -78,4 +78,4 @@ const Awards = () => {
   );
 };
 
-export default Awards;
+export default NewsCategories;

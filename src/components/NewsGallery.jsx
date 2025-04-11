@@ -5,7 +5,7 @@ import { Fancybox } from "@fancyapps/ui";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import { fetchMediaContent } from "../services/guardianApi";
 
-const Gallery = () => {
+const NewsGallery = () => {
   const [isIsotopeInitialized, setIsIsotopeInitialized] = useState(false);
   const [articles, setArticles] = useState([]);
   const galleryRef = useRef(null);
@@ -74,10 +74,10 @@ const Gallery = () => {
   };
 
   return (
-    <section className="block gallery" id="gallery" ref={galleryRef}>
+    <section className="block gallery" id="newsGallery" ref={galleryRef}>
       <div className="container">
         <div className="secHeading">
-          <h3>Latest News Gallery</h3>
+          <h3>News Gallery</h3>
         </div>
 
         <div className="grid galleryGrid" id="galleryGrid">
@@ -95,4 +95,4 @@ const Gallery = () => {
   );
 };
 
-export default Gallery;
+export default NewsGallery;

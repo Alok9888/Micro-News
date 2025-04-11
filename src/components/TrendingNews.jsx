@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { RiDoubleQuotesL } from "react-icons/ri";
 import { fetchArticles } from "../services/guardianApi";
 
-const FeaturedGlance = () => {
+const TrendingNews = () => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -45,7 +45,7 @@ const FeaturedGlance = () => {
         }));
         setArticles(transformedArticles);
       } catch (error) {
-        console.error("Error loading trending analysis articles:", error);
+        console.error("Error loading trending news:", error);
       } finally {
         setLoading(false);
       }
@@ -56,10 +56,10 @@ const FeaturedGlance = () => {
 
   if (loading) {
     return (
-      <section className="featured block" id="24AtGlance">
+      <section className="featured block" id="trendingNews">
         <div className="container">
           <div className="secHeading">
-            <h3>Trending Analysis</h3>
+            <h3>Trending News</h3>
           </div>
           <div>Loading articles...</div>
         </div>
@@ -68,10 +68,10 @@ const FeaturedGlance = () => {
   }
 
   return (
-    <section className="featured block " id="24AtGlance">
+    <section className="featured block " id="trendingNews">
       <div className="container">
         <div className="secHeading">
-          <h3>Trending Analysis</h3>
+          <h3>Trending News</h3>
         </div>
 
         <div className="row">
@@ -114,4 +114,4 @@ const FeaturedGlance = () => {
   );
 };
 
-export default FeaturedGlance;
+export default TrendingNews;

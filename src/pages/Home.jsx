@@ -2,16 +2,16 @@ import { useEffect } from "react";
 
 import Intro from "../components/Intro";
 import Featured from "../components/Featured";
-import Rewind from "../components/Rewind";
-import Awards from "../components/Awards";
-import FeaturedGlance from "../components/FeaturedGlance";
-import AwardsGlance from "../components/AwardsGlance";
-import Gallery from "../components/Gallery";
-import Download from "../components/Download";
+import TopStories from "../components/TopStories";
+import NewsCategories from "../components/NewsCategories";
+import TrendingNews from "../components/TrendingNews";
+import LatestNews from "../components/LatestNews";
+import NewsGallery from "../components/NewsGallery";
+import Subscribe from "../components/Subscribe";
 
 export default function Home() {
   useEffect(() => {
-    document.title = "The Guardian News Digest 2024";
+    document.title = "Micro News Portal";
   }, []);
 
   return (
@@ -22,23 +22,23 @@ export default function Home() {
       {/* Featured News */}
       <Featured />
 
-      {/* News Rewind */}
-      <Rewind />
+      {/* Top Stories */}
+      <TopStories />
 
-      {/* Awards and Recognitions */}
-      <Awards />
+      {/* News Categories */}
+      <NewsCategories />
 
-      {/* Featured News Glance */}
-      <FeaturedGlance />
+      {/* Trending News */}
+      <TrendingNews />
 
-      {/* Awards and Recognitions Glance */}
-      <AwardsGlance />
+      {/* Latest News */}
+      <LatestNews />
 
-      {/* Gallery */}
-      <Gallery />
+      {/* News Gallery */}
+      <NewsGallery />
 
-      {/* Download */}
-      <Download />
+      {/* Subscribe */}
+      <Subscribe />
     </main>
   );
 }

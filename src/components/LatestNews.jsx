@@ -3,8 +3,8 @@ import { fetchAwardArticles } from "../services/guardianApi";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const AwardsGlance = () => {
-  const [awards, setAwards] = useState([]);
+const LatestNews = () => {
+  const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -21,54 +21,54 @@ const AwardsGlance = () => {
   }, []);
 
   useEffect(() => {
-    const loadAwards = async () => {
+    const loadNews = async () => {
       try {
-        const data = await fetchAwardArticles(6); // Only fetch 6 awards for glance view
-        const transformedAwards = data.map((article) => ({
+        const data = await fetchAwardArticles(6); // Only fetch 6 news items for glance view
+        const transformedNews = data.map((article) => ({
           id: article.id,
           img: article.image || `/img/awards/no-logo.png`,
           name: article.author || "The Guardian",
           title: article.title,
         }));
-        setAwards(transformedAwards);
+        setNews(transformedNews);
       } catch (error) {
-        console.error("Error loading awards:", error);
+        console.error("Error loading latest news:", error);
       } finally {
         setLoading(false);
       }
     };
 
-    loadAwards();
+    loadNews();
   }, []);
 
   if (loading) {
     return (
-      <section className="awards block dark overlay primary">
+      <section className="awards block dark overlay primary" id="latestNews">
         <div className="container">
           <div className="secHeading">
-            <h4>Recent Achievements</h4>
+            <h4>Latest News</h4>
           </div>
-          <div>Loading achievements...</div>
+          <div>Loading news...</div>
         </div>
       </section>
     );
   }
 
   return (
-    <section className="awards block dark overlay primary">
+    <section className="awards block dark overlay primary" id="latestNews">
       <div className="container">
         <div className="secHeading">
-          <h4>Recent Achievements</h4>
+          <h4>Latest News</h4>
         </div>
 
         <div className="row">
-          {awards.map((award, index) => (
-            <div className="col-lg-2 col-md-4 col-sm-6" key={award.id} data-aos="fade-up" data-aos-delay={index * 100}>
+          {news.map((item, index) => (
+            <div className="col-lg-2 col-md-4 col-sm-6" key={item.id} data-aos="fade-up" data-aos-delay={index * 100}>
               <div className="award">
                 <div className="awImg">
-                  <img src={award.img} alt={`${award.name}`} />
+                  <img src={item.img} alt={`${item.name}`} />
                 </div>
-                <p>{award.title}</p>
+                <p>{item.title}</p>
               </div>
             </div>
           ))}
@@ -78,4 +78,4 @@ const AwardsGlance = () => {
   );
 };
 
-export default AwardsGlance;
+export default LatestNews;

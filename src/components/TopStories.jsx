@@ -4,7 +4,7 @@ import { fetchRewindArticles } from "../services/guardianApi";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const Rewind = () => {
+const TopStories = () => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -31,7 +31,7 @@ const Rewind = () => {
         }));
         setArticles(transformedArticles);
       } catch (error) {
-        console.error("Error loading rewind articles:", error);
+        console.error("Error loading top stories:", error);
       } finally {
         setLoading(false);
       }
@@ -42,10 +42,10 @@ const Rewind = () => {
 
   if (loading) {
     return (
-      <section className="rewind block" id="rewind">
+      <section className="rewind block" id="topStories">
         <div className="container">
           <div className="secHeading">
-            <h3>News Rewind</h3>
+            <h3>Top Stories</h3>
           </div>
           <div>Loading articles...</div>
         </div>
@@ -54,10 +54,10 @@ const Rewind = () => {
   }
 
   return (
-    <section className="rewind block" id="rewind">
+    <section className="rewind block" id="topStories">
       <div className="container">
         <div className="secHeading">
-          <h3>News Rewind</h3>
+          <h3>Top Stories</h3>
         </div>
         <div className="row">
           {articles.map((article, index) => (
@@ -81,4 +81,4 @@ const Rewind = () => {
   );
 };
 
-export default Rewind;
+export default TopStories;
