@@ -73,7 +73,7 @@
         align-items: center;
         text-align: center;
 
-        background: linear-gradient(90deg, rgba(30, 41, 107, 0) 8.91%, #0B1133 24.05%);
+        background: linear-gradient(90deg, $secondary 8.91%, $secondary 24.05%);
         color: #fff;
 
         @include media-breakpoint-down(lg) {
@@ -138,7 +138,7 @@
                     position: absolute;
                     top: -19px;
                     left: -50px;
-                    color: #707ecb;
+                    color: $primary;
 
                     @include media-breakpoint-down(lg) {
                         position: relative;

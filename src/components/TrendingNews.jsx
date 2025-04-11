@@ -77,7 +77,7 @@ const TrendingNews = () => {
         <div className="row">
           {articles.map((article, index) => (
             <div className={`col-lg-${index === 0 ? 12 : article.special ? 6 : 4} col-md-${index === 0 ? 12 : 6}`} key={article.id} data-aos="fade-up" data-aos-delay={index * 100}>
-              <div className={`article ${index === 0 ? "highlightArticle" : ""} ${article.hasQuote ? "hasQuote hasQuoteAlt" : ""}`}>
+              <div className={`article ${index === 0 ? "highlightArticle" : ""} ${article.hasQuote ? "hasQuote " : ""}`}>
                 <Link to={`/article/${article.id}`} className="aWrap">
                   <div className="aImg special">
                     <img src={article.imgSrc} alt={article.title} loading="lazy" />
