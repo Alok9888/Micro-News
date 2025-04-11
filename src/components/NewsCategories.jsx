@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { fetchAwardArticles } from "../services/guardianApi";
+import { fetchArticles } from "../services/guardianApi";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 const NewsCategories = () => {
-  const [categories, setCategories] = useState([]);
+  const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -21,24 +22,33 @@ const NewsCategories = () => {
   }, []);
 
   useEffect(() => {
-    const loadCategories = async () => {
+    const loadArticles = async () => {
       try {
-        const data = await fetchAwardArticles(6);
-        const transformedCategories = data.map((article) => ({
+        const data = await fetchArticles({
+          pageSize: 6,
+          section: "film",
+          "order-by": "newest",
+          "show-fields": "thumbnail,headline,trailText,byline,main",
+        });
+
+        const transformedArticles = data.map((article) => ({
           id: article.id,
-          img: article.image || `/img/awards/no-logo.png`,
-          name: article.author || "The Guardian",
           title: article.title,
+          date: new Date(article.date).toLocaleDateString(),
+          imgSrc: article.image || `/img/categories/film.jpg`,
+          description: article.description,
+          author: article.author || "The Guardian",
         }));
-        setCategories(transformedCategories);
+
+        setArticles(transformedArticles);
       } catch (error) {
-        console.error("Error loading categories:", error);
+        console.error("Error loading movie news:", error);
       } finally {
         setLoading(false);
       }
     };
 
-    loadCategories();
+    loadArticles();
   }, []);
 
   if (loading) {
@@ -46,9 +56,9 @@ const NewsCategories = () => {
       <section className="awards block dark overlay" id="newsCategories">
         <div className="container">
           <div className="secHeading">
-            <h4>News Categories</h4>
+            <h4>Movie News</h4>
           </div>
-          <div>Loading categories...</div>
+          <div>Loading articles...</div>
         </div>
       </section>
     );
@@ -58,17 +68,19 @@ const NewsCategories = () => {
     <section className="awards block dark overlay" id="newsCategories">
       <div className="container">
         <div className="secHeading">
-          <h4>News Categories</h4>
+          <h4>Movie News</h4>
         </div>
 
         <div className="row">
-          {categories.map((category, index) => (
-            <div className="col-lg-2 col-md-4 col-sm-6" key={category.id} data-aos="fade-up" data-aos-delay={index * 100}>
+          {articles.map((article, index) => (
+            <div className="col-lg-2 col-md-4 col-sm-6" key={article.id} data-aos="fade-up" data-aos-delay={index * 100}>
               <div className="award">
-                <div className="awImg">
-                  <img src={category.img} alt={`${category.name}`} />
-                </div>
-                <p>{category.title}</p>
+                <Link to={`/article/${article.id}`} className="award-link">
+                  <div className="awImg">
+                    <img src={article.imgSrc} alt={article.title} />
+                  </div>
+                  <p>{article.description}</p>
+                </Link>
               </div>
             </div>
           ))}

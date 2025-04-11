@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { fetchRewindArticles } from "../services/guardianApi";
+import { fetchArticles } from "../services/guardianApi";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -20,12 +20,17 @@ const TopStories = () => {
   useEffect(() => {
     const loadArticles = async () => {
       try {
-        const data = await fetchRewindArticles(8);
-        const transformedArticles = data.map((article, index) => ({
+        const data = await fetchArticles({
+          pageSize: 8,
+          section: "news",
+          "order-by": "newest",
+          "show-fields": "thumbnail,headline,trailText,byline,main",
+        });
+        const transformedArticles = data.map((article) => ({
           id: article.id,
           title: article.title,
           date: new Date(article.date).toLocaleDateString(),
-          imgSrc: article.image || `/img/rewind/${index + 1}.jpg`,
+          imgSrc: article.image || `/img/no-image.jpg`,
           description: article.description,
           author: article.author || "The Guardian",
         }));
