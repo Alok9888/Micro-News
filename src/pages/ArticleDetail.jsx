@@ -71,7 +71,7 @@ const ArticleDetail = () => {
       <section className="block articleSection">
         <div className="container">
           <div className="row">
-            <div className="col-lg-8 offset-lg-2">
+            <div className="col-lg-10 offset-lg-1">
               <h2>Article not found</h2>
               <p>The requested article could not be found.</p>
             </div>
@@ -85,7 +85,7 @@ const ArticleDetail = () => {
     <section className="block articleSection">
       <div className="container">
         <div className="row">
-          <div className="col-lg-8 offset-lg-2">
+          <div className="col-lg-10 offset-lg-1">
             <article className="articleBlock">
               <div className="articleHeader">
                 <h2>{article.title}</h2>

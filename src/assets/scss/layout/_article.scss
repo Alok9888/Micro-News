@@ -101,8 +101,10 @@
 
         img {}
 
-        .video-js {
+        .video-js,
+        iframe {
             margin-bottom: 20px;
+            width: 100%;
         }
 
         a {

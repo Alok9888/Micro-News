@@ -63,12 +63,12 @@ const LatestNews = () => {
 
         <div className="row">
           {news.map((item, index) => (
-            <div className="col-lg-2 col-md-4 col-sm-6" key={item.id} data-aos="fade-up" data-aos-delay={index * 100}>
+            <div className="col-lg-4 col-md-6 col-sm-6" key={item.id} data-aos="fade-up" data-aos-delay={index * 100}>
               <div className="award">
                 <div className="awImg">
                   <img src={item.img} alt={`${item.name}`} />
                 </div>
-                <p>{item.title}</p>
+                <h4>{item.title}</h4>
               </div>
             </div>
           ))}
