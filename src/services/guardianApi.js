@@ -3,13 +3,45 @@ import axios from "axios";
 const API_KEY = import.meta.env.VITE_GUARDIAN_API_KEY;
 const BASE_URL = "https://content.guardianapis.com";
 
+// Validate API key
+if (!API_KEY) {
+  console.error("Guardian API key is missing. Please set VITE_GUARDIAN_API_KEY in your environment variables.");
+}
+
 const guardianApi = axios.create({
   baseURL: BASE_URL,
   params: {
     "api-key": API_KEY,
     "show-fields": "thumbnail,headline,trailText,body,byline,publication,shortUrl,lastModified,main",
   },
+  headers: {
+    Accept: "application/json",
+    "Content-Type": "application/json",
+  },
 });
+
+// Add response interceptor for better error handling
+guardianApi.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response) {
+      // The request was made and the server responded with a status code
+      // that falls out of the range of 2xx
+      console.error("API Error Response:", {
+        status: error.response.status,
+        data: error.response.data,
+        headers: error.response.headers,
+      });
+    } else if (error.request) {
+      // The request was made but no response was received
+      console.error("API Request Error:", error.request);
+    } else {
+      // Something happened in setting up the request that triggered an Error
+      console.error("API Error:", error.message);
+    }
+    return Promise.reject(error);
+  }
+);
 
 // Helper function to get the best available image
 const getBestImage = (fields) => {
@@ -38,6 +70,10 @@ const ensureHighResImage = (imageUrl, useHighRes = false) => {
 
 export const fetchArticles = async (params = {}) => {
   try {
+    if (!API_KEY) {
+      throw new Error("Guardian API key is missing");
+    }
+
     const response = await guardianApi.get("/search", {
       params: {
         ...params,
