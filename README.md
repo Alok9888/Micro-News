@@ -1,35 +1,96 @@
-# Steps to Clone and Run the Project
+# Micro News Portal
 
-## Clone the Repository
-1. Open your terminal or command prompt.
-2. Clone the repository using the following command:
-   ```
-   git clone https://github.com/hkgonebad/ril-herald-react.git
-   ```
+A modern, responsive news portal built with React that can be integrated with any news API. This project demonstrates a clean, professional news website layout that can be customized to work with different news data sources.
 
-## Navigate to the Project Directory
-1. Move into the cloned repository:
-   ```
-   cd ril-herald-react
-   ```
+## 🚀 Features
 
-## Install Dependencies
-1. Run the following command to install all required packages:
-   ```
-   npm install
-   ```
+- Modern, responsive design
+- Dynamic news article layout
+- Category-based article filtering
+- Smooth animations and transitions
+- PDF export functionality
+- Video content support
+- Markdown rendering for article content
+- Parallax scrolling effects
+- Mobile-friendly interface
 
-## Run the Development Server
-1. Start the development server with:
-   ```
-   npm run dev
-   ```
-2. Open your browser and navigate to the local server (usually `http://localhost:3000`).
+## 🛠️ Tech Stack
 
-## Build the Project
-1. To build the project for production, run:
-   ```
-   npm run build
-   ```
-2. The production-ready files will be in the `dist` folder (or the configured build directory).
+- React 19
+- Vite
+- Bootstrap 5
+- SASS
+- Axios
+- React Router DOM
+- Various UI enhancement libraries:
+  - FancyApps UI
+  - AOS (Animate On Scroll)
+  - React Scroll Parallax
+  - Video.js
+  - Isotope Layout
+
+## 📦 Installation
+
+1. Clone the repository:
+```bash
+git clone [your-repo-url]
+cd micro-news-portal
+```
+
+2. Install dependencies:
+```bash
+bun install
+```
+
+3. Create a `.env.local` file in the root directory and add your API key:
+```
+VITE_GUARDIAN_API_KEY=your_api_key_here
+```
+
+4. Start the development server:
+```bash
+bun run dev
+```
+
+## 🔧 Configuration
+
+The project is currently configured to use The Guardian API, but it's designed to be flexible. To use a different news API:
+
+1. Modify the API service in `src/services/guardianApi.js`
+2. Update the data transformation logic to match your API's response format
+3. Adjust the environment variables accordingly
+
+## 📁 Project Structure
+
+```
+src/
+├── assets/         # Static assets (images, fonts, etc.)
+├── components/     # Reusable React components
+├── content/        # Static content and data
+├── pages/          # Page components
+├── services/       # API and other services
+├── App.jsx         # Main application component
+├── index.scss      # Global styles
+└── main.jsx        # Application entry point
+```
+
+## 🎨 Customization
+
+The project maintains a clean separation between the UI components and the data source. To customize:
+
+1. **Layout**: Modify components in the `components/` directory
+2. **Styling**: Update SASS files in `src/assets/scss/`
+3. **Data Source**: Modify the API service in `src/services/`
+
+## 📝 License
+
+This project is open source and available under the MIT License.
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📫 Contact
+
+For any queries or suggestions, please open an issue in the repository.
 

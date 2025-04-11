@@ -3,13 +3,34 @@ import Isotope from "isotope-layout";
 import imagesLoaded from "imagesloaded";
 import { Fancybox } from "@fancyapps/ui";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
-
-import images from "../content/images"; // Assuming this contains your images data
+import { fetchMediaContent } from "../services/guardianApi";
 
 const Gallery = () => {
   const [isIsotopeInitialized, setIsIsotopeInitialized] = useState(false);
+  const [articles, setArticles] = useState([]);
   const galleryRef = useRef(null);
-  const galleryPath = "img/gallery/";
+
+  useEffect(() => {
+    const loadArticles = async () => {
+      console.log("Fetching gallery data...");
+      const data = await fetchMediaContent(15); // Fetch 15 articles
+      console.log("Fetched data:", data);
+
+      if (data.length < 15) {
+        console.warn("API returned fewer articles than expected. Adding placeholders.");
+        const placeholders = Array.from({ length: 15 - data.length }, (_, i) => ({
+          id: `placeholder-${i}`,
+          image: `https://picsum.photos/600/400?random=${i + 1}`,
+          title: `Placeholder Title ${i + 1}`,
+        }));
+        setArticles([...data, ...placeholders]);
+      } else {
+        setArticles(data);
+      }
+    };
+
+    loadArticles();
+  }, []);
 
   // Lazy initialize Isotope and Fancybox when gallery is in view
   useEffect(() => {
@@ -36,7 +57,7 @@ const Gallery = () => {
     const grid = document.querySelector("#galleryGrid");
     if (grid) {
       imagesLoaded(grid, { background: true }, () => {
-        const iso = new Isotope(grid, {
+        new Isotope(grid, {
           itemSelector: ".grid-item",
           percentPosition: true,
           masonry: {
@@ -56,16 +77,15 @@ const Gallery = () => {
     <section className="block gallery" id="gallery" ref={galleryRef}>
       <div className="container">
         <div className="secHeading">
-          <h3>Memories in Pictures</h3>
+          <h3>Latest News Gallery</h3>
         </div>
 
-        {/* Gallery Grid */}
         <div className="grid galleryGrid" id="galleryGrid">
           <div className="grid-sizer"></div>
-          {images.map((image, index) => (
-            <div key={index} className={`grid-item ${image.category}`}>
-              <a data-fancybox="gallery" href={`${galleryPath}${image.src}`} data-caption={image.title}>
-                <img src={`${galleryPath}${image.src}`} alt={image.title} loading="lazy" />
+          {articles.map((article, index) => (
+            <div key={article.id || index} className="grid-item news">
+              <a data-fancybox="gallery" href={article.image || "https://picsum.photos/600/400"} data-caption={article.title}>
+                <img src={article.image || "https://picsum.photos/600/400"} alt={article.title} loading="lazy" />
               </a>
             </div>
           ))}

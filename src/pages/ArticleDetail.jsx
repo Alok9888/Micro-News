@@ -1,70 +1,36 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import ReactMarkdown from "react-markdown";
-import rehypeRaw from "rehype-raw";
+import { useLocation } from "react-router-dom";
+import { fetchArticleById } from "../services/guardianApi";
 import Loading from "../components/Loading";
 import "video.js/dist/video-js.css";
 import videojs from "video.js";
 
-const parseMarkdownWithMetadata = (fileContent) => {
-  // Regex to match the metadata block, capturing all lines inside it
-  const metaRegex = /^---([\s\S]*?)---/;
-  const match = fileContent.match(metaRegex);
-
-  if (match) {
-    const metadataBlock = match[1]; // Extract the metadata block content
-    const metadataLines = metadataBlock.trim().split("\n"); // Split into lines, trimming whitespace
-
-    // Process each line to build the metadata object
-    const metadata = metadataLines.reduce((acc, line) => {
-      const [key, ...value] = line.split(":");
-      acc[key.trim()] = value.join(":").trim().replace(/['"]+/g, ""); // Clean up quotes
-      return acc;
-    }, {});
-
-    const markdown = fileContent.replace(metaRegex, "").trim(); // Extract markdown content
-    return { metadata, markdown };
-  }
-
-  return { metadata: null, markdown: fileContent };
-};
-
 const ArticleDetail = () => {
-  const { id } = useParams();
-  const [content, setContent] = useState(null);
-  const [meta, setMeta] = useState(null);
+  const location = useLocation();
+  const articleId = location.pathname.split("/").slice(2).join("/"); // Extract the full path after /article/
+  const [article, setArticle] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [initializedPlayers, setInitializedPlayers] = useState([]);
 
   useEffect(() => {
-    const loadArticleContent = async () => {
+    const loadArticle = async () => {
       try {
-        // Use import.meta.glob to import all markdown files in the folder
-        const markdownFiles = import.meta.glob("../content/articles/*.md", { query: "?raw", import: "default" });
-
-        // Find the matching file
-        const fileKey = Object.keys(markdownFiles).find((file) => file.includes(`/${id}.md`));
-
-        if (fileKey) {
-          const fileContent = await markdownFiles[fileKey]();
-          const { metadata, markdown } = parseMarkdownWithMetadata(fileContent);
-          setMeta(metadata);
-          setContent(markdown);
-        } else {
-          // console.error("Markdown file not found for ID:", id);
+        const articleData = await fetchArticleById(articleId);
+        if (articleData) {
+          setArticle(articleData);
+          document.title = articleData.title;
         }
       } catch (error) {
         console.error("Error loading article:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
-    loadArticleContent();
-  }, [id]);
-
-  useEffect(() => {
-    if (meta && meta.title) {
-      document.title = meta.title;
+    if (articleId) {
+      loadArticle();
     }
-  }, [meta]);
+  }, [articleId]);
 
   useEffect(() => {
     const initializeVideoJS = () => {
@@ -85,56 +51,67 @@ const ArticleDetail = () => {
       setInitializedPlayers(newPlayers);
     };
 
-    if (content) {
+    if (article && article.videoUrl) {
       initializeVideoJS();
     }
 
-    // Cleanup: Dispose only the players initialized by this component
     return () => {
       initializedPlayers.forEach((player) => player.dispose());
       setInitializedPlayers([]);
     };
-  }, [content]);
+  }, [article]);
 
-  if (!content) {
-    console.log("Content is loading...");
+  if (loading) {
     return <Loading />;
+  }
+
+  if (!article) {
+    return (
+      <section className="block articleSection">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-8 offset-lg-2">
+              <h2>Article not found</h2>
+              <p>The requested article could not be found.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
   }
 
   return (
     <section className="block articleSection">
       <div className="container">
         <div className="row">
-          <div className="col-lg-2"></div>
-          <div className="col-lg-8">
+          <div className="col-lg-8 offset-lg-2">
             <article className="articleBlock">
-              {/* Render metadata if available */}
-              {meta && (
-                <div className="articleHeader">
-                  <h2>{meta.title}</h2>
+              <div className="articleHeader">
+                <h2>{article.title}</h2>
+                <span>
+                  {article.author} | {new Date(article.date).toLocaleDateString()}
+                </span>
 
-                  {meta.author && (
-                    <span>
-                      {meta.author} {meta.date && ` | ${meta.date}`}
-                    </span>
-                  )}
+                <div className="articleMedia">{article.image && <img src={article.image} alt={article.title} className="w-100" />}</div>
 
-                  <div className="articleMedia">
-                    {meta.imgSrc && <img src={meta.imgSrc} alt={meta.title} className="w-100" />}
-
-                    {meta.videoSrc && (
-                      <video id="meta-video" className="video-js vjs-fluid" controls preload="auto" data-setup="{}">
-                        <source src={meta.videoSrc} type="application/x-mpegURL" />
-                      </video>
-                    )}
+                {article.description && (
+                  <div className="article-description">
+                    <p>{article.description}</p>
                   </div>
+                )}
+              </div>
 
-                  {meta.quote && <blockquote>{meta.quote}</blockquote>}
-                </div>
-              )}
-              {/* Render markdown content */}
-              <div className="articleBody">
-                <ReactMarkdown rehypePlugins={[rehypeRaw]}>{content}</ReactMarkdown>
+              <div className="articleBody">{article.content.split("\n").map((paragraph, index) => paragraph.trim() && <p key={index}>{paragraph}</p>)}</div>
+
+              <div className="articleFooter">
+                <p>
+                  <small>
+                    Originally published on{" "}
+                    <a href={article.url} target="_blank" rel="noopener noreferrer">
+                      The Guardian
+                    </a>
+                  </small>
+                </p>
               </div>
             </article>
           </div>

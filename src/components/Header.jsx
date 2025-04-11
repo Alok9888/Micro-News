@@ -96,22 +96,15 @@ const Header = () => {
       <div className="topHeader">
         <div className="container">
           <Link to="/" className="logo">
-            <img src={logo} alt="Reliance Herald Logo" />
-            <span>The Reliance Herald 2024</span>
+            <img src={logo} alt="Micro News Listing" />
+            <span className="d-none ">Micro News Listing</span>
           </Link>
         </div>
       </div>
 
       <nav className="navbar navbar-expand-lg">
         <div className="container">
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasNavbar"
-            aria-controls="offcanvasNavbar"
-            aria-label="Toggle navigation"
-          >
+          <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
             <FiMenu />
           </button>
           <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
@@ -130,7 +123,7 @@ const Header = () => {
                 </li>
                 <li className="nav-item">
                   <HashLink smooth to="/#featured" className={`nav-link ${isActive("#featured") ? "active" : ""}`}>
-                    Leadership Highlights
+                    Highlights
                   </HashLink>
                 </li>
                 <li className="nav-item">
@@ -145,7 +138,7 @@ const Header = () => {
                 </li>
                 <li className="nav-item">
                   <HashLink to="/#download" className={`nav-link ${isActive("#download") ? "active" : ""}`}>
-                    Download The Reliance Herald
+                    Download PDF
                   </HashLink>
                 </li>
               </ul>

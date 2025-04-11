@@ -1,4 +1,57 @@
-<svg width="39" height="36" viewBox="0 0 39 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M31.0385 33.4363C29.7093 34.3771 27.9603 34.5192 26.6059 33.9067C26.6059 33.9067 26.2365 33.7646 25.8924 33.3889C25.5956 33.0353 18.1069 24.9688 18.1069 24.9688L18.0816 24.9436C20.3989 25.3445 22.9341 24.2869 24.2412 22.3579C25.5451 20.5236 25.4977 17.9126 24.2664 16.0783C22.7889 14.0799 19.9064 13.42 17.4912 13.7263C13.3049 14.2914 10.2993 17.8432 9.36161 21.5591C8.39868 25.7928 9.0901 29.7898 10.5929 33.5531C10.937 34.3518 11.4043 35.1758 11.9726 35.8799C7.56205 34.0456 3.6693 30.6611 1.62663 26.1212C-0.640191 21.2308 -0.589679 15.0459 2.09388 10.0829C4.21232 6.25017 7.95668 2.6984 12.5882 1.19244C17.4407 -0.71131 23.9697 -0.313512 28.699 2.22798C34.4387 4.95574 38.7735 11.7531 38.7987 17.8211C38.9945 24.1006 36.0867 29.7898 31.0385 33.4363Z" fill="#BFA161"/>
-<path d="M14.9394 35.8114C12.7957 33.6014 11.0719 30.7316 12.379 27.7449C13.5376 25.4623 14.57 23.1355 15.0625 20.5024C15.2583 23.2555 17.0105 25.6991 17.8471 28.3353C18.166 29.6045 18.1913 30.921 17.6767 32.2375C17.1115 33.6708 16.1991 34.8958 15.1131 36.0008L14.9394 35.8145L14.9394 35.8114Z" fill="#BFA161"/>
-</svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="86.844643mm"
+   height="24.510141mm"
+   viewBox="0 0 86.844643 24.510141"
+   version="1.1"
+   id="svg1"
+   xml:space="preserve"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+     id="defs1" /><g
+     id="g1"
+     transform="matrix(0.26458333,0,0,0.26458334,183.78577,-59.985395)"><path
+       id="path24"
+       d="m -644.40995,285.93512 -8.35467,19.01067 -13.228,-49.57867 49.57733,13.22933 -19.40133,8.34934 24.85466,23.08266 c 5.52134,-7.61466 8.78134,-16.968 8.78134,-27.088 0,-25.52666 -20.69867,-46.22399 -46.224,-46.22399 -25.52667,0 -46.21867,20.69733 -46.21867,46.22399 0,25.52667 20.692,46.21867 46.21867,46.21867 10.11467,0 19.45866,-3.25467 27.07333,-8.76 l -23.07866,-24.464"
+       style="fill:#1d1826;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.33333" /><g
+       id="g3"
+       transform="translate(40.094541,611.65145)"><g
+         id="OBJECTS"
+         style="display:inline">
+	
+	
+	
+	
+	
+	
+<rect
+   style="display:inline;fill:#1d1826;fill-opacity:1;stroke-width:1.00839"
+   id="rect3"
+   width="224.1971"
+   height="37.59827"
+   x="-630.68323"
+   y="-329.89651"
+   transform="translate(-1.2822738e-6)" /><text
+   xml:space="preserve"
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:65.7835px;font-family:Montserrat;-inkscape-font-specification:'Montserrat Bold';text-align:start;letter-spacing:-6.85245px;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#1d1826;fill-opacity:1;stroke-width:0.685245"
+   x="-632.54248"
+   y="-337.7193"
+   id="text3"><tspan
+     id="tspan3"
+     x="-632.54248"
+     y="-337.7193"
+     style="stroke-width:0.685245">ONLINE</tspan></text><text
+   xml:space="preserve"
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:27.4668px;font-family:Montserrat;-inkscape-font-specification:'Montserrat Bold';text-align:start;letter-spacing:-2.86113px;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ef3038;fill-opacity:1;stroke-width:0.286113"
+   x="-583.45209"
+   y="-296.48083"
+   id="text3-1"
+   transform="scale(0.98430826,1.0159419)"><tspan
+     id="tspan3-6"
+     x="-583.45209"
+     y="-296.48083"
+     style="fill:#ef3038;fill-opacity:1;stroke-width:0.286113"><tspan
+   style="fill:#ffffff"
+   id="tspan6">MICRO</tspan> NEWS</tspan></text></g></g></g></svg>

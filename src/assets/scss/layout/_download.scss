@@ -39,6 +39,7 @@
 
     .dpImg {
 
+
         img {
             width: 100%;
             height: auto;
@@ -47,19 +48,18 @@
     }
 
     .dpDetails {
+        text-align: center;
 
         h3 {
             color: #fff;
             font-size: 48px;
             font-weight: 500;
             margin-bottom: 10px;
-            max-width: 345px;
-            font-family: "Playfair Display", serif;
+            font-family: "Rubik", sans-serif;
         }
 
         .btn {
             border: 1px solid #FFFFFF;
-            color: #fff;
             padding: 8px 20px;
             font-size: 14px;
             font-weight: 500;
@@ -69,8 +69,8 @@
             align-items: center;
 
             &:hover {
-                background-color: #fff;
-                color: #000;
+                background-color: $primary;
+                color: #fff;
             }
         }
     }

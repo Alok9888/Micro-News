@@ -4,7 +4,6 @@ import Intro from "../components/Intro";
 import Featured from "../components/Featured";
 import Rewind from "../components/Rewind";
 import Awards from "../components/Awards";
-import ARWedding from "../components/ARWedding";
 import FeaturedGlance from "../components/FeaturedGlance";
 import RewindGlance from "../components/RewindGlance";
 import AwardsGlance from "../components/AwardsGlance";
@@ -13,7 +12,7 @@ import Download from "../components/Download";
 
 export default function Home() {
   useEffect(() => {
-    document.title = "The Reliance Herald 2024";
+    document.title = "The Guardian News Digest 2024";
   }, []);
 
   return (
@@ -21,7 +20,7 @@ export default function Home() {
       {/* Hero/Intro Video */}
       <Intro />
 
-      {/* Featurted */}
+      {/* Featured */}
       <Featured />
 
       {/* Rewind */}
@@ -30,10 +29,7 @@ export default function Home() {
       {/* Awards and Recognitions */}
       <Awards />
 
-      {/* AR Wedding */}
-      <ARWedding />
-
-      {/* 24 At A Glance */}
+      {/* Featured Glance */}
       <FeaturedGlance />
 
       {/* Rewind Glance */}

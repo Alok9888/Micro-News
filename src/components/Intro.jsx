@@ -1,55 +1,54 @@
-import { useRef, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { fetchTopStories } from "../services/guardianApi";
 
 const Intro = () => {
-  const videoRef = useRef(null);
+  const [story, setStory] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          // Play the video when in view
-          videoRef.current?.play();
-        } else {
-          // Pause the video when out of view
-          videoRef.current?.pause();
+    const loadTopStory = async () => {
+      try {
+        const [data] = await fetchTopStories(1);
+        if (data) {
+          setStory(data);
         }
-      },
-      { threshold: 0.5 } // Adjust threshold as needed
-    );
-
-    const videoElement = videoRef.current;
-    if (videoElement) {
-      observer.observe(videoElement);
-    }
-
-    return () => {
-      if (videoElement) {
-        observer.unobserve(videoElement);
+      } catch (error) {
+        console.error("Error loading top story:", error);
+      } finally {
+        setLoading(false);
       }
     };
+
+    loadTopStory();
   }, []);
+
+  if (loading) {
+    return (
+      <section className="introVideo" id="rewind">
+        <div className="container">
+          <div>Loading top story...</div>
+        </div>
+      </section>
+    );
+  }
+
+  if (!story) {
+    return null;
+  }
 
   return (
     <section className="introVideo" id="rewind">
-      <div className="iVideo ratio ratio-16x9">
-        <video ref={videoRef} autoPlay muted loop controls>
-          <source src="videos/glance.mp4" type="video/mp4" />
-        </video>
+      <div className="top-story">
+        {story.image && <img src={story.image} alt={story.title} className="top-story-image" />}
+        <div className="top-story-content">
+          <h1>{story.title}</h1>
+          <p>{story.description}</p>
+          <Link to={`/article/${story.id}`} className="btn btn-primary">
+            Read More
+          </Link>
+        </div>
       </div>
-
-      {/* <video
-        id="my-video-582"
-        className="video-js vjs-fluid w-100"
-        controls
-        preload="auto"
-        poster="https://rworld.ril.com/sites/rworld/PublishingImages/Rewind-2024-Frame.jpg.png"
-        data-setup="{}"
-      >
-        <source
-          src="https://rworld.ril.com/vod/_definst_/mp4:RWorld/Reliance-Herald-Rewind-2024_301224190028.mp4/playlist.m3u8"
-          type="application/x-mpegURL"
-        />
-      </video> */}
     </section>
   );
 };

@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    font-family: 'JioType', sans-serif;
+    font-family: 'Rubik', serif;
     overflow-x: hidden;
     overflow-y: auto;
     width: 100%;
@@ -45,7 +45,7 @@ section {
     z-index: auto;
 
     &.dark {
-        background-color: #7C6228;
+        background-color: $primary-500;
         color: #fff;
 
         .secHeading h3,
@@ -59,7 +59,7 @@ section {
 
         &:before {
             content: '';
-            background: #7C6228B2;
+            background: rgba($primary-500, 0.7);
             position: absolute;
             left: 0;
             top: 0;
@@ -69,12 +69,6 @@ section {
 
         .container {
             position: relative;
-        }
-
-        &.primary {
-            &:before {
-                background: #28348BB2;
-            }
         }
     }
 
