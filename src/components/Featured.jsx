@@ -18,6 +18,7 @@ const Featured = () => {
       duration: 600, // Animation duration
       offset: 120, // Trigger point (distance from element)
       easing: "ease-in-out", // Smooth animation
+      once: true, // Only trigger once
     });
 
     // Clean up AOS on component unmount

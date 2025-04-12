@@ -20,6 +20,7 @@ const NewsGallery = () => {
       duration: 600,
       offset: 120,
       easing: "ease-in-out",
+      once: true,
     });
   }, []);
 
