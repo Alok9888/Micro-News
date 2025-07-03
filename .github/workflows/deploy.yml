@@ -32,8 +32,9 @@ jobs:
       - name: Build
         run: |
           echo "VITE_GUARDIAN_API_KEY=${{ secrets.GUARDIAN_API_KEY }}" > .env.production
-          vite build --mode production
-          cp public/_redirects dist/_redirects || echo "_redirects not found, skipping"
+          echo "VITE_GUARDIAN_API_KEY=${{ secrets.GUARDIAN_API_KEY }}" > .env
+          bun run build
+
 
 
 
