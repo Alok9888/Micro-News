@@ -14,7 +14,7 @@ const Featured = () => {
 
   useEffect(() => {
     AOS.init({
-      disable: "phone", // Disable on mobile devices
+      disable: false, 
       duration: 600, // Animation duration
       offset: 120, // Trigger point (distance from element)
       easing: "ease-in-out", // Smooth animation
