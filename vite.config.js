@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: mode === "production" ? "/micro-news-portal/" : "/",
+  base: mode === "production" ? "/Micro-News/" : "/",
   plugins: [react()],
   alias: {
     "@content": "/src/content",
