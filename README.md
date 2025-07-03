@@ -101,10 +101,6 @@ The project maintains a clean separation between the UI components and the data 
 3. **Data Source**: Modify the API service in `src/services/`
 4. **Image Resolution**: Adjust the `ensureHighResImage` function in `guardianApi.js`
 
-## 📝 License
-
-This project is open source and available under the MIT License.
-
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
