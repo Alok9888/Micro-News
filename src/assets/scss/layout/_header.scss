@@ -21,6 +21,22 @@ header {
     color: #fff;
     position: relative;
 
+    .logoBlock {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        @include media-breakpoint-down(md) {
+            align-items: flex-start;
+        }
+
+        .logo {
+            margin-bottom: 0rem;
+        }
+    }
+
+
     .backBtn {
         position: absolute;
         left: 15px;
@@ -37,12 +53,12 @@ header {
     .logo {
         position: relative;
         text-align: center;
-        height: 100px;
+        height: 75px;
         padding: 10px 0;
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 20px;
+        gap: 10px;
 
         @include media-breakpoint-down(md) {
             height: 60px;
@@ -229,3 +245,36 @@ header {
 .offcanvas.show {
     height: 100vh;
 }
+
+.signature {
+  background-color: #1f1f1f;      // dark background, keep as is
+  color: $primary;                // main theme color (red-ish in your original)
+  font-weight: 700;
+  font-size: 0.75rem;
+  font-family: "Playfair Display", serif;
+  text-transform: uppercase;
+  padding: 0.4rem 0.8rem;
+  margin: 0 auto;
+  margin-top: 0 rem;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0;
+  letter-spacing: 0.5px;
+  text-align: center;
+  white-space: normal;
+  max-width: 100%;
+}
+
+.signature .curated {
+  font-family: "Playfair Display", serif;
+  font-size: 0.75rem;
+  font-weight: 700;               // Slightly lighter weight for contrast
+  color: #fff; // lighter shade of primary for subtle contrast
+  font-family: inherit;
+  margin-right: 0.2rem;
+  text-transform: uppercase;
+}
+
+
+

@@ -111,10 +111,15 @@ const Header = () => {
     <header className={` ${isScrolled ? "scrolled" : ""} ${isHidden ? "nav-up" : "nav-down"}`}>
       <div className="topHeader">
         <div className="container">
-          <Link to="/" className="logo">
-            <img src={logo} alt="Micro News Listing" />
-            <span className="d-none ">Micro News Listing</span>
-          </Link>
+          <div className="logoBlock">
+            <Link to="/" className="logo">
+              <img src={logo} alt="Micro News Listing" />
+              <span className="d-none">Micro News Listing</span>
+            </Link>
+            <p className="signature">
+              <span className="curated">Curated by </span>Aalok Shrivastav
+            </p>
+          </div>
         </div>
       </div>
 
