@@ -35,7 +35,7 @@ const Subscribe = () => {
             <p>Stay updated with the latest news and updates from our micro news portal.</p>
 
             {subscribed ? (
-              <div className="alert alert-success">Thank you for subscribing to our newsletter!</div>
+              <div className="alert alert-success">Thank you for subscribing to my newsletter!</div>
             ) : (
               <form onSubmit={handleSubscribe}>
                 <div className="input-group mb-3">
